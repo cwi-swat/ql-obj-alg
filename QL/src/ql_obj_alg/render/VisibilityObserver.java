@@ -1,10 +1,11 @@
-package ql_obj_alg.eval;
+package ql_obj_alg.render;
 
 import java.util.Observable;
 import java.util.Observer;
 
+import ql_obj_alg.eval.IDepsAndEvalE;
+import ql_obj_alg.eval.ValueEnvironment;
 import ql_obj_alg.eval.values.VUndefined;
-import ql_obj_alg.render.FormFrame;
 import ql_obj_alg.render.widgets.Widget;
 
 public class VisibilityObserver implements Observer {
@@ -14,12 +15,14 @@ public class VisibilityObserver implements Observer {
 	final Widget widget;
 	final ValueEnvironment valEnv;
 	final IDepsAndEvalE condition;
+	private Registry registry;
 	
-	public VisibilityObserver(String id, FormFrame frame, Widget widget, ValueEnvironment valEnv, IDepsAndEvalE condition){
+	public VisibilityObserver(String id, FormFrame frame, Widget widget, ValueEnvironment valEnv, Registry reg, IDepsAndEvalE condition){
 		this.id = id;
 		this.frame = frame;
 		this.widget = widget;
 		this.valEnv = valEnv;
+		this.registry = reg;
 		this.condition = condition;
 	}
 	
@@ -31,7 +34,7 @@ public class VisibilityObserver implements Observer {
 			widget.setValue(new VUndefined());
 		}
 		widget.setVisible(visible);
-		valEnv.notifyObservers(id);
+		registry.notifyObservers(id);
 		frame.pack();
 	}
 }

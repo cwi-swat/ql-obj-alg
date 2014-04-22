@@ -18,10 +18,10 @@ public class FormUI<V extends IExpAlg<IDepsAndEvalE>> implements IFormAlg<IDepsA
 	public IRenderForm form(final String id, final List<IRender> s) {
 		return new IRenderForm(){
 			@Override
-			public void render(final ValueEnvironment valEnv) {
+			public void render(final ValueEnvironment valEnv, final Registry registry) {
 				final FormFrame frame = new FormFrame(id);
 				for(IRender stmt : s){
-					stmt.render(frame,valEnv, expAlg.bool(true));
+					stmt.render(frame, valEnv, registry, expAlg.bool(true));
 				}
 				frame.render();
 			}

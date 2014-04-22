@@ -24,10 +24,10 @@ public class StmtUI<V extends IExpAlg<IDepsAndEvalE>> implements IStmtAlg<IDepsA
 	public IRender iff(final IDepsAndEvalE cond, final List<IRender> statements) {
 		return new IRender(){
 			@Override
-			public void render(final FormFrame frame,final ValueEnvironment valEnv,
+			public void render(final FormFrame frame,final ValueEnvironment valEnv, final Registry registry,
 					IDepsAndEvalE condition) {
 				for(IRender stmt : statements){
-					stmt.render(frame,valEnv,expAlg.and(condition,cond));
+					stmt.render(frame,valEnv,registry, expAlg.and(condition,cond));
 				}
 			}
 		};
@@ -37,14 +37,14 @@ public class StmtUI<V extends IExpAlg<IDepsAndEvalE>> implements IStmtAlg<IDepsA
 	public IRender iffelse(final IDepsAndEvalE cond,final List<IRender> statementsIf, final List<IRender> statementsElse) {
 		return new IRender(){
 			@Override
-			public void render(final FormFrame frame, final ValueEnvironment valEnv, 
+			public void render(final FormFrame frame, final ValueEnvironment valEnv, final Registry registry,
 					IDepsAndEvalE condition) {
 				for(IRender stmt : statementsIf){
-					stmt.render(frame,valEnv,expAlg.and(cond,condition));
+					stmt.render(frame,valEnv,registry, expAlg.and(cond,condition));
 				}
 
 				for(IRender stmt : statementsElse){
-					stmt.render(frame,valEnv,expAlg.and(expAlg.not(cond),condition));
+					stmt.render(frame,valEnv,registry, expAlg.and(expAlg.not(cond),condition));
 				}
 
 			}
@@ -55,7 +55,7 @@ public class StmtUI<V extends IExpAlg<IDepsAndEvalE>> implements IStmtAlg<IDepsA
 	public IRender question(final String id, final String label, final Type type) {
 		return new IRender(){
 			@Override
-			public void render(final FormFrame frame, final ValueEnvironment valEnv, 
+			public void render(final FormFrame frame, final ValueEnvironment valEnv, final Registry registry,  
 					 final IDepsAndEvalE condition) {
 				valEnv.setQuestionValue(id, new VUndefined());
 				final Widget widget = Widget.create(id,label,type);
@@ -64,12 +64,12 @@ public class StmtUI<V extends IExpAlg<IDepsAndEvalE>> implements IStmtAlg<IDepsA
 					@Override
 					public void actionPerformed(ActionEvent arg0) {
 						valEnv.setQuestionValue(id, widget.getValue());
-						valEnv.notifyObservers(id);
+						registry.notifyObservers(id);
 						frame.pack();
 					}
 				});
 				widget.addAnswerableQuestionToFrame(frame);				
-				valEnv.createVisibilityObservers(id, frame, widget,condition);
+				registry.createVisibilityObservers(id, frame, valEnv, widget, condition);
 			}
 		};
 	}
@@ -79,15 +79,15 @@ public class StmtUI<V extends IExpAlg<IDepsAndEvalE>> implements IStmtAlg<IDepsA
 		return new IRender(){
 
 			@Override
-			public void render(final FormFrame frame, final ValueEnvironment valEnv, 
+			public void render(final FormFrame frame, final ValueEnvironment valEnv, final Registry registry, 
 					final IDepsAndEvalE condition) {
 				valEnv.setQuestionValue(id, new VUndefined());				
 				final Widget widget = Widget.create(id,label,type);
 				widget.setVisible(condition.eval(valEnv).getBoolean());
 				widget.setValue(exp.eval(valEnv));
 				widget.addComputedQuestionToFrame(frame);
-				valEnv.createValueObservers(id, exp, frame, widget);
-				valEnv.createVisibilityObservers(id, frame, widget,condition);			
+				registry.createValueObservers(id, exp, frame, valEnv, widget);
+				registry.createVisibilityObservers(id, frame, valEnv, widget, condition);			
 
 			}
 		};

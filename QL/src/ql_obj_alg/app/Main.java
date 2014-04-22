@@ -34,6 +34,7 @@ import ql_obj_alg.format.StmtFormat;
 import ql_obj_alg.render.FormUI;
 import ql_obj_alg.render.IRender;
 import ql_obj_alg.render.IRenderForm;
+import ql_obj_alg.render.Registry;
 import ql_obj_alg.render.StmtUI;
 import ql_obj_alg.parse.TheParser;
 import ql_obj_alg.syntax.IExpAlg;
@@ -137,12 +138,13 @@ public class Main {
 		IFormAlg<IDepsAndEvalE,IRender,IRenderForm> formAlg = new FormUI<IExpAlg<IDepsAndEvalE>>(expAlg);
 
 		ValueEnvironment valEnv = new ValueEnvironment();
-		createUI(valEnv, expAlg, stmtAlg, formAlg);
+		Registry registry = new Registry();
+		createUI(valEnv, registry, expAlg, stmtAlg, formAlg);
 	}
 
-	protected void createUI(ValueEnvironment valEnv,
+	protected void createUI(ValueEnvironment valEnv, Registry registry,
 			Object ...algebras) {
-		builder.<IRenderForm>build(algebras).render(valEnv);
+		builder.<IRenderForm>build(algebras).render(valEnv, registry);
 	}
 	
 }
