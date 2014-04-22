@@ -9,22 +9,22 @@ import ql_obj_alg.types.TString;
 import ql_obj_alg.types.Type;
 import ql_obj_alg.user_interface.FormFrame;
 
-public interface IWidget {
-	void setValue(Value v);
+public abstract class Widget {
+	public abstract void setValue(Value v);
 
-	Value getValue();
+	public abstract Value getValue();
 
-	String getId();
+	public abstract String getId();
 
-	void addComputedQuestionToFrame(FormFrame frame);
+	public abstract void addComputedQuestionToFrame(FormFrame frame);
 
-	void addAnswerableQuestionToFrame(FormFrame frame);
+	public abstract void addAnswerableQuestionToFrame(FormFrame frame);
 
-	void setVisible(boolean visible);
+	public abstract void setVisible(boolean visible);
 
-	void addActionListener(ActionListener al);
+	public abstract void addActionListener(ActionListener al);
 
-	static IWidget create(String id, String label, Type type) {
+	public static Widget create(String id, String label, Type type) {
 		assert type != null : "Null type for widget creation.";
 		if (type.equals(new TInteger())) {
 			return new IntegerWidget(id, label);

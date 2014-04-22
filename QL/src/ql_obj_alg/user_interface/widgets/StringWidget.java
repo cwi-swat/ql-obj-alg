@@ -9,9 +9,9 @@ import ql_obj_alg.operation.eval.values.VString;
 import ql_obj_alg.operation.eval.values.VUndefined;
 import ql_obj_alg.operation.eval.values.Value;
 import ql_obj_alg.user_interface.FormFrame;
-import ql_obj_alg.user_interface.widgets.IWidget;
+import ql_obj_alg.user_interface.widgets.Widget;
 
-public class StringWidget implements IWidget{
+public class StringWidget extends Widget{
 
 	String id;
 	JLabel label;

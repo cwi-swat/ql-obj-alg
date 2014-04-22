@@ -11,7 +11,7 @@ import ql_obj_alg.operation.eval.values.VUndefined;
 import ql_obj_alg.operation.eval.values.Value;
 import ql_obj_alg.user_interface.FormFrame;
 
-public class IntegerWidget implements IWidget{
+public class IntegerWidget extends Widget{
 
 	String id;
 	JLabel label;

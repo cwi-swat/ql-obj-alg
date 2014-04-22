@@ -40,10 +40,10 @@ import ql_obj_alg.syntax.IFormAlg;
 import ql_obj_alg.syntax.IStmtAlg;
 import ql_obj_alg.types.TypeEnvironment;
 
-public class ExecuteOperations {
+public class Main {
 	
     public static void main(String[] args) throws Exception {
-    	ExecuteOperations ql = new ExecuteOperations();
+    	Main ql = new Main();
     	ql.load(args[0]);
     	ql.execute();
     }
@@ -75,7 +75,6 @@ public class ExecuteOperations {
 
    
 	private void printForm() {
-		
 		FormFormat fFormat = new FormFormat();
 		StmtFormat sFormat = new StmtFormat();
 		ExprPrecedence prec = new ExprPrecedence();
@@ -133,7 +132,6 @@ public class ExecuteOperations {
 	}
 	
 	private void runUI(ErrorReporting errorReport){
-		assert typeCheckerForm(errorReport) : "There are type errors in the form";
 		IExpAlg<IDepsAndEvalE> expAlg = new ExprEvaluator();
 		IStmtAlg<IDepsAndEvalE,IRender> stmtAlg = new StmtUI<IExpAlg<IDepsAndEvalE>>(expAlg);
 		IFormAlg<IDepsAndEvalE,IRender,IRenderForm> formAlg = new FormUI<IExpAlg<IDepsAndEvalE>>(expAlg);

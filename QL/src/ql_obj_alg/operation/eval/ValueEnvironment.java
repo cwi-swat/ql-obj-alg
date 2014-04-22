@@ -5,7 +5,7 @@ import java.util.Map;
 
 import ql_obj_alg.operation.eval.values.Value;
 import ql_obj_alg.user_interface.FormFrame;
-import ql_obj_alg.user_interface.widgets.IWidget;
+import ql_obj_alg.user_interface.widgets.Widget;
 import ql_obj_alg.user_interface.widgets.ObservableWidget;
 
 public class ValueEnvironment {
@@ -46,13 +46,13 @@ public class ValueEnvironment {
 	}
 	
 	public void createVisibilityObservers(final String id,final FormFrame frame, 
-			final IWidget widget, final IDepsAndEvalE condition) {
+			final Widget widget, final IDepsAndEvalE condition) {
 		for(String dep : condition.deps()){
 			this.getObservable(dep).addObserver(new VisibilityObserver(id, frame, widget, this, condition));
 		}
 	}
 
-	public void createValueObservers(final String id, final IDepsAndEvalE e, final FormFrame frame, final IWidget widget) {
+	public void createValueObservers(final String id, final IDepsAndEvalE e, final FormFrame frame, final Widget widget) {
 		for(String dep : e.deps()){
 			this.getObservable(dep).addObserver(new ValueObserver(id, e, frame, widget,this));		
 		}

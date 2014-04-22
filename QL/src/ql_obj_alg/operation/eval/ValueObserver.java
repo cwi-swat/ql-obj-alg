@@ -5,17 +5,17 @@ import java.util.Observer;
 
 import ql_obj_alg.operation.eval.values.Value;
 import ql_obj_alg.user_interface.FormFrame;
-import ql_obj_alg.user_interface.widgets.IWidget;
+import ql_obj_alg.user_interface.widgets.Widget;
 
 public class ValueObserver implements Observer {
 	
 	final String id;
 	final IDepsAndEvalE e;
 	final FormFrame frame;
-	final IWidget widget;
+	final Widget widget;
 	final ValueEnvironment valEnv;
 	
-	public ValueObserver(String id, IDepsAndEvalE e, FormFrame frame, IWidget widget, ValueEnvironment valEnv){
+	public ValueObserver(String id, IDepsAndEvalE e, FormFrame frame, Widget widget, ValueEnvironment valEnv){
 		this.id = id;
 		this.e = e;
 		this.frame = frame;

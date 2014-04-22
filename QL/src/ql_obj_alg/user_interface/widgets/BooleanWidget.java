@@ -10,7 +10,7 @@ import ql_obj_alg.operation.eval.values.VUndefined;
 import ql_obj_alg.operation.eval.values.Value;
 import ql_obj_alg.user_interface.FormFrame;
 
-public class BooleanWidget implements IWidget{
+public class BooleanWidget extends Widget{
 
 	String id;
 	JLabel label;

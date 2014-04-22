@@ -5,17 +5,17 @@ import java.util.Observer;
 
 import ql_obj_alg.operation.eval.values.VUndefined;
 import ql_obj_alg.user_interface.FormFrame;
-import ql_obj_alg.user_interface.widgets.IWidget;
+import ql_obj_alg.user_interface.widgets.Widget;
 
 public class VisibilityObserver implements Observer {
 
 	final String id;
 	final FormFrame frame;
-	final IWidget widget;
+	final Widget widget;
 	final ValueEnvironment valEnv;
 	final IDepsAndEvalE condition;
 	
-	public VisibilityObserver(String id, FormFrame frame, IWidget widget, ValueEnvironment valEnv, IDepsAndEvalE condition){
+	public VisibilityObserver(String id, FormFrame frame, Widget widget, ValueEnvironment valEnv, IDepsAndEvalE condition){
 		this.id = id;
 		this.frame = frame;
 		this.widget = widget;
