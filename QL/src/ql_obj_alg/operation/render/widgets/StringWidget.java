@@ -1,4 +1,4 @@
-package ql_obj_alg.user_interface.widgets;
+package ql_obj_alg.operation.render.widgets;
 
 import java.awt.event.ActionListener;
 
@@ -8,8 +8,8 @@ import javax.swing.JTextField;
 import ql_obj_alg.operation.eval.values.VString;
 import ql_obj_alg.operation.eval.values.VUndefined;
 import ql_obj_alg.operation.eval.values.Value;
-import ql_obj_alg.user_interface.FormFrame;
-import ql_obj_alg.user_interface.widgets.Widget;
+import ql_obj_alg.operation.render.FormFrame;
+import ql_obj_alg.operation.render.widgets.Widget;
 
 public class StringWidget extends Widget{
 

@@ -7,11 +7,10 @@ import java.util.List;
 import ql_obj_alg.operation.eval.IDepsAndEvalE;
 import ql_obj_alg.operation.eval.ValueEnvironment;
 import ql_obj_alg.operation.eval.values.VUndefined;
+import ql_obj_alg.operation.render.widgets.Widget;
 import ql_obj_alg.syntax.IExpAlg;
 import ql_obj_alg.syntax.IStmtAlg;
 import ql_obj_alg.types.Type;
-import ql_obj_alg.user_interface.FormFrame;
-import ql_obj_alg.user_interface.widgets.Widget;
 
 public class StmtUI<V extends IExpAlg<IDepsAndEvalE>> implements IStmtAlg<IDepsAndEvalE,IRender>{
 

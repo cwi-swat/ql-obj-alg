@@ -1,4 +1,4 @@
-package ql_obj_alg.user_interface;
+package ql_obj_alg.operation.render;
 
 import java.awt.Component;
 import java.awt.Container;

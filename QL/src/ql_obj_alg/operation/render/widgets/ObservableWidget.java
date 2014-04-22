@@ -1,4 +1,4 @@
-package ql_obj_alg.user_interface.widgets;
+package ql_obj_alg.operation.render.widgets;
 
 import java.util.Observable;
 

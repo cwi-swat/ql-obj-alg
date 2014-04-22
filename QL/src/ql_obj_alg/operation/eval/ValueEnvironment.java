@@ -4,9 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import ql_obj_alg.operation.eval.values.Value;
-import ql_obj_alg.user_interface.FormFrame;
-import ql_obj_alg.user_interface.widgets.Widget;
-import ql_obj_alg.user_interface.widgets.ObservableWidget;
+import ql_obj_alg.operation.render.FormFrame;
+import ql_obj_alg.operation.render.widgets.ObservableWidget;
+import ql_obj_alg.operation.render.widgets.Widget;
 
 public class ValueEnvironment {
 

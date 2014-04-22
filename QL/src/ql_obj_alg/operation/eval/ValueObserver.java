@@ -4,8 +4,8 @@ import java.util.Observable;
 import java.util.Observer;
 
 import ql_obj_alg.operation.eval.values.Value;
-import ql_obj_alg.user_interface.FormFrame;
-import ql_obj_alg.user_interface.widgets.Widget;
+import ql_obj_alg.operation.render.FormFrame;
+import ql_obj_alg.operation.render.widgets.Widget;
 
 public class ValueObserver implements Observer {
 	

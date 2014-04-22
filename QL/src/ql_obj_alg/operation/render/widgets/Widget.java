@@ -1,13 +1,13 @@
-package ql_obj_alg.user_interface.widgets;
+package ql_obj_alg.operation.render.widgets;
 
 import java.awt.event.ActionListener;
 
 import ql_obj_alg.operation.eval.values.Value;
+import ql_obj_alg.operation.render.FormFrame;
 import ql_obj_alg.types.TBoolean;
 import ql_obj_alg.types.TInteger;
 import ql_obj_alg.types.TString;
 import ql_obj_alg.types.Type;
-import ql_obj_alg.user_interface.FormFrame;
 
 public abstract class Widget {
 	public abstract void setValue(Value v);

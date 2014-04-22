@@ -1,4 +1,4 @@
-package ql_obj_alg.user_interface.widgets;
+package ql_obj_alg.operation.render.widgets;
 
 import java.awt.event.ActionListener;
 import java.text.NumberFormat;
@@ -9,7 +9,7 @@ import javax.swing.JLabel;
 import ql_obj_alg.operation.eval.values.VInteger;
 import ql_obj_alg.operation.eval.values.VUndefined;
 import ql_obj_alg.operation.eval.values.Value;
-import ql_obj_alg.user_interface.FormFrame;
+import ql_obj_alg.operation.render.FormFrame;
 
 public class IntegerWidget extends Widget{
 
