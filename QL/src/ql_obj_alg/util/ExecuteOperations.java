@@ -4,11 +4,9 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.StringWriter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import noa.Builder;
+import noa.NoOp;
 import ql_obj_alg.box.IFormat;
 import ql_obj_alg.object_algebra_interfaces.IExpAlg;
 import ql_obj_alg.object_algebra_interfaces.IFormAlg;
@@ -82,17 +80,11 @@ public class ExecuteOperations {
 		StmtFormat sFormat = new StmtFormat();
 		ExprPrecedence prec = new ExprPrecedence();
 		ExprFormat<ExprPrecedence> eFormat = new ExprFormat<ExprPrecedence>(prec);
-		List<Object> algebras = new ArrayList<Object>();
-		algebras.add(fFormat);
-		algebras.add(sFormat);
-		algebras.add(eFormat);
-		
 		StringWriter w = new StringWriter();
-		printForm(algebras, w);
+		printForm(w, fFormat, sFormat, eFormat);
 	}
 
-	protected void printForm(List<Object> algebras,
-			StringWriter w) {
+	protected void printForm(StringWriter w, Object ...algebras) {
 		IFormat printingForm = builder.build(algebras);
 		printingForm.format(0, false, w);
         System.out.println(w);
@@ -102,7 +94,7 @@ public class ExecuteOperations {
 		TypeEnvironment typeEnv = new TypeEnvironment();
 		IFormAlg<Object,ICollect,ICollect> collectForm = new FormCollectQuestionTypes();
 		IStmtAlg<Object,ICollect> collectStmt = new StmtCollectQuestionTypes();
-		collectQuestions(report, typeEnv, Arrays.asList(collectForm, collectStmt));
+		collectQuestions(report, typeEnv, collectForm, collectStmt, NoOp.noOp(IExpAlg.class));
 		checkTypes(report, typeEnv);
 		checkCyclicDependencies(report);
 		return report.numberOfErrors() == 0;
@@ -112,14 +104,10 @@ public class ExecuteOperations {
 		IFormAlg<IExpDependency,IDependencyGraph,IDetectCycle> formDependencies = new FormDependencies();
 		IStmtAlg<IExpDependency,IDependencyGraph> stmtDependencies = new StmtDependencies();
 		IExpAlg<IExpDependency> expDependencies = new ExprDependencies();
-		List<Object> algebras = new ArrayList<Object>();
-		algebras.add(formDependencies);
-		algebras.add(stmtDependencies);
-		algebras.add(expDependencies);
-		checkCyclicDependencies(algebras,report);
+		checkCyclicDependencies(report, formDependencies, stmtDependencies, expDependencies);
 	}
 
-	protected void checkCyclicDependencies(List<Object> algebras, ErrorReporting report) {
+	protected void checkCyclicDependencies(ErrorReporting report, Object ...algebras) {
 		IDetectCycle cyclesDetection = builder.build(algebras);
 		cyclesDetection.detect(report);
 	}
@@ -129,35 +117,17 @@ public class ExecuteOperations {
 		IFormAlg<IExpType,ITypeCheck,ITypeCheck> typeCheckForm = new FormTypeChecker();
 		IStmtAlg<IExpType,ITypeCheck> typeCheckStmt = new StmtTypeChecker();
 		IExpAlg<IExpType> typeCheckExpr = new ExprTypeChecker();
-		List<Object> algebras = new ArrayList<Object>();
-		algebras.add(typeCheckForm);
-		algebras.add(typeCheckStmt);
-		algebras.add(typeCheckExpr);
-		checkTypes(report, typeEnv, algebras);
+		checkTypes(report, typeEnv, typeCheckForm, typeCheckStmt, typeCheckExpr);
 	}
 
 	protected void checkTypes(ErrorReporting report,
-			TypeEnvironment typeEnv, List<Object> algebras) {
+			TypeEnvironment typeEnv, Object ...algebras) {
 		ITypeCheck checkTypes = builder.build(algebras);
 		checkTypes.check(typeEnv, report);
 	}
 
-//	private void collectQuestions(ErrorReporting report,
-//			TypeEnvironment typeEnv) {
-//		IFormAlg<INoop,ICollect,ICollect> collectForm = new FormCollectQuestionTypes();
-//		IStmtAlg<INoop,ICollect> collectStmt = new StmtCollectQuestionTypes();
-//		//IExpAlg<INoop> exprNoop = new ExprNoop();
-//		
-//		List<Object> algebras = new ArrayList<Object>();
-//		algebras.add(collectForm);
-//		algebras.add(collectStmt);
-//		//algebras.add(exprNoop);
-//		
-//		collectQuestions(report, typeEnv, algebras);
-//	}
-
 	protected void collectQuestions(ErrorReporting report,
-			TypeEnvironment typeEnv, List<Object> algebras) {
+			TypeEnvironment typeEnv, Object ... algebras) {
 		ICollect collectTypes = builder.build(algebras);
 		collectTypes.collect(typeEnv,report);
 	}
@@ -169,16 +139,11 @@ public class ExecuteOperations {
 		IFormAlg<IDepsAndEvalE,ICreate,ICreateF> formAlg = new FormUI<IExpAlg<IDepsAndEvalE>>(expAlg);
 
 		ValueEnvironment valEnv = new ValueEnvironment();
-		List<Object> algebras = new ArrayList<Object>();
-		algebras.add(expAlg);
-		algebras.add(stmtAlg);
-		algebras.add(formAlg);
-
-		createUI(valEnv, algebras);
+		createUI(valEnv, expAlg, stmtAlg, formAlg);
 	}
 
 	protected void createUI(ValueEnvironment valEnv,
-			List<Object> algebras) {
+			Object ...algebras) {
 		builder.<ICreateF>build(algebras).create(valEnv);
 	}
 	
