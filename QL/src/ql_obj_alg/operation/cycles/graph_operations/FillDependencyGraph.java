@@ -2,8 +2,8 @@ package ql_obj_alg.operation.cycles.graph_operations;
 
 import java.util.Stack;
 
-import ql_obj_alg.operation.cycles.modules.Dependencies;
-import ql_obj_alg.operation.cycles.modules.DependencyGraph;
+import ql_obj_alg.operation.cycles.Dependencies;
+import ql_obj_alg.operation.cycles.DependencyGraph;
 
 public class FillDependencyGraph {
 	private Stack<Dependencies> currentDependencies;

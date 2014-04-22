@@ -4,9 +4,9 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-import ql_obj_alg.operation.cycles.modules.Cycle;
-import ql_obj_alg.operation.cycles.modules.DependencyGraph;
-import ql_obj_alg.operation.cycles.modules.Path;
+import ql_obj_alg.operation.cycles.Cycle;
+import ql_obj_alg.operation.cycles.DependencyGraph;
+import ql_obj_alg.operation.cycles.Path;
 
 public class CycleDetection implements Iterable<Cycle>{
 	private DependencyGraph dependencyG;

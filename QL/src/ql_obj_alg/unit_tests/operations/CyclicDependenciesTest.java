@@ -9,12 +9,12 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+import ql_obj_alg.operation.cycles.Cycle;
 import ql_obj_alg.operation.cycles.ExprDependencies;
 import ql_obj_alg.operation.cycles.FormDependencies;
 import ql_obj_alg.operation.cycles.IDetectCycle;
 import ql_obj_alg.operation.cycles.StmtDependencies;
 import ql_obj_alg.operation.cycles.graph_operations.FillDependencyGraph;
-import ql_obj_alg.operation.cycles.modules.Cycle;
 import ql_obj_alg.report_system.error_reporting.ErrorReporting;
 import ql_obj_alg.report_system.errors.CyclicDependencyError;
 import ql_obj_alg.report_system.errors.GenError;
