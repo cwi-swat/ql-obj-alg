@@ -13,10 +13,9 @@ import javax.swing.JPanel;
 public class FormFrame extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-	JPanel mainPanel;
-	JPanel labelPane;
-	JPanel fieldPane;
-	JPanel buttonPane;
+	private JPanel labelPane;
+	private JPanel fieldPane;
+	private JPanel buttonPane;
 
 	public FormFrame(String id) {
 		super(id);		

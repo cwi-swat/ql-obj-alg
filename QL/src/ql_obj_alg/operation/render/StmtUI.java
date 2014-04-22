@@ -11,7 +11,6 @@ import ql_obj_alg.syntax.IExpAlg;
 import ql_obj_alg.syntax.IStmtAlg;
 import ql_obj_alg.types.Type;
 import ql_obj_alg.user_interface.FormFrame;
-import ql_obj_alg.user_interface.widgets.FieldFactory;
 import ql_obj_alg.user_interface.widgets.IWidget;
 
 public class StmtUI<V extends IExpAlg<IDepsAndEvalE>> implements IStmtAlg<IDepsAndEvalE,IRender>{
@@ -60,7 +59,7 @@ public class StmtUI<V extends IExpAlg<IDepsAndEvalE>> implements IStmtAlg<IDepsA
 			public void render(final FormFrame frame, final ValueEnvironment valEnv, 
 					 final IDepsAndEvalE condition) {
 				valEnv.setQuestionValue(id, new VUndefined());
-				final IWidget widget = FieldFactory.createField(id,label,type);
+				final IWidget widget = IWidget.create(id,label,type);
 				widget.setVisible(condition.eval(valEnv).getBoolean());
 				widget.addActionListener(new ActionListener(){
 					@Override
@@ -84,7 +83,7 @@ public class StmtUI<V extends IExpAlg<IDepsAndEvalE>> implements IStmtAlg<IDepsA
 			public void render(final FormFrame frame, final ValueEnvironment valEnv, 
 					final IDepsAndEvalE condition) {
 				valEnv.setQuestionValue(id, new VUndefined());				
-				final IWidget widget = FieldFactory.createField(id,label,type);
+				final IWidget widget = IWidget.create(id,label,type);
 				widget.setVisible(condition.eval(valEnv).getBoolean());
 				widget.setValue(exp.eval(valEnv));
 				widget.addComputedQuestionToFrame(frame);
