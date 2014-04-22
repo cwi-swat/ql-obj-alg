@@ -2,7 +2,6 @@ package ql_obj_alg.operation.cycles;
 
 import java.util.List;
 
-import ql_obj_alg.operation.cycles.graph_operations.FillDependencyGraph;
 import ql_obj_alg.syntax.IStmtAlg;
 import ql_obj_alg.types.Type;
 

@@ -2,8 +2,6 @@ package ql_obj_alg.operation.cycles;
 
 import java.util.List;
 
-import ql_obj_alg.operation.cycles.graph_operations.CycleDetection;
-import ql_obj_alg.operation.cycles.graph_operations.FillDependencyGraph;
 import ql_obj_alg.report_system.error_reporting.ErrorReporting;
 import ql_obj_alg.report_system.errors.CyclicDependencyError;
 import ql_obj_alg.syntax.IFormAlg;
