@@ -4,7 +4,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 import ql_obj_alg.operation.eval.value.VUndefined;
-import ql_obj_alg.user_interface.modules.FormFrame;
+import ql_obj_alg.user_interface.FormFrame;
 import ql_obj_alg.user_interface.widgets.IWidget;
 
 public class VisibilityObserver implements Observer {

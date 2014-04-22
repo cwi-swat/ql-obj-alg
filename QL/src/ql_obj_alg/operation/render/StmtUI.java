@@ -10,7 +10,7 @@ import ql_obj_alg.operation.eval.value.VUndefined;
 import ql_obj_alg.syntax.IExpAlg;
 import ql_obj_alg.syntax.IStmtAlg;
 import ql_obj_alg.types.Type;
-import ql_obj_alg.user_interface.modules.FormFrame;
+import ql_obj_alg.user_interface.FormFrame;
 import ql_obj_alg.user_interface.widgets.FieldFactory;
 import ql_obj_alg.user_interface.widgets.IWidget;
 

@@ -8,7 +8,7 @@ import javax.swing.JTextField;
 import ql_obj_alg.operation.eval.value.VString;
 import ql_obj_alg.operation.eval.value.VUndefined;
 import ql_obj_alg.operation.eval.value.Value;
-import ql_obj_alg.user_interface.modules.FormFrame;
+import ql_obj_alg.user_interface.FormFrame;
 import ql_obj_alg.user_interface.widgets.IWidget;
 
 public class StringWidget implements IWidget{

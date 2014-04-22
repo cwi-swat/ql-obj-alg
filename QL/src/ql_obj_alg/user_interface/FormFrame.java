@@ -1,4 +1,4 @@
-package ql_obj_alg.user_interface.modules;
+package ql_obj_alg.user_interface;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;

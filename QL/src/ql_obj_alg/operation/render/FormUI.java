@@ -6,7 +6,7 @@ import ql_obj_alg.operation.eval.IDepsAndEvalE;
 import ql_obj_alg.operation.eval.ValueEnvironment;
 import ql_obj_alg.syntax.IExpAlg;
 import ql_obj_alg.syntax.IFormAlg;
-import ql_obj_alg.user_interface.modules.FormFrame;
+import ql_obj_alg.user_interface.FormFrame;
 
 public class FormUI<V extends IExpAlg<IDepsAndEvalE>> implements IFormAlg<IDepsAndEvalE,IRender,IRenderForm>{
 
