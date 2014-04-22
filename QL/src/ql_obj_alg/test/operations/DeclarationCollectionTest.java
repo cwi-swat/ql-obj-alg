@@ -1,4 +1,4 @@
-package ql_obj_alg.unit_tests.operations;
+package ql_obj_alg.test.operations;
 
 import java.util.ArrayList;
 import java.util.List;
