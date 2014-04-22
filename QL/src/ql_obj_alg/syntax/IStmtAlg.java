@@ -1,4 +1,4 @@
-package ql_obj_alg.object_algebra_interfaces;
+package ql_obj_alg.syntax;
 
 import java.util.List;
 

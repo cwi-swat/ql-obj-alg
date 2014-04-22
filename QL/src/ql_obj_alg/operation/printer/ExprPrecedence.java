@@ -1,6 +1,6 @@
 package ql_obj_alg.operation.printer;
 
-import ql_obj_alg.object_algebra_interfaces.IExpAlg;
+import ql_obj_alg.syntax.IExpAlg;
 
 public class ExprPrecedence implements IExpAlg<IPrecedence>{
 

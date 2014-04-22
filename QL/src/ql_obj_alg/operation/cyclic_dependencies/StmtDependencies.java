@@ -2,8 +2,8 @@ package ql_obj_alg.operation.cyclic_dependencies;
 
 import java.util.List;
 
-import ql_obj_alg.object_algebra_interfaces.IStmtAlg;
 import ql_obj_alg.operation.cyclic_dependencies.graph_operations.FillDependencyGraph;
+import ql_obj_alg.syntax.IStmtAlg;
 import ql_obj_alg.types.Type;
 
 public class StmtDependencies implements

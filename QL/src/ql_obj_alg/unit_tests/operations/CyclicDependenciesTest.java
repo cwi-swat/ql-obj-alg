@@ -9,9 +9,6 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import ql_obj_alg.object_algebra_interfaces.IExpAlg;
-import ql_obj_alg.object_algebra_interfaces.IFormAlg;
-import ql_obj_alg.object_algebra_interfaces.IStmtAlg;
 import ql_obj_alg.operation.cyclic_dependencies.ExprDependencies;
 import ql_obj_alg.operation.cyclic_dependencies.FormDependencies;
 import ql_obj_alg.operation.cyclic_dependencies.IDetectCycle;
@@ -22,6 +19,9 @@ import ql_obj_alg.report_system.error_reporting.ErrorReporting;
 import ql_obj_alg.report_system.errors.CyclicDependencyError;
 import ql_obj_alg.report_system.errors.GenError;
 import ql_obj_alg.report_system.warnings.Warning;
+import ql_obj_alg.syntax.IExpAlg;
+import ql_obj_alg.syntax.IFormAlg;
+import ql_obj_alg.syntax.IStmtAlg;
 import ql_obj_alg.types.TBoolean;
 
 public class CyclicDependenciesTest{

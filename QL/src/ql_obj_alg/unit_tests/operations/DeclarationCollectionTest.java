@@ -8,8 +8,6 @@ import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
 
-import ql_obj_alg.object_algebra_interfaces.IFormAlg;
-import ql_obj_alg.object_algebra_interfaces.IStmtAlg;
 import ql_obj_alg.operation.typechecker.FormTypeChecker;
 import ql_obj_alg.operation.typechecker.ITypeCheck;
 import ql_obj_alg.operation.typechecker.StmtTypeChecker;
@@ -21,6 +19,8 @@ import ql_obj_alg.report_system.errors.DuplicateQuestionError;
 import ql_obj_alg.report_system.errors.GenError;
 import ql_obj_alg.report_system.warnings.DuplicateLabelWarning;
 import ql_obj_alg.report_system.warnings.Warning;
+import ql_obj_alg.syntax.IFormAlg;
+import ql_obj_alg.syntax.IStmtAlg;
 import ql_obj_alg.types.TBoolean;
 import ql_obj_alg.types.TInteger;
 import ql_obj_alg.types.TString;

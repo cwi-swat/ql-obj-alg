@@ -2,10 +2,10 @@ package ql_obj_alg.operation.createUI;
 
 import java.util.List;
 
-import ql_obj_alg.object_algebra_interfaces.IExpAlg;
-import ql_obj_alg.object_algebra_interfaces.IFormAlg;
 import ql_obj_alg.operation.evaluator.IDepsAndEvalE;
 import ql_obj_alg.operation.evaluator.ValueEnvironment;
+import ql_obj_alg.syntax.IExpAlg;
+import ql_obj_alg.syntax.IFormAlg;
 import ql_obj_alg.user_interface.modules.FormFrame;
 
 public class FormUI<V extends IExpAlg<IDepsAndEvalE>> implements IFormAlg<IDepsAndEvalE,ICreate,ICreateF>{

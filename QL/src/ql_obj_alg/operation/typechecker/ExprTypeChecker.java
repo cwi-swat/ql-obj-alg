@@ -1,12 +1,12 @@
 package ql_obj_alg.operation.typechecker;
 
 
-import ql_obj_alg.object_algebra_interfaces.IExpAlg;
 import ql_obj_alg.report_system.error_reporting.ErrorReporting;
 import ql_obj_alg.report_system.errors.ConflictingTypeError;
 import ql_obj_alg.report_system.errors.UndefinedQuestionError;
 import ql_obj_alg.report_system.errors.UnexpectedTypeError;
 import ql_obj_alg.report_system.errors.UnexpectedTypeInBinaryOpError;
+import ql_obj_alg.syntax.IExpAlg;
 import ql_obj_alg.types.TBoolean;
 import ql_obj_alg.types.TInteger;
 import ql_obj_alg.types.TNumber;

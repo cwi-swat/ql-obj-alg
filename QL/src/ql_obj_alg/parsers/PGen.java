@@ -1,7 +1,7 @@
 package ql_obj_alg.parsers;
 
-import ql_obj_alg.object_algebra_interfaces.IAllAlg;
-import ql_obj_alg.object_algebra_interfaces.Tokens;
+import ql_obj_alg.syntax.IAllAlg;
+import ql_obj_alg.syntax.Tokens;
 
 public class PGen {
 	public static void main(String[] args) {

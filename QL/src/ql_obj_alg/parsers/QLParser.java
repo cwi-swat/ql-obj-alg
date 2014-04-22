@@ -1,13 +1,14 @@
 // Generated from src/ql_obj_alg/parsers/ by ANTLR 4.2.2
 
 package ql_obj_alg.parsers;
-import static ql_obj_alg.object_algebra_interfaces.Tokens.*;
+import static ql_obj_alg.syntax.Tokens.*;
 
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.misc.*;
 import org.antlr.v4.runtime.tree.*;
+
 import java.util.List;
 import java.util.Iterator;
 import java.util.ArrayList;
@@ -50,8 +51,8 @@ public class QLParser extends Parser {
 	public ATN getATN() { return _ATN; }
 
 
-	private ql_obj_alg.object_algebra_interfaces.IAllAlg builder;
-	public void setBuilder(ql_obj_alg.object_algebra_interfaces.IAllAlg builder) { this.builder = builder; }
+	private ql_obj_alg.syntax.IAllAlg builder;
+	public void setBuilder(ql_obj_alg.syntax.IAllAlg builder) { this.builder = builder; }
 	private static <X> java.util.List<X> lift(String name, java.util.List<?> ctxs, X ...heads) {
 	  java.util.List<X> l = new java.util.ArrayList<X>();
 	  for (X h: heads) { l.add(h); }

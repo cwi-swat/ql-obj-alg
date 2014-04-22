@@ -4,11 +4,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-import ql_obj_alg.object_algebra_interfaces.IExpAlg;
-import ql_obj_alg.object_algebra_interfaces.IStmtAlg;
 import ql_obj_alg.operation.evaluator.IDepsAndEvalE;
 import ql_obj_alg.operation.evaluator.ValueEnvironment;
 import ql_obj_alg.operation.evaluator.value.VUndefined;
+import ql_obj_alg.syntax.IExpAlg;
+import ql_obj_alg.syntax.IStmtAlg;
 import ql_obj_alg.types.Type;
 import ql_obj_alg.user_interface.modules.FormFrame;
 import ql_obj_alg.user_interface.widgets.FieldFactory;

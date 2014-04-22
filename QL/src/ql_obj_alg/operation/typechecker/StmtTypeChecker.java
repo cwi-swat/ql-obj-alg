@@ -3,10 +3,10 @@ package ql_obj_alg.operation.typechecker;
 
 import java.util.List;
 
-import ql_obj_alg.object_algebra_interfaces.IStmtAlg;
 import ql_obj_alg.report_system.error_reporting.ErrorReporting;
 import ql_obj_alg.report_system.errors.ConflictingTypeInAssignmentError;
 import ql_obj_alg.report_system.errors.UnexpectedTypeError;
+import ql_obj_alg.syntax.IStmtAlg;
 import ql_obj_alg.types.TBoolean;
 import ql_obj_alg.types.Type;
 import ql_obj_alg.types.TypeEnvironment;

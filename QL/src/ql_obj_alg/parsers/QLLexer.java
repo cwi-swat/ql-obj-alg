@@ -1,12 +1,8 @@
 // Generated from src/ql_obj_alg/parsers/ by ANTLR 4.2.2
 
 package ql_obj_alg.parsers;
-import static ql_obj_alg.object_algebra_interfaces.Tokens.*;
+import static ql_obj_alg.syntax.Tokens.*;
 
-import org.antlr.v4.runtime.Lexer;
-import org.antlr.v4.runtime.CharStream;
-import org.antlr.v4.runtime.Token;
-import org.antlr.v4.runtime.TokenStream;
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;

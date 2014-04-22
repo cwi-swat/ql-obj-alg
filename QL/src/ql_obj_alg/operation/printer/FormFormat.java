@@ -5,7 +5,7 @@ import java.util.List;
 import ql_obj_alg.box.BoxAlg;
 import ql_obj_alg.box.FormatBox;
 import ql_obj_alg.box.IFormat;
-import ql_obj_alg.object_algebra_interfaces.IFormAlg;
+import ql_obj_alg.syntax.IFormAlg;
 
 public class FormFormat implements IFormAlg<IFormatWithPrecedence,IFormat,IFormat>{
 

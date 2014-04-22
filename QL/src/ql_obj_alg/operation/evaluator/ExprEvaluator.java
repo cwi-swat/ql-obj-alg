@@ -3,11 +3,11 @@ package ql_obj_alg.operation.evaluator;
 import java.util.ArrayList;
 import java.util.List;
 
-import ql_obj_alg.object_algebra_interfaces.IExpAlg;
 import ql_obj_alg.operation.evaluator.value.VBoolean;
 import ql_obj_alg.operation.evaluator.value.VInteger;
 import ql_obj_alg.operation.evaluator.value.VString;
 import ql_obj_alg.operation.evaluator.value.Value;
+import ql_obj_alg.syntax.IExpAlg;
 
 public class ExprEvaluator implements IExpAlg<IDepsAndEvalE>{
 

@@ -8,9 +8,6 @@ import java.io.StringWriter;
 import noa.Builder;
 import noa.NoOp;
 import ql_obj_alg.box.IFormat;
-import ql_obj_alg.object_algebra_interfaces.IExpAlg;
-import ql_obj_alg.object_algebra_interfaces.IFormAlg;
-import ql_obj_alg.object_algebra_interfaces.IStmtAlg;
 import ql_obj_alg.operation.createUI.FormUI;
 import ql_obj_alg.operation.createUI.ICreate;
 import ql_obj_alg.operation.createUI.ICreateF;
@@ -38,6 +35,9 @@ import ql_obj_alg.operation.typechecker.question_type_collection.ICollect;
 import ql_obj_alg.operation.typechecker.question_type_collection.StmtCollectQuestionTypes;
 import ql_obj_alg.parsers.TheParser;
 import ql_obj_alg.report_system.error_reporting.ErrorReporting;
+import ql_obj_alg.syntax.IExpAlg;
+import ql_obj_alg.syntax.IFormAlg;
+import ql_obj_alg.syntax.IStmtAlg;
 import ql_obj_alg.types.TypeEnvironment;
 
 public class ExecuteOperations {
