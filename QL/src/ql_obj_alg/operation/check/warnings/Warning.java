@@ -1,4 +1,4 @@
-package ql_obj_alg.report_system.warnings;
+package ql_obj_alg.operation.check.warnings;
 
 public class Warning {
 	

@@ -9,6 +9,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+import ql_obj_alg.operation.check.ErrorReporting;
 import ql_obj_alg.operation.check.ExprTypeChecker;
 import ql_obj_alg.operation.check.FormCollectQuestionTypes;
 import ql_obj_alg.operation.check.FormTypeChecker;
@@ -21,7 +22,6 @@ import ql_obj_alg.operation.check.errors.GenError;
 import ql_obj_alg.operation.check.errors.UndefinedQuestionError;
 import ql_obj_alg.operation.check.errors.UnexpectedTypeError;
 import ql_obj_alg.operation.check.errors.UnexpectedTypeInBinaryOpError;
-import ql_obj_alg.report_system.error_reporting.ErrorReporting;
 import ql_obj_alg.syntax.IExpAlg;
 import ql_obj_alg.syntax.IFormAlg;
 import ql_obj_alg.syntax.IStmtAlg;

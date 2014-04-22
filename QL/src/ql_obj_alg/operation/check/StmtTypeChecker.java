@@ -5,7 +5,6 @@ import java.util.List;
 
 import ql_obj_alg.operation.check.errors.ConflictingTypeInAssignmentError;
 import ql_obj_alg.operation.check.errors.UnexpectedTypeError;
-import ql_obj_alg.report_system.error_reporting.ErrorReporting;
 import ql_obj_alg.syntax.IStmtAlg;
 import ql_obj_alg.types.TBoolean;
 import ql_obj_alg.types.Type;

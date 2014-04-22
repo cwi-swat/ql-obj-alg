@@ -2,8 +2,8 @@ package ql_obj_alg.operation.cycles;
 
 import java.util.List;
 
+import ql_obj_alg.operation.check.ErrorReporting;
 import ql_obj_alg.operation.check.errors.CyclicDependencyError;
-import ql_obj_alg.report_system.error_reporting.ErrorReporting;
 import ql_obj_alg.syntax.IFormAlg;
 
 public class FormDependencies implements

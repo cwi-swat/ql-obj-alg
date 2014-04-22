@@ -5,7 +5,6 @@ import ql_obj_alg.operation.check.errors.ConflictingTypeError;
 import ql_obj_alg.operation.check.errors.UndefinedQuestionError;
 import ql_obj_alg.operation.check.errors.UnexpectedTypeError;
 import ql_obj_alg.operation.check.errors.UnexpectedTypeInBinaryOpError;
-import ql_obj_alg.report_system.error_reporting.ErrorReporting;
 import ql_obj_alg.syntax.IExpAlg;
 import ql_obj_alg.types.TBoolean;
 import ql_obj_alg.types.TError;

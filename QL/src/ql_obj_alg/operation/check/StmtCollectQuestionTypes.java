@@ -3,8 +3,7 @@ package ql_obj_alg.operation.check;
 import java.util.List;
 
 import ql_obj_alg.operation.check.errors.DuplicateQuestionError;
-import ql_obj_alg.report_system.error_reporting.ErrorReporting;
-import ql_obj_alg.report_system.warnings.DuplicateLabelWarning;
+import ql_obj_alg.operation.check.warnings.DuplicateLabelWarning;
 import ql_obj_alg.syntax.IStmtAlg;
 import ql_obj_alg.types.Type;
 import ql_obj_alg.types.TypeEnvironment;
