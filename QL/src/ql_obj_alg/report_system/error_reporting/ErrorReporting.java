@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import ql_obj_alg.report_system.errors.GenError;
+import ql_obj_alg.operation.check.errors.GenError;
 import ql_obj_alg.report_system.warnings.Warning;
 
 public class ErrorReporting {
