@@ -1,4 +1,4 @@
-package ql_obj_alg.parser;
+package ql_obj_alg.parse;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;

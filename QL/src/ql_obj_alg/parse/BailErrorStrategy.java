@@ -1,4 +1,4 @@
-package ql_obj_alg.parser;
+package ql_obj_alg.parse;
 
 import org.antlr.v4.runtime.*;
 

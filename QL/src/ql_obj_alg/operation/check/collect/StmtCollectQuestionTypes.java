@@ -1,4 +1,4 @@
-package ql_obj_alg.operation.check.question_type_collection;
+package ql_obj_alg.operation.check.collect;
 
 import java.util.List;
 

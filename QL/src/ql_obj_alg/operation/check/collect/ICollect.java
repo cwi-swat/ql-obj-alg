@@ -1,4 +1,4 @@
-package ql_obj_alg.operation.check.question_type_collection;
+package ql_obj_alg.operation.check.collect;
 
 import ql_obj_alg.report_system.error_reporting.ErrorReporting;
 import ql_obj_alg.types.TypeEnvironment;
