@@ -8,7 +8,7 @@ if (hasSoldHouse) {
 	if(hasMaintLoan){
 		reallyAddicted: "Private debts for the sold house:" integer
 	}
-	notsomuch: "Private debts for the sold house:" integer (reallyAddicted)
+	notsomuch: "Private debts for the sold house:" integer = (reallyAddicted)
 }
 if(sellingPrice > 5 *(2+1)){
 	privateDebt: "Private debts for the sold house:" integer 

@@ -46,7 +46,7 @@ public class TheParser {
 	    qlParser.setBuilder(builderBuilder);
 	    qlParser.setErrorHandler(new BailErrorStrategy());
 	    qlParser.removeErrorListeners();
-		return qlParser.f()._f;
+		return (Builder) qlParser.f()._f;
 	}
  	
 	
