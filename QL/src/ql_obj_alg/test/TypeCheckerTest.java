@@ -1,4 +1,4 @@
-package ql_obj_alg.test.operations;
+package ql_obj_alg.test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
