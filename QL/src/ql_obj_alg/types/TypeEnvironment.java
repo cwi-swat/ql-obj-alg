@@ -14,8 +14,8 @@ public class TypeEnvironment {
 		typeEnvironment = new HashMap<String,Type>();
 		labels = new HashSet<String>();
 	}
-	public void setNewType(String varName, Type type){
-		assert (!typeEnvironment.containsKey(varName)) : "Variable already defined.";
+	public void define(String varName, Type type){
+		assert !isDefined(varName) : "Variable already defined.";
 		typeEnvironment.put(varName, type);
 	}
 	

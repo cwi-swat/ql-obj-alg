@@ -43,7 +43,7 @@ public class StmtCollectQuestionTypes implements
 					report.addError(new DuplicateQuestionError(id));
 				}
 				else{
-					typeEnv.setNewType(id, type);
+					typeEnv.define(id, type);
 				}
 				if(typeEnv.containsLabel(label)){
 					report.addWarning(new DuplicateLabelWarning(label));
