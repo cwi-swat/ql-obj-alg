@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import ql_obj_alg.check.ErrorReporting;
@@ -46,7 +47,7 @@ public class TypeCheckerTest {
 
 	
 	
-	@Test
+	@Test @Ignore
 	public void testUndefinedVariable() {
 		ICollect collector = undefinedVariable(new FormCollectQuestionTypes(),new StmtCollectQuestionTypes(),null);
 
@@ -75,7 +76,7 @@ public class TypeCheckerTest {
 		return f.form("Form id", questions);
 	}
 	
-	@Test
+	@Test @Ignore
 	public void testWrongTypeInAdd() {
 
 		ICollect collector = wrongTypeInAdd(new FormCollectQuestionTypes(),new StmtCollectQuestionTypes(),null);
@@ -105,7 +106,7 @@ public class TypeCheckerTest {
 		return f.form("Form id", questions);
 	}
 	
-	@Test
+	@Test @Ignore
 	public void testIncompatibleTypeInEquals() {
 		
 		ICollect collector = incompatibleTypeInEquals(new FormCollectQuestionTypes(),new StmtCollectQuestionTypes(),null);

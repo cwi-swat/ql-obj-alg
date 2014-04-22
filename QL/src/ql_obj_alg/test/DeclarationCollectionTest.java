@@ -6,6 +6,7 @@ import java.util.List;
 import junit.framework.TestCase;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import ql_obj_alg.check.ErrorReporting;
@@ -46,7 +47,7 @@ public class DeclarationCollectionTest extends TestCase{
 		expectedWarning = null;
 	}
 
-	@Test
+	@Test @Ignore
 	public void testDuplicates() {
 		
 		ICollect forms = duplicateQuestionInForm(fcd,scd);
