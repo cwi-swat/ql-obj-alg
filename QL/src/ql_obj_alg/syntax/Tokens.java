@@ -2,7 +2,7 @@ package ql_obj_alg.syntax;
 
 import noa.annos.Skip;
 import noa.annos.Token;
-import ql_obj_alg.operation.check.types.Type;
+import ql_obj_alg.check.types.Type;
 
 public interface Tokens {
 	
