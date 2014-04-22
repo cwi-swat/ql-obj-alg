@@ -3,10 +3,9 @@ package ql_obj_alg.operation.check;
 import java.util.List;
 
 import ql_obj_alg.operation.check.errors.DuplicateQuestionError;
+import ql_obj_alg.operation.check.types.Type;
 import ql_obj_alg.operation.check.warnings.DuplicateLabelWarning;
 import ql_obj_alg.syntax.IStmtAlg;
-import ql_obj_alg.types.Type;
-import ql_obj_alg.types.TypeEnvironment;
 
 public class StmtCollectQuestionTypes implements
 		IStmtAlg<Object,ICollect> {

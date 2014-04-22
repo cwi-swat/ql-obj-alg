@@ -5,14 +5,13 @@ import ql_obj_alg.operation.check.errors.ConflictingTypeError;
 import ql_obj_alg.operation.check.errors.UndefinedQuestionError;
 import ql_obj_alg.operation.check.errors.UnexpectedTypeError;
 import ql_obj_alg.operation.check.errors.UnexpectedTypeInBinaryOpError;
+import ql_obj_alg.operation.check.types.TBoolean;
+import ql_obj_alg.operation.check.types.TError;
+import ql_obj_alg.operation.check.types.TInteger;
+import ql_obj_alg.operation.check.types.TNumber;
+import ql_obj_alg.operation.check.types.TString;
+import ql_obj_alg.operation.check.types.Type;
 import ql_obj_alg.syntax.IExpAlg;
-import ql_obj_alg.types.TBoolean;
-import ql_obj_alg.types.TError;
-import ql_obj_alg.types.TInteger;
-import ql_obj_alg.types.TNumber;
-import ql_obj_alg.types.TString;
-import ql_obj_alg.types.Type;
-import ql_obj_alg.types.TypeEnvironment;
 
 public class ExprTypeChecker implements IExpAlg<IExpType>{
 

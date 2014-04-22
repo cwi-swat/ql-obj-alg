@@ -17,6 +17,7 @@ import ql_obj_alg.operation.check.IExpType;
 import ql_obj_alg.operation.check.ITypeCheck;
 import ql_obj_alg.operation.check.StmtCollectQuestionTypes;
 import ql_obj_alg.operation.check.StmtTypeChecker;
+import ql_obj_alg.operation.check.TypeEnvironment;
 import ql_obj_alg.operation.cycles.ExprDependencies;
 import ql_obj_alg.operation.cycles.FormDependencies;
 import ql_obj_alg.operation.cycles.IDependencyGraph;
@@ -38,7 +39,6 @@ import ql_obj_alg.parse.TheParser;
 import ql_obj_alg.syntax.IExpAlg;
 import ql_obj_alg.syntax.IFormAlg;
 import ql_obj_alg.syntax.IStmtAlg;
-import ql_obj_alg.types.TypeEnvironment;
 
 public class Main {
 	

@@ -15,16 +15,16 @@ import ql_obj_alg.operation.check.ICollect;
 import ql_obj_alg.operation.check.ITypeCheck;
 import ql_obj_alg.operation.check.StmtCollectQuestionTypes;
 import ql_obj_alg.operation.check.StmtTypeChecker;
+import ql_obj_alg.operation.check.TypeEnvironment;
 import ql_obj_alg.operation.check.errors.DuplicateQuestionError;
 import ql_obj_alg.operation.check.errors.GenError;
+import ql_obj_alg.operation.check.types.TBoolean;
+import ql_obj_alg.operation.check.types.TInteger;
+import ql_obj_alg.operation.check.types.TString;
 import ql_obj_alg.operation.check.warnings.DuplicateLabelWarning;
 import ql_obj_alg.operation.check.warnings.Warning;
 import ql_obj_alg.syntax.IFormAlg;
 import ql_obj_alg.syntax.IStmtAlg;
-import ql_obj_alg.types.TBoolean;
-import ql_obj_alg.types.TInteger;
-import ql_obj_alg.types.TString;
-import ql_obj_alg.types.TypeEnvironment;
 
 public class DeclarationCollectionTest extends TestCase{
 

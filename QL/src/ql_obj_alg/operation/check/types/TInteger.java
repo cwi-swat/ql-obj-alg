@@ -1,16 +1,21 @@
-package ql_obj_alg.types;
+package ql_obj_alg.operation.check.types;
 
-public class TBoolean extends Type {
+public class TInteger extends TNumber {
 
 	@Override
 	public boolean isComparable(Type t) {
 		if(t == null)
 			return false;
-		return t.isBoolean();
+		return t.isNumber();
 	}
 	
 	@Override
-	public boolean isBoolean() {
+	public boolean isOrd() {
+		return true;
+	}
+
+	@Override
+	public boolean isNumber() {
 		return true;
 	}
 
@@ -19,12 +24,12 @@ public class TBoolean extends Type {
 		if(obj == null)
 			return false;
 		
-		return obj instanceof TBoolean;
+		return obj instanceof TInteger;
 	}
 	
 	@Override
 	public int hashCode(){
-		return "boolean".hashCode();
+		return "integer".hashCode();
 	}
 
 	@Override
@@ -34,12 +39,12 @@ public class TBoolean extends Type {
 
 	@Override
 	public String toString() {
-		return "boolean";
+		return "integer";
 	}
 
 	@Override
-	public Type merge(TBoolean t) {
-		return t;
+	public Type merge(TInteger t) {
+		return this;
 	}
 
 }

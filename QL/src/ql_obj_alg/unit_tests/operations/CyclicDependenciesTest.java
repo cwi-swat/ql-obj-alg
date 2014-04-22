@@ -12,6 +12,7 @@ import org.junit.Test;
 import ql_obj_alg.operation.check.ErrorReporting;
 import ql_obj_alg.operation.check.errors.CyclicDependencyError;
 import ql_obj_alg.operation.check.errors.GenError;
+import ql_obj_alg.operation.check.types.TBoolean;
 import ql_obj_alg.operation.check.warnings.Warning;
 import ql_obj_alg.operation.cycles.Cycle;
 import ql_obj_alg.operation.cycles.ExprDependencies;
@@ -22,7 +23,6 @@ import ql_obj_alg.operation.cycles.StmtDependencies;
 import ql_obj_alg.syntax.IExpAlg;
 import ql_obj_alg.syntax.IFormAlg;
 import ql_obj_alg.syntax.IStmtAlg;
-import ql_obj_alg.types.TBoolean;
 
 public class CyclicDependenciesTest{
 

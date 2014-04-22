@@ -1,4 +1,4 @@
-package ql_obj_alg.types;
+package ql_obj_alg.operation.check.types;
 
 public class TNumber extends Type {
 

@@ -3,7 +3,6 @@ package ql_obj_alg.operation.check;
 import java.util.List;
 
 import ql_obj_alg.syntax.IFormAlg;
-import ql_obj_alg.types.TypeEnvironment;
 
 public class FormCollectQuestionTypes implements
 		IFormAlg<Object, ICollect, ICollect> {

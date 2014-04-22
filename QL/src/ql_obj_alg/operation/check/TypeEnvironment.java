@@ -1,9 +1,11 @@
-package ql_obj_alg.types;
+package ql_obj_alg.operation.check;
 
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+
+import ql_obj_alg.operation.check.types.Type;
 
 public class TypeEnvironment {
 

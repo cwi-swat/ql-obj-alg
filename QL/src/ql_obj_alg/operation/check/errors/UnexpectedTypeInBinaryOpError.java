@@ -1,6 +1,6 @@
 package ql_obj_alg.operation.check.errors;
 
-import ql_obj_alg.types.Type;
+import ql_obj_alg.operation.check.types.Type;
 
 public class UnexpectedTypeInBinaryOpError extends UnexpectedTypeError {
 

@@ -2,12 +2,12 @@ package ql_obj_alg.operation.render.widgets;
 
 import java.awt.event.ActionListener;
 
+import ql_obj_alg.operation.check.types.TBoolean;
+import ql_obj_alg.operation.check.types.TInteger;
+import ql_obj_alg.operation.check.types.TString;
+import ql_obj_alg.operation.check.types.Type;
 import ql_obj_alg.operation.eval.values.Value;
 import ql_obj_alg.operation.render.FormFrame;
-import ql_obj_alg.types.TBoolean;
-import ql_obj_alg.types.TInteger;
-import ql_obj_alg.types.TString;
-import ql_obj_alg.types.Type;
 
 public abstract class Widget {
 	public abstract void setValue(Value v);

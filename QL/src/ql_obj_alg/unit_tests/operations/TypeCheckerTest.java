@@ -17,18 +17,18 @@ import ql_obj_alg.operation.check.ICollect;
 import ql_obj_alg.operation.check.ITypeCheck;
 import ql_obj_alg.operation.check.StmtCollectQuestionTypes;
 import ql_obj_alg.operation.check.StmtTypeChecker;
+import ql_obj_alg.operation.check.TypeEnvironment;
 import ql_obj_alg.operation.check.errors.ConflictingTypeError;
 import ql_obj_alg.operation.check.errors.GenError;
 import ql_obj_alg.operation.check.errors.UndefinedQuestionError;
 import ql_obj_alg.operation.check.errors.UnexpectedTypeError;
 import ql_obj_alg.operation.check.errors.UnexpectedTypeInBinaryOpError;
+import ql_obj_alg.operation.check.types.TBoolean;
+import ql_obj_alg.operation.check.types.TInteger;
+import ql_obj_alg.operation.check.types.TNumber;
 import ql_obj_alg.syntax.IExpAlg;
 import ql_obj_alg.syntax.IFormAlg;
 import ql_obj_alg.syntax.IStmtAlg;
-import ql_obj_alg.types.TBoolean;
-import ql_obj_alg.types.TInteger;
-import ql_obj_alg.types.TNumber;
-import ql_obj_alg.types.TypeEnvironment;
 
 public class TypeCheckerTest {
 	

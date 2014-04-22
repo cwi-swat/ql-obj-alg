@@ -2,8 +2,8 @@ package ql_obj_alg.operation.cycles;
 
 import java.util.List;
 
+import ql_obj_alg.operation.check.types.Type;
 import ql_obj_alg.syntax.IStmtAlg;
-import ql_obj_alg.types.Type;
 
 public class StmtDependencies implements
 		IStmtAlg<IExpDependency, IDependencyGraph> {

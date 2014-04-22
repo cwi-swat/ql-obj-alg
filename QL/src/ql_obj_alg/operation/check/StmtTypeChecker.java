@@ -5,10 +5,9 @@ import java.util.List;
 
 import ql_obj_alg.operation.check.errors.ConflictingTypeInAssignmentError;
 import ql_obj_alg.operation.check.errors.UnexpectedTypeError;
+import ql_obj_alg.operation.check.types.TBoolean;
+import ql_obj_alg.operation.check.types.Type;
 import ql_obj_alg.syntax.IStmtAlg;
-import ql_obj_alg.types.TBoolean;
-import ql_obj_alg.types.Type;
-import ql_obj_alg.types.TypeEnvironment;
 
 public class StmtTypeChecker implements
 		IStmtAlg<IExpType, ITypeCheck> {

@@ -4,7 +4,7 @@ import java.util.List;
 
 import noa.annos.Level;
 import noa.annos.Syntax;
-import ql_obj_alg.types.Type;
+import ql_obj_alg.operation.check.types.Type;
 
 public interface IStmtAlg<E, S>  {
 	@Syntax("'if' '(' _ ')' '{' _* '}'") @Level(80)
