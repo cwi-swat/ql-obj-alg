@@ -14,7 +14,7 @@ import ql_obj_alg.user_interface.modules.FormFrame;
 import ql_obj_alg.user_interface.widgets.FieldFactory;
 import ql_obj_alg.user_interface.widgets.IWidget;
 
-public class StmtUI<V extends IExpAlg<IDepsAndEvalE>> implements IStmtAlg<IDepsAndEvalE,ICreate>{
+public class StmtUI<V extends IExpAlg<IDepsAndEvalE>> implements IStmtAlg<IDepsAndEvalE,IRender>{
 
 	private V expAlg;
 
@@ -23,30 +23,30 @@ public class StmtUI<V extends IExpAlg<IDepsAndEvalE>> implements IStmtAlg<IDepsA
 	}
 	
 	@Override
-	public ICreate iff(final IDepsAndEvalE cond, final List<ICreate> statements) {
-		return new ICreate(){
+	public IRender iff(final IDepsAndEvalE cond, final List<IRender> statements) {
+		return new IRender(){
 			@Override
-			public void create(final FormFrame frame,final ValueEnvironment valEnv,
+			public void render(final FormFrame frame,final ValueEnvironment valEnv,
 					IDepsAndEvalE condition) {
-				for(ICreate stmt : statements){
-					stmt.create(frame,valEnv,expAlg.and(condition,cond));
+				for(IRender stmt : statements){
+					stmt.render(frame,valEnv,expAlg.and(condition,cond));
 				}
 			}
 		};
 	}
 
 	@Override
-	public ICreate iffelse(final IDepsAndEvalE cond,final List<ICreate> statementsIf, final List<ICreate> statementsElse) {
-		return new ICreate(){
+	public IRender iffelse(final IDepsAndEvalE cond,final List<IRender> statementsIf, final List<IRender> statementsElse) {
+		return new IRender(){
 			@Override
-			public void create(final FormFrame frame, final ValueEnvironment valEnv, 
+			public void render(final FormFrame frame, final ValueEnvironment valEnv, 
 					IDepsAndEvalE condition) {
-				for(ICreate stmt : statementsIf){
-					stmt.create(frame,valEnv,expAlg.and(cond,condition));
+				for(IRender stmt : statementsIf){
+					stmt.render(frame,valEnv,expAlg.and(cond,condition));
 				}
 
-				for(ICreate stmt : statementsElse){
-					stmt.create(frame,valEnv,expAlg.and(expAlg.not(cond),condition));
+				for(IRender stmt : statementsElse){
+					stmt.render(frame,valEnv,expAlg.and(expAlg.not(cond),condition));
 				}
 
 			}
@@ -54,10 +54,10 @@ public class StmtUI<V extends IExpAlg<IDepsAndEvalE>> implements IStmtAlg<IDepsA
 	}
 
 	@Override
-	public ICreate question(final String id, final String label, final Type type) {
-		return new ICreate(){
+	public IRender question(final String id, final String label, final Type type) {
+		return new IRender(){
 			@Override
-			public void create(final FormFrame frame, final ValueEnvironment valEnv, 
+			public void render(final FormFrame frame, final ValueEnvironment valEnv, 
 					 final IDepsAndEvalE condition) {
 				valEnv.setQuestionValue(id, new VUndefined());
 				final IWidget widget = FieldFactory.createField(id,label,type);
@@ -77,11 +77,11 @@ public class StmtUI<V extends IExpAlg<IDepsAndEvalE>> implements IStmtAlg<IDepsA
 	}
 
 	@Override
-	public ICreate question(final String id, final String label, final Type type, final IDepsAndEvalE exp) {
-		return new ICreate(){
+	public IRender question(final String id, final String label, final Type type, final IDepsAndEvalE exp) {
+		return new IRender(){
 
 			@Override
-			public void create(final FormFrame frame, final ValueEnvironment valEnv, 
+			public void render(final FormFrame frame, final ValueEnvironment valEnv, 
 					final IDepsAndEvalE condition) {
 				valEnv.setQuestionValue(id, new VUndefined());				
 				final IWidget widget = FieldFactory.createField(id,label,type);

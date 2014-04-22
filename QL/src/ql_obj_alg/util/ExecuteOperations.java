@@ -30,8 +30,8 @@ import ql_obj_alg.operation.format.ExprPrecedence;
 import ql_obj_alg.operation.format.FormFormat;
 import ql_obj_alg.operation.format.StmtFormat;
 import ql_obj_alg.operation.render.FormUI;
-import ql_obj_alg.operation.render.ICreate;
-import ql_obj_alg.operation.render.ICreateF;
+import ql_obj_alg.operation.render.IRender;
+import ql_obj_alg.operation.render.IRenderForm;
 import ql_obj_alg.operation.render.StmtUI;
 import ql_obj_alg.parse.TheParser;
 import ql_obj_alg.report_system.error_reporting.ErrorReporting;
@@ -135,8 +135,8 @@ public class ExecuteOperations {
 	private void runUI(ErrorReporting errorReport){
 		assert typeCheckerForm(errorReport) : "There are type errors in the form";
 		IExpAlg<IDepsAndEvalE> expAlg = new ExprEvaluator();
-		IStmtAlg<IDepsAndEvalE,ICreate> stmtAlg = new StmtUI<IExpAlg<IDepsAndEvalE>>(expAlg);
-		IFormAlg<IDepsAndEvalE,ICreate,ICreateF> formAlg = new FormUI<IExpAlg<IDepsAndEvalE>>(expAlg);
+		IStmtAlg<IDepsAndEvalE,IRender> stmtAlg = new StmtUI<IExpAlg<IDepsAndEvalE>>(expAlg);
+		IFormAlg<IDepsAndEvalE,IRender,IRenderForm> formAlg = new FormUI<IExpAlg<IDepsAndEvalE>>(expAlg);
 
 		ValueEnvironment valEnv = new ValueEnvironment();
 		createUI(valEnv, expAlg, stmtAlg, formAlg);
@@ -144,7 +144,7 @@ public class ExecuteOperations {
 
 	protected void createUI(ValueEnvironment valEnv,
 			Object ...algebras) {
-		builder.<ICreateF>build(algebras).create(valEnv);
+		builder.<IRenderForm>build(algebras).render(valEnv);
 	}
 	
 }

@@ -8,7 +8,7 @@ import ql_obj_alg.syntax.IExpAlg;
 import ql_obj_alg.syntax.IFormAlg;
 import ql_obj_alg.user_interface.modules.FormFrame;
 
-public class FormUI<V extends IExpAlg<IDepsAndEvalE>> implements IFormAlg<IDepsAndEvalE,ICreate,ICreateF>{
+public class FormUI<V extends IExpAlg<IDepsAndEvalE>> implements IFormAlg<IDepsAndEvalE,IRender,IRenderForm>{
 
 	private V expAlg;
 	public FormUI(V expAlg){
@@ -16,13 +16,13 @@ public class FormUI<V extends IExpAlg<IDepsAndEvalE>> implements IFormAlg<IDepsA
 	}
 	
 	@Override
-	public ICreateF form(final String id, final List<ICreate> s) {
-		return new ICreateF(){
+	public IRenderForm form(final String id, final List<IRender> s) {
+		return new IRenderForm(){
 			@Override
-			public void create(final ValueEnvironment valEnv) {
+			public void render(final ValueEnvironment valEnv) {
 				final FormFrame frame = new FormFrame(id);
-				for(ICreate stmt : s){
-					stmt.create(frame,valEnv, expAlg.bool(true));
+				for(IRender stmt : s){
+					stmt.render(frame,valEnv, expAlg.bool(true));
 				}
 				frame.render();
 			}
