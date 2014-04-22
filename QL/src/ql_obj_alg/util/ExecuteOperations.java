@@ -33,7 +33,7 @@ import ql_obj_alg.operation.typechecker.StmtTypeChecker;
 import ql_obj_alg.operation.typechecker.question_type_collection.FormCollectQuestionTypes;
 import ql_obj_alg.operation.typechecker.question_type_collection.ICollect;
 import ql_obj_alg.operation.typechecker.question_type_collection.StmtCollectQuestionTypes;
-import ql_obj_alg.parsers.TheParser;
+import ql_obj_alg.parser.TheParser;
 import ql_obj_alg.report_system.error_reporting.ErrorReporting;
 import ql_obj_alg.syntax.IExpAlg;
 import ql_obj_alg.syntax.IFormAlg;
