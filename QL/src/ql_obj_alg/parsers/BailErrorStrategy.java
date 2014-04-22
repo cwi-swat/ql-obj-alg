@@ -1,4 +1,4 @@
-package ql_obj_alg.report_system.parse_error_strategy;
+package ql_obj_alg.parsers;
 
 import org.antlr.v4.runtime.*;
 

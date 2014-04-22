@@ -20,9 +20,7 @@ import ql_obj_alg.operation.typechecker.FormTypeChecker;
 import ql_obj_alg.operation.typechecker.ITypeCheck;
 import ql_obj_alg.operation.typechecker.StmtTypeChecker;
 import ql_obj_alg.report_system.error_reporting.ErrorReporting;
-import ql_obj_alg.report_system.parse_error_strategy.BailErrorStrategy;
 import ql_obj_alg.types.TypeEnvironment;
-
 import noa.Builder;
 
 public class TheParser {
