@@ -8,12 +8,12 @@ import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
 
-import ql_obj_alg.operation.typechecker.FormTypeChecker;
-import ql_obj_alg.operation.typechecker.ITypeCheck;
-import ql_obj_alg.operation.typechecker.StmtTypeChecker;
-import ql_obj_alg.operation.typechecker.question_type_collection.FormCollectQuestionTypes;
-import ql_obj_alg.operation.typechecker.question_type_collection.ICollect;
-import ql_obj_alg.operation.typechecker.question_type_collection.StmtCollectQuestionTypes;
+import ql_obj_alg.operation.check.FormTypeChecker;
+import ql_obj_alg.operation.check.ITypeCheck;
+import ql_obj_alg.operation.check.StmtTypeChecker;
+import ql_obj_alg.operation.check.question_type_collection.FormCollectQuestionTypes;
+import ql_obj_alg.operation.check.question_type_collection.ICollect;
+import ql_obj_alg.operation.check.question_type_collection.StmtCollectQuestionTypes;
 import ql_obj_alg.report_system.error_reporting.ErrorReporting;
 import ql_obj_alg.report_system.errors.DuplicateQuestionError;
 import ql_obj_alg.report_system.errors.GenError;

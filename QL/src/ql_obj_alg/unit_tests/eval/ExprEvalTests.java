@@ -5,12 +5,12 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
-import ql_obj_alg.operation.evaluator.ExprEvaluator;
-import ql_obj_alg.operation.evaluator.IDepsAndEvalE;
-import ql_obj_alg.operation.evaluator.ValueEnvironment;
-import ql_obj_alg.operation.evaluator.value.VInteger;
-import ql_obj_alg.operation.evaluator.value.VUndefined;
-import ql_obj_alg.operation.evaluator.value.Value;
+import ql_obj_alg.operation.eval.ExprEvaluator;
+import ql_obj_alg.operation.eval.IDepsAndEvalE;
+import ql_obj_alg.operation.eval.ValueEnvironment;
+import ql_obj_alg.operation.eval.value.VInteger;
+import ql_obj_alg.operation.eval.value.VUndefined;
+import ql_obj_alg.operation.eval.value.Value;
 import ql_obj_alg.syntax.IExpAlg;
 
 

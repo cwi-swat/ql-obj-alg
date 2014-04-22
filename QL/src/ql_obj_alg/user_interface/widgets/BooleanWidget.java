@@ -5,9 +5,9 @@ import java.awt.event.ActionListener;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 
-import ql_obj_alg.operation.evaluator.value.VBoolean;
-import ql_obj_alg.operation.evaluator.value.VUndefined;
-import ql_obj_alg.operation.evaluator.value.Value;
+import ql_obj_alg.operation.eval.value.VBoolean;
+import ql_obj_alg.operation.eval.value.VUndefined;
+import ql_obj_alg.operation.eval.value.Value;
 import ql_obj_alg.user_interface.modules.FormFrame;
 
 public class BooleanWidget implements IWidget{

@@ -1,6 +1,6 @@
 package ql_obj_alg.report_system.errors;
 
-import ql_obj_alg.operation.cyclic_dependencies.modules.Cycle;
+import ql_obj_alg.operation.cycles.modules.Cycle;
 
 public class CyclicDependencyError extends GenError {
 	private Cycle cycle;
