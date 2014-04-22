@@ -1,6 +1,5 @@
 package ql_obj_alg.operation.printer;
 
-import java.io.StringWriter;
 import java.util.List;
 
 import ql_obj_alg.box.BoxAlg;
@@ -22,12 +21,6 @@ public class FormFormat implements IFormAlg<IFormatWithPrecedence,IFormat,IForma
 	
 	@Override
 	public IFormat form(final String id, final List<IFormat> statements) {
-		return new IFormat(){
-			
-			@Override
-			public void format(int indent, boolean vert, StringWriter writer) {
-				box.V(box.H(1,box.L("form"),box.L(id), box.L("{")),box.I(2,statements),box.L("}")).format(indent, vert, writer);
-			}
-		};
+		return box.V(box.H(1,box.L("form"),box.L(id), box.L("{")),box.I(2,statements),box.L("}"));
 	}
 }
