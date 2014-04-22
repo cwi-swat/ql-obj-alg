@@ -3,7 +3,6 @@ package ql_obj_alg.object_algebra_interfaces;
 import noa.annos.Skip;
 import noa.annos.Token;
 import ql_obj_alg.types.Type;
-import ql_obj_alg.types.TypeFactory;
 
 public interface Tokens {
 	
@@ -31,7 +30,7 @@ public interface Tokens {
 	
 	@Token("'boolean'|'string'|'integer'") 
 	public static Type type(String x) {
-		return TypeFactory.createType(x);
+		return Type.create(x);
 	}
 	
 	@Token("[ \\t\\r\\n]+") @Skip
