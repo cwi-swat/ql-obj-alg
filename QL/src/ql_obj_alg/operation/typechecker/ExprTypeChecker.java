@@ -11,7 +11,7 @@ import ql_obj_alg.types.TBoolean;
 import ql_obj_alg.types.TInteger;
 import ql_obj_alg.types.TNumber;
 import ql_obj_alg.types.TString;
-import ql_obj_alg.types.TUniversal;
+import ql_obj_alg.types.TError;
 import ql_obj_alg.types.Type;
 import ql_obj_alg.types.TypeEnvironment;
 
@@ -55,7 +55,7 @@ public class ExprTypeChecker implements IExpAlg<IExpType>{
 				if(t != null)
 					return t;
 				report.addError(new UndefinedQuestionError(varName));
-				return new TUniversal();
+				return new TError();
 			}
 		};
 	}
@@ -68,7 +68,7 @@ public class ExprTypeChecker implements IExpAlg<IExpType>{
 				Type typeRhs = rhs.type(typeEnv, report);
 				if(!typeLhs.isNumber() || !typeRhs.isNumber()){
 					report.addError(new UnexpectedTypeInBinaryOpError(new TNumber(), typeLhs, typeRhs, "/"));
-					return new TUniversal();
+					return new TError();
 				}
 				return typeLhs.merge(typeRhs);
 			}
@@ -83,7 +83,7 @@ public class ExprTypeChecker implements IExpAlg<IExpType>{
 				Type typeRhs = rhs.type(typeEnv, report);
 				if(!typeLhs.isNumber() || !typeRhs.isNumber()){
 					report.addError(new UnexpectedTypeInBinaryOpError(new TNumber(), typeLhs, typeRhs, "/"));
-					return new TUniversal();
+					return new TError();
 				}
 				return typeLhs.merge(typeRhs);
 			}
@@ -98,7 +98,7 @@ public class ExprTypeChecker implements IExpAlg<IExpType>{
 				Type typeRhs = rhs.type(typeEnv, report);
 				if(!typeLhs.isNumber() || !typeRhs.isNumber()){
 					report.addError(new UnexpectedTypeInBinaryOpError(new TNumber(), typeLhs, typeRhs, "+"));
-					return new TUniversal();
+					return new TError();
 				}
 				return typeLhs.merge(typeRhs);
 			}
@@ -113,7 +113,7 @@ public class ExprTypeChecker implements IExpAlg<IExpType>{
 				Type typeRhs = rhs.type(typeEnv, report);
 				if(!typeLhs.isNumber() || !typeRhs.isNumber()){
 					report.addError(new UnexpectedTypeInBinaryOpError(new TNumber(), typeLhs, typeRhs, "-"));				
-					return new TUniversal();
+					return new TError();
 				}
 				return typeLhs.merge(typeRhs);
 			}
@@ -128,7 +128,7 @@ public class ExprTypeChecker implements IExpAlg<IExpType>{
 				Type typeRhs = rhs.type(typeEnv, report);
 				if(!typeLhs.equals(typeRhs)){
 					report.addError(new ConflictingTypeError(typeLhs, typeRhs, "=="));
-					return new TUniversal();
+					return new TError();
 				}
 				return new TBoolean();
 			}
@@ -143,7 +143,7 @@ public class ExprTypeChecker implements IExpAlg<IExpType>{
 				Type typeRhs = rhs.type(typeEnv, report);
 				if(!typeLhs.equals(typeRhs)){
 					report.addError(new ConflictingTypeError(typeLhs, typeRhs, "!="));	
-					return new TUniversal();
+					return new TError();
 				}
 				return new TBoolean();
 			}
@@ -158,7 +158,7 @@ public class ExprTypeChecker implements IExpAlg<IExpType>{
 				Type typeRhs = rhs.type(typeEnv, report);
 				if(!typeLhs.isComparable(typeRhs)){
 					report.addError(new ConflictingTypeError(typeLhs, typeRhs, "<"));
-					return new TUniversal();
+					return new TError();
 				}
 				return new TBoolean();
 			}
@@ -173,7 +173,7 @@ public class ExprTypeChecker implements IExpAlg<IExpType>{
 				Type typeRhs = rhs.type(typeEnv, report);
 				if(!typeLhs.isComparable(typeRhs)){
 					report.addError(new ConflictingTypeError(typeLhs, typeRhs, "<="));	
-					return new TUniversal();
+					return new TError();
 				}
 				return new TBoolean();
 			}
@@ -188,7 +188,7 @@ public class ExprTypeChecker implements IExpAlg<IExpType>{
 				Type typeRhs = rhs.type(typeEnv, report);
 				if(!typeLhs.isComparable(typeRhs)){
 					report.addError(new ConflictingTypeError(typeLhs, typeRhs, ">"));
-					return new TUniversal();
+					return new TError();
 				}
 				return new TBoolean();
 			}
@@ -203,7 +203,7 @@ public class ExprTypeChecker implements IExpAlg<IExpType>{
 				Type typeRhs = rhs.type(typeEnv, report);
 				if(typeLhs.isComparable(typeRhs)){
 					report.addError(new ConflictingTypeError(typeLhs, typeRhs, ">="));
-					return new TUniversal();
+					return new TError();
 				}
 				return new TBoolean();
 			}
@@ -218,7 +218,7 @@ public class ExprTypeChecker implements IExpAlg<IExpType>{
 				Type t = a.type(typeEnv, report); 
 				if(!t.isBoolean()){
 					report.addError(new UnexpectedTypeError(new TBoolean(), t, "!"));
-					return new TUniversal();
+					return new TError();
 				}
 				return t;
 			}
@@ -233,7 +233,7 @@ public class ExprTypeChecker implements IExpAlg<IExpType>{
 				Type typeRhs = rhs.type(typeEnv, report);
 				if(!typeLhs.isBoolean() || !typeRhs.isBoolean()){
 					report.addError(new UnexpectedTypeInBinaryOpError(new TBoolean(), typeLhs, typeRhs, "&&"));
-					return new TUniversal();
+					return new TError();
 				}
 				return typeLhs.merge(typeRhs);
 			}
@@ -248,7 +248,7 @@ public class ExprTypeChecker implements IExpAlg<IExpType>{
 				Type typeRhs = rhs.type(typeEnv, report);
 				if(!typeLhs.isBoolean() || !typeRhs.isBoolean()){
 					report.addError(new UnexpectedTypeInBinaryOpError(new TBoolean(), typeLhs, typeRhs, "||"));
-					return new TUniversal();
+					return new TError();
 				}
 				return typeLhs.merge(typeRhs);
 			}

@@ -17,20 +17,6 @@ public class TNumber extends Type {
 		return true;
 	}
 
-	@Override
-	public boolean isAlphanumeric() {
-		return false;
-	}
-
-	@Override
-	public boolean isBoolean() {
-		return false;
-	}
-
-	@Override
-	public boolean isDate() {
-		return false;
-	}
 
 	@Override
 	public Type merge(Type t) {
@@ -38,22 +24,7 @@ public class TNumber extends Type {
 	}
 
 	@Override
-	public Type merge(TBoolean t) {
-		return new TUniversal();
-	}
-
-	@Override
 	public Type merge(TInteger t) {
-		return t;
-	}
-
-	@Override
-	public Type merge(TString t) {
-		return new TUniversal();
-	}
-
-	@Override
-	public Type merge(TUniversal t) {
 		return t;
 	}
 
@@ -67,9 +38,6 @@ public class TNumber extends Type {
 		if(obj == null)
 			return false;
 		
-		if(obj instanceof TNumber)
-			return true;
-		
-		return false;				
+		return obj instanceof TNumber;
 	}
 }

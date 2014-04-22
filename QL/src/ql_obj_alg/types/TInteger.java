@@ -20,29 +20,11 @@ public class TInteger extends TNumber {
 	}
 
 	@Override
-	public boolean isAlphanumeric() {
-		return false;
-	}
-
-	@Override
-	public boolean isDate() {
-		return false;
-	}
-
-	@Override
-	public boolean isBoolean() {
-		return false;
-	}
-
-	@Override
 	public boolean equals(Object obj){
 		if(obj == null)
 			return false;
 		
-		if(obj instanceof TInteger || obj instanceof TUniversal)
-			return true;
-		
-		return false;
+		return obj instanceof TInteger;
 	}
 	
 	@Override
@@ -61,22 +43,8 @@ public class TInteger extends TNumber {
 	}
 
 	@Override
-	public Type merge(TBoolean t) {
-		return new TUniversal();
-	}
-
-	@Override
 	public Type merge(TInteger t) {
 		return this;
 	}
 
-	@Override
-	public Type merge(TString t) {
-		return new TUniversal();
-	}
-
-	@Override
-	public Type merge(TUniversal t) {
-		return t;
-	}
 }

@@ -4,7 +4,7 @@ public class TypeFactory {
 
 	public static Type createType(String type){
 		if(type == null)
-			return new TUniversal();
+			return new TError();
 		else if(type.equals("integer")){
 			return new TInteger();
 		}

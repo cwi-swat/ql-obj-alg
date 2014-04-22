@@ -10,40 +10,16 @@ public class TBoolean extends Type {
 	}
 	
 	@Override
-	public boolean isOrd() {
-		return false;
-	}
-
-	@Override
-	public boolean isNumber() {
-		return false;
-	}
-
-	@Override
-	public boolean isAlphanumeric() {
-		return false;
-	}
-
-	@Override
 	public boolean isBoolean() {
 		return true;
 	}
 
 	@Override
-	public boolean isDate() {
-		return false;
-	}
-
-	
-	@Override
 	public boolean equals(Object obj){
 		if(obj == null)
 			return false;
 		
-		if(obj instanceof TBoolean || obj instanceof TUniversal)
-			return true;
-		
-		return false;
+		return obj instanceof TBoolean;
 	}
 	
 	@Override
@@ -66,18 +42,4 @@ public class TBoolean extends Type {
 		return t;
 	}
 
-	@Override
-	public Type merge(TInteger t) {
-		return new TUniversal();
-	}
-
-	@Override
-	public Type merge(TString t) {
-		return new TUniversal();
-	}
-
-	@Override
-	public Type merge(TUniversal t) {
-		return t;
-	}
 }

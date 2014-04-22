@@ -1,28 +1,44 @@
 package ql_obj_alg.types;
 
 public abstract class Type {
+	public boolean isComparable(Type t){
+		return false;
+	}
 	
-	public abstract boolean isComparable(Type t);
+	public boolean isOrd(){
+		return false;
+	}
 	
-	public abstract boolean isOrd();
+	public boolean isNumber(){
+		return false;
+	}
 	
-	public abstract boolean isNumber();
+	public boolean isAlphanumeric(){
+		return false;
+	}
 	
-	public abstract boolean isAlphanumeric();
+	public boolean isBoolean(){
+		return false;
+	}
 	
-	public abstract boolean isBoolean();
+	public Type merge(Type t){
+		return new TError();
+	}
 	
-	public abstract boolean isDate();
+	public Type merge(TBoolean t){
+		return new TError();
+	}
 	
-	public abstract Type merge(Type t);
+	public Type merge(TInteger t){
+		return new TError();
+	}
 	
-	public abstract Type merge(TBoolean t);
+	public Type merge(TString t){
+		return new TError();
+	}
 	
-	public abstract Type merge(TInteger t);
+	public Type merge(TError t){
+		return new TError();
+	}
 	
-	public abstract Type merge(TString t);
-	
-	public abstract Type merge(TUniversal t);
-	
-	public abstract String toString();
 }
