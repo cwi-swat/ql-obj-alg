@@ -2,7 +2,7 @@ package ql_obj_alg.user_interface.widgets;
 
 import java.awt.event.ActionListener;
 
-import ql_obj_alg.operation.eval.value.Value;
+import ql_obj_alg.operation.eval.values.Value;
 import ql_obj_alg.user_interface.FormFrame;
 
 public interface IWidget {

@@ -3,7 +3,7 @@ package ql_obj_alg.operation.eval;
 import java.util.Observable;
 import java.util.Observer;
 
-import ql_obj_alg.operation.eval.value.Value;
+import ql_obj_alg.operation.eval.values.Value;
 import ql_obj_alg.user_interface.FormFrame;
 import ql_obj_alg.user_interface.widgets.IWidget;
 

@@ -6,7 +6,7 @@ import java.util.List;
 
 import ql_obj_alg.operation.eval.IDepsAndEvalE;
 import ql_obj_alg.operation.eval.ValueEnvironment;
-import ql_obj_alg.operation.eval.value.VUndefined;
+import ql_obj_alg.operation.eval.values.VUndefined;
 import ql_obj_alg.syntax.IExpAlg;
 import ql_obj_alg.syntax.IStmtAlg;
 import ql_obj_alg.types.Type;

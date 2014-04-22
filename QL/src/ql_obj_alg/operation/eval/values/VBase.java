@@ -1,6 +1,6 @@
-package ql_obj_alg.operation.eval.value;
+package ql_obj_alg.operation.eval.values;
 
-import ql_obj_alg.operation.eval.value.Value;
+import ql_obj_alg.operation.eval.values.Value;
 
 public abstract class VBase extends Value {
 

@@ -3,10 +3,10 @@ package ql_obj_alg.operation.eval;
 import java.util.ArrayList;
 import java.util.List;
 
-import ql_obj_alg.operation.eval.value.VBoolean;
-import ql_obj_alg.operation.eval.value.VInteger;
-import ql_obj_alg.operation.eval.value.VString;
-import ql_obj_alg.operation.eval.value.Value;
+import ql_obj_alg.operation.eval.values.VBoolean;
+import ql_obj_alg.operation.eval.values.VInteger;
+import ql_obj_alg.operation.eval.values.VString;
+import ql_obj_alg.operation.eval.values.Value;
 import ql_obj_alg.syntax.IExpAlg;
 
 public class ExprEvaluator implements IExpAlg<IDepsAndEvalE>{
