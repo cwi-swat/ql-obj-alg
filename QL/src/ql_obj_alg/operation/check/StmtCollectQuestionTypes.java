@@ -1,4 +1,4 @@
-package ql_obj_alg.operation.check.collect;
+package ql_obj_alg.operation.check;
 
 import java.util.List;
 

@@ -10,12 +10,12 @@ import org.junit.Before;
 import org.junit.Test;
 
 import ql_obj_alg.operation.check.ExprTypeChecker;
+import ql_obj_alg.operation.check.FormCollectQuestionTypes;
 import ql_obj_alg.operation.check.FormTypeChecker;
+import ql_obj_alg.operation.check.ICollect;
 import ql_obj_alg.operation.check.ITypeCheck;
+import ql_obj_alg.operation.check.StmtCollectQuestionTypes;
 import ql_obj_alg.operation.check.StmtTypeChecker;
-import ql_obj_alg.operation.check.collect.FormCollectQuestionTypes;
-import ql_obj_alg.operation.check.collect.ICollect;
-import ql_obj_alg.operation.check.collect.StmtCollectQuestionTypes;
 import ql_obj_alg.report_system.error_reporting.ErrorReporting;
 import ql_obj_alg.report_system.errors.ConflictingTypeError;
 import ql_obj_alg.report_system.errors.GenError;
