@@ -1,14 +1,15 @@
 // Generated from src/ql_obj_alg/parsers/QLParser.java by ANTLR 4.2.2
 
 package ql_obj_alg.parsers;
-import ql_obj_alg.pgen.Builder;
 import static ql_obj_alg.object_algebra_interfaces.Tokens.*;
+import noa.Builder;
 
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.misc.*;
 import org.antlr.v4.runtime.tree.*;
+
 import java.util.List;
 import java.util.Iterator;
 import java.util.ArrayList;

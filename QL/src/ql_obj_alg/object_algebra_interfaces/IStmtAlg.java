@@ -2,7 +2,7 @@ package ql_obj_alg.object_algebra_interfaces;
 
 import java.util.List;
 
-import ql_obj_alg.pgen.annos.Syntax;
+import noa.annos.Syntax;
 import ql_obj_alg.types.Type;
 
 public interface IStmtAlg<E, S>  {

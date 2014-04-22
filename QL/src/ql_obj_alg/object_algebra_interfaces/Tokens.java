@@ -1,7 +1,7 @@
 package ql_obj_alg.object_algebra_interfaces;
 
-import ql_obj_alg.pgen.annos.Skip;
-import ql_obj_alg.pgen.annos.Token;
+import noa.annos.Skip;
+import noa.annos.Token;
 import ql_obj_alg.types.Type;
 import ql_obj_alg.types.TypeFactory;
 

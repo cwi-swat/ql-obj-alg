@@ -1,7 +1,6 @@
 // Generated from src/ql_obj_alg/parsers/QLParser.java by ANTLR 4.2.2
 
 package ql_obj_alg.parsers;
-import ql_obj_alg.pgen.Builder;
 import static ql_obj_alg.object_algebra_interfaces.Tokens.*;
 
 import org.antlr.v4.runtime.Lexer;
