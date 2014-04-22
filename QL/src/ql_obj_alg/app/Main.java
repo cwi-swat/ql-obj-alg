@@ -1,4 +1,4 @@
-package ql_obj_alg.util;
+package ql_obj_alg.app;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
