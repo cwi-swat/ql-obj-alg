@@ -1,6 +1,9 @@
 package ql_obj_alg.util;
 
-import java.security.InvalidAlgorithmParameterException;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
 
 import noa.Builder;
 import ql_obj_alg.format.ExprPrecedence;
@@ -13,30 +16,33 @@ import ql_obj_alg.syntax.IAllAlg;
 public class BenchmarkQL  {
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	private static void benchmark(GenerateBinarySearchForm gen, String label, IAllAlg alg) {
-		long total = 0;
-		int count = 0;
-		for (String src: gen) {
-			long nBefore = System.nanoTime();
-			TheParser.parse(src, alg);
-			long nAfter = System.nanoTime();
-			count += 1;
-			total += nAfter - nBefore;
-		}
-		System.out.println(label + ": " + ((1.0 * total) / (1.0 * count)) / 1000000000.0);
-	}
-	
-	public static void main(String[] args) {
-		GenerateBinarySearchForm gen = new GenerateBinarySearchForm(0, 10000, 100);
-		Format f = new Format(new FormFormat(), new StmtFormat(), new ExprPrecedence());
-
+	private static void benchmark(int min, int max, int step, String label, IAllAlg alg, IAllAlg realAlg) throws FileNotFoundException {
+		GenerateBinarySearchForm gen = new GenerateBinarySearchForm(min, max, step);
 		// Warm-up
 		for (String src: gen) {
-			TheParser.parse(src, f);
+			TheParser.parse(src, alg);
 		}
 		
-		benchmark(gen, "direct", f);
-		benchmark(gen, "builder", Builder.builderBuilder(IAllAlg.class));
-		
+		gen = new GenerateBinarySearchForm(min, max, step);
+				
+		PrintStream output = new PrintStream(new File("resources/benchmark/parse-" + min + "-" + max + "-" + step + "-" + label + ".csv"));
+		output.println("size, seconds");
+		for (String src: gen) {
+			long nBefore = System.nanoTime();
+			Object x = TheParser.parse(src, alg);
+			if (realAlg != null) {
+				((Builder)x).build(realAlg);
+			}
+			long nAfter = System.nanoTime();
+			double time = (1.0 * (nAfter - nBefore)) / 1000000000.0;
+			output.println(src.length() + ", " +  String.format("%f", time));
+		}
+		output.close();
+	}
+	
+	public static void main(String[] args) throws FileNotFoundException {
+		Format f = new Format(new FormFormat(), new StmtFormat(), new ExprPrecedence());
+		benchmark(0, 10000, 10, "direct", f, null);
+		benchmark(0, 10000, 10, "builder", Builder.builderBuilder(IAllAlg.class), f);
 	}
 }
