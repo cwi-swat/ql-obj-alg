@@ -1,43 +1,31 @@
 package ql_obj_alg.cycles;
 
-import java.util.HashSet;
-import java.util.Set;
-import java.util.Stack;
+import java.util.ArrayList;
 
 public class Path {
-	private Stack<String> path = new Stack<String>();
-	private Set<String> inPath = new HashSet<String>();
-	private Set<String> visited = new HashSet<String>();
-	
-	public Path(){
-		path = new Stack<String>();
-		inPath = new HashSet<String>();
-		visited = new HashSet<String>();
-	}
-	public boolean alreadyVisited(String node){
-		return visited.contains(node);
-	}
-	
-	public boolean contains(String node){
-		return inPath.contains(node);
+	ArrayList<String> path;
+
+	public Path() {
+		path = new ArrayList<String>();
 	}
 
-	public void add(String node){
+	public Path(Path path) {
+		this.path = new ArrayList<String>(path.path);
+	}
+
+	public boolean contains(String node) {
+		return path.contains(node);
+	}
+
+	public void moveOn(String node) {
 		path.add(node);
-		inPath.add(node);
-		visited.add(node);
-	}
-	
-	public void remove(String node){
-		path.pop();
-		inPath.remove(node);
 	}
 
-	public Cycle getCycle(String node) {
+	public Cycle extractCycle(String starting) {
 		Cycle cycle = new Cycle();
-		for(int i = path.indexOf(node); i < path.size(); i++){
-			cycle.add(path.elementAt(i));
-		}	
+		for (int i = path.indexOf(starting); i < path.size(); i++) {
+			cycle.add(path.get(i));
+		}
 		return cycle;
 	}
 }
