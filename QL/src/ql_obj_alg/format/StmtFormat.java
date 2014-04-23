@@ -25,8 +25,11 @@ public class StmtFormat implements IStmtAlg<IFormatWithPrecedence, IFormat> {
 	@Override
 	public IFormat iffelse(final IFormatWithPrecedence cond, final List<IFormat> statementsIf, final List<IFormat> statementsElse) {
 		return box.V(box.H(1,box.L("if"),box.H(box.L("("),cond,box.L(")")),box.L("{")),
-						box.I(2,statementsIf), box.H(1,box.L("}"),box.L("else"),box.L("{"),
-								box.I(2,statementsElse)),box.L("}"));
+					 box.I(2,statementsIf), 
+					 box.L("}"),
+					 box.H(1, box.L("else"),box.L("{")),
+					 box.I(2,statementsElse),
+					 box.L("}"));
 	}
 
 	@Override
