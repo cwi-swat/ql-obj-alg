@@ -19,18 +19,24 @@ import ql_obj_alg.syntax.IFormAlg;
 import ql_obj_alg.syntax.IStmtAlg;
 import ql_obj_alg.util.GenerateBinarySearchForm;
 
-public class Flatten<E, S, F> implements IStmtAlg<E, IFlatten<E, S>>, IFormAlg<E, IFlatten<E, S>, F> {
+public class Flatten<E, S, F, EA extends IExpAlg<E>, SA extends IStmtAlg<E, S>, FA extends IFormAlg<E, S, F>> implements IStmtAlg<E, IFlatten<E, S>>, IFormAlg<E, IFlatten<E, S>, F> {
 
-	private IExpAlg<E> exp;
-	private IStmtAlg<E, S> stmt;
-	private IFormAlg<E, S, F> form;
+	private EA exp;
+	private SA stmt;
+	private FA form;
 
 	public static void main(String[] args) {
 		GenerateBinarySearchForm gen = new GenerateBinarySearchForm(1, 10, 9);
 		IExpAlg<IFormatWithPrecedence> expFormat = new ExprFormat<>(new ExprPrecedence());
 		StmtFormat stmtFormat = new StmtFormat();
 		FormFormat formFormat = new FormFormat();
-		Flatten<IFormatWithPrecedence, IFormat, IFormat> flatten = new Flatten<IFormatWithPrecedence, IFormat, IFormat>(expFormat, stmtFormat, formFormat);
+		Flatten<IFormatWithPrecedence, IFormat, IFormat, 
+				IExpAlg<IFormatWithPrecedence>, 
+				IStmtAlg<IFormatWithPrecedence, IFormat>, 
+				IFormAlg<IFormatWithPrecedence, IFormat, IFormat>> flatten = new Flatten<
+				IFormatWithPrecedence, IFormat, IFormat,
+				IExpAlg<IFormatWithPrecedence>, IStmtAlg<IFormatWithPrecedence, IFormat>, IFormAlg<IFormatWithPrecedence, IFormat, IFormat>
+				>(expFormat, stmtFormat, formFormat);
 		for (String src: gen) {
 			Builder build = TheParser.parse(src);
 			IFormat f = build.build(flatten, expFormat);
@@ -41,7 +47,7 @@ public class Flatten<E, S, F> implements IStmtAlg<E, IFlatten<E, S>>, IFormAlg<E
 		}
 	}
 	
-	public Flatten(IExpAlg<E> exp, IStmtAlg<E, S> stmt, IFormAlg<E, S, F> form) {
+	public Flatten(EA exp, SA stmt, FA form) {
 		this.exp = exp;
 		this.stmt = stmt;
 		this.form = form;
