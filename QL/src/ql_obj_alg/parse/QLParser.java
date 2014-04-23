@@ -1,4 +1,4 @@
-// Generated from src/ql_obj_alg/parsers/ by ANTLR 4.2.2
+// Generated from src/ql_obj_alg/parse/ by ANTLR 4.2.2
 
 package ql_obj_alg.parse;
 import static ql_obj_alg.syntax.Tokens.*;
@@ -8,7 +8,6 @@ import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.misc.*;
 import org.antlr.v4.runtime.tree.*;
-
 import java.util.List;
 import java.util.Iterator;
 import java.util.ArrayList;
@@ -36,7 +35,7 @@ public class QLParser extends Parser {
 	};
 
 	@Override
-	public String getGrammarFileName() { return "parsers"; }
+	public String getGrammarFileName() { return "parse"; }
 
 	@Override
 	public String[] getTokenNames() { return tokenNames; }

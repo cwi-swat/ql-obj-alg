@@ -23,7 +23,7 @@ public interface Tokens {
 		return Boolean.parseBoolean(x);
 	}
 	
-	@Token("[a-zA-Z][a-zA-Z0-9]*")
+	@Token("[a-zA-Z][_a-zA-Z0-9]*")
 	public static String id(String x) {
 		return x;
 	}
