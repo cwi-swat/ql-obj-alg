@@ -35,5 +35,26 @@ public class TheParser {
 	    qlParser.removeErrorListeners();
 		return (Builder) qlParser.f()._f;
 	}
+	
+	@SuppressWarnings({"unchecked" })
+	public static <E, S, F> F parse(InputStream input, IAllAlg<E, S, F> alg) throws IOException {
+		QLLexer lexer = new QLLexer(new ANTLRInputStream(input));
+	    CommonTokenStream tokens = new CommonTokenStream(lexer);
+	    QLParser qlParser = new QLParser(tokens);
+	    qlParser.setBuilder(alg);
+	    qlParser.setErrorHandler(new BailErrorStrategy());
+	    qlParser.removeErrorListeners();
+		return (F) qlParser.f()._f;
+	}
+	
+	public static <E, S, F> F parse(String s, IAllAlg<E, S, F> alg) {
+		try {
+			return parse(new ByteArrayInputStream(s.getBytes("UTF-8")), alg);
+		} catch (UnsupportedEncodingException e) {
+			throw new RuntimeException(e);
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+	}
 
 }
