@@ -4,6 +4,7 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="lib" path="lib/antlr-4.2.2-complete.jar"/>
+	<classpathentry kind="lib" path="lib/caliper-1.0-beta-1-all.jar" sourcepath="/Users/tvdstorm/.m2/repository/com/google/caliper/caliper/1.0-beta-1/caliper-1.0-beta-1-sources.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/naked-object-algebras"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
