@@ -5,38 +5,46 @@ import java.util.List;
 
 public class Cycle {
 	private List<String> cycle = new LinkedList<String>();
-	
-	public void add(String node){
+
+	public void add(String node) {
 		cycle.add(node);
 	}
-	
-	public String toString(){
+
+	public String toString() {
 		assert (!cycle.isEmpty()) : "A cycle cannot be empty";
 		StringBuffer output = new StringBuffer();
-		for(String node : cycle){
+		for (String node : cycle) {
 			output.append(node + " -> ");
 		}
 		output.append(cycle.get(0));
 		return output.toString();
 	}
-	
+
 	@Override
-	public boolean equals(Object obj){
-		if(obj == null)
+	public boolean equals(Object obj) {
+		if (obj == null) {
 			return false;
-		
-		if(obj instanceof Cycle){
-		
+		}
+
+		if (obj instanceof Cycle) {
+
 			Cycle other = (Cycle) obj;
-			
-			if(this.cycle.size() != other.cycle.size())
+
+			if (this.cycle.size() != other.cycle.size()) {
 				return false;
-			for(String node : this.cycle){
-				if(!other.cycle.contains(node))
+			}
+			for (String node : this.cycle) {
+				if (!other.cycle.contains(node)) {
 					return false;
+				}
 			}
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public int hashCode() {
+		return toString().hashCode();
 	}
 }

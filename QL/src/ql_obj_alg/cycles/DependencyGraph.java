@@ -1,24 +1,19 @@
 package ql_obj_alg.cycles;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
-public class DependencyGraph implements Iterable<String>{
-	private Map<String,VariableDependency> varDependencies;
-	
-	public DependencyGraph(){
-		this.varDependencies = new HashMap<String,VariableDependency>();
-	}
+public class DependencyGraph {
+	private Map<String, VariableDependencies> varDependencies;
 
-	public void setDefinitionIndependent(String var) {
-		getNode(var).removeDefinitionDepedencies();
+	public DependencyGraph() {
+		this.varDependencies = new HashMap<String, VariableDependencies>();
 	}
 
 	public void addDefinitionDependecies(String var, Dependencies dependencies) {
-		VariableDependency vd = getNode(var);
-		if(dependencies.isEmpty())
+		VariableDependencies vd = getNodeVariableDependencies(var);
+		if (dependencies.isEmpty())
 			vd.removeDefinitionDepedencies();
 		else
 			vd.addDefinitionDependencies(dependencies);
@@ -26,25 +21,23 @@ public class DependencyGraph implements Iterable<String>{
 	}
 
 	public void addValueDependecies(String var, Dependencies currentDependencies) {
-		VariableDependency vd = getNode(var);
+		VariableDependencies vd = getNodeVariableDependencies(var);
 		vd.addValueDependencies(currentDependencies);
 		varDependencies.put(var, vd);
 	}
-	
-	public Set<String> getNodeDependencies(String var) {
-		return getNode(var).getDependenciesToSet();
+
+	public Dependencies getNodeDependencies(String var) {
+		return getNodeVariableDependencies(var).getDependencies();
 	}
 
-	@Override
-	public Iterator<String> iterator() {
-		return varDependencies.keySet().iterator();
+	public Set<String> nodes() {
+		return varDependencies.keySet();
 	}
-	
-	
-	private VariableDependency getNode(String var){
-		VariableDependency vd = varDependencies.get(var);
-		if(vd == null){
-			vd = new VariableDependency();
+
+	private VariableDependencies getNodeVariableDependencies(String var) {
+		VariableDependencies vd = varDependencies.get(var);
+		if (vd == null) {
+			vd = new VariableDependencies();
 		}
 		return vd;
 	}
