@@ -15,8 +15,8 @@ import ql_obj_alg.check.errors.GenError;
 import ql_obj_alg.check.types.TBoolean;
 import ql_obj_alg.check.warnings.Warning;
 import ql_obj_alg.cycles.Cycle;
+import ql_obj_alg.cycles.DependencyGraph;
 import ql_obj_alg.cycles.ExprDependencies;
-import ql_obj_alg.cycles.FillDependencyGraph;
 import ql_obj_alg.cycles.FormDependencies;
 import ql_obj_alg.cycles.IDetectCycle;
 import ql_obj_alg.cycles.StmtDependencies;
@@ -27,7 +27,7 @@ import ql_obj_alg.syntax.IStmtAlg;
 public class CyclicDependenciesTest{
 
 	ErrorReporting report;
-	FillDependencyGraph dcd;
+	DependencyGraph dcd;
 	
 	GenError expectedError;
 	Warning expectedWarning;
@@ -35,7 +35,7 @@ public class CyclicDependenciesTest{
 	@Before
 	public void setUp() throws Exception {
 		report = new ErrorReporting();
-		dcd = new FillDependencyGraph();
+		dcd = new DependencyGraph();
 		expectedError = null;
 		expectedWarning = null;
 	}

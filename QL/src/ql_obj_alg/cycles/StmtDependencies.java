@@ -7,57 +7,72 @@ import ql_obj_alg.syntax.IStmtAlg;
 
 public class StmtDependencies implements
 		IStmtAlg<IExpDependency, IDependencyGraph> {
-	
+
 	@Override
-	public IDependencyGraph iff(final IExpDependency cond, final List<IDependencyGraph> statements) {
-		return new IDependencyGraph(){
-			public void dependencies(FillDependencyGraph dependencyGraph){
-				dependencyGraph.newDefinitionDependencyLevel();
-				dependencyGraph.addNodesToDependOn(cond.dependency(dependencyGraph));
-				
-				for(IDependencyGraph stmt : statements)
-					stmt.dependencies(dependencyGraph);
-				
-				dependencyGraph.revert();
+	public IDependencyGraph iff(final IExpDependency cond,
+			final List<IDependencyGraph> statements) {
+		return new IDependencyGraph() {
+
+			@Override
+			public void fill(DependencyGraph dependencyGraph,
+					Dependencies currentDependencies) {
+				Dependencies newDependencies = cond
+						.dependency(currentDependencies);
+
+				for (IDependencyGraph stmt : statements) {
+					stmt.fill(dependencyGraph, newDependencies);
+				}
 			}
 		};
 	}
 
 	@Override
-	public IDependencyGraph iffelse(final IExpDependency cond, final List<IDependencyGraph> statementsIf,
+	public IDependencyGraph iffelse(final IExpDependency cond,
+			final List<IDependencyGraph> statementsIf,
 			final List<IDependencyGraph> statementsElse) {
-		return new IDependencyGraph(){
-			public void dependencies(FillDependencyGraph dependencyGraph){
-				dependencyGraph.newDefinitionDependencyLevel();
-				dependencyGraph.addNodesToDependOn(cond.dependency(dependencyGraph));
-				
-				for(IDependencyGraph stmt : statementsIf)
-					stmt.dependencies(dependencyGraph);
-				
-				for(IDependencyGraph stmt : statementsElse)
-					stmt.dependencies(dependencyGraph);
-				
-				dependencyGraph.revert();
+		return new IDependencyGraph() {
+
+			@Override
+			public void fill(DependencyGraph dependencyGraph,
+					Dependencies currentDependencies) {
+
+				Dependencies newDependencies = cond
+						.dependency(currentDependencies);
+
+				for (IDependencyGraph stmt : statementsIf) {
+					stmt.fill(dependencyGraph, newDependencies);
+				}
+
+				for (IDependencyGraph stmt : statementsElse) {
+					stmt.fill(dependencyGraph, newDependencies);
+				}
 			}
 		};
 	}
 
 	@Override
-	public IDependencyGraph question(final String id, final String label, Type type) {
-		return new IDependencyGraph(){
-			public void dependencies(FillDependencyGraph dependencyGraph){
-				dependencyGraph.addDefinitionDependentNode(id);
+	public IDependencyGraph question(final String id, final String label,
+			Type type) {
+		return new IDependencyGraph() {
+
+			@Override
+			public void fill(DependencyGraph dependencyGraph,
+					Dependencies currentDependencies) {
+				dependencyGraph.addDefinitionDependecies(id, currentDependencies);
 			}
 		};
 	}
 
 	@Override
-	public IDependencyGraph question(final String id, final String label, final Type type,
-			final IExpDependency exp) {
-		return new IDependencyGraph(){
-			public void dependencies(FillDependencyGraph dependencyGraph){
-				dependencyGraph.addDefinitionDependentNode(id);
-				dependencyGraph.addValueDependentNode(id, exp.dependency(dependencyGraph));
+	public IDependencyGraph question(final String id, final String label,
+			final Type type, final IExpDependency exp) {
+		return new IDependencyGraph() {
+
+			@Override
+			public void fill(DependencyGraph dependencyGraph,
+					Dependencies currentDependencies) {
+				dependencyGraph.addDefinitionDependecies(id, currentDependencies);
+				dependencyGraph.addValueDependecies(id, exp.dependency(new Dependencies()));
 			}
 		};
 	}

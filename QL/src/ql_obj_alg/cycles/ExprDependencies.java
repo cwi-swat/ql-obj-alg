@@ -2,40 +2,49 @@ package ql_obj_alg.cycles;
 
 import ql_obj_alg.syntax.IExpAlg;
 
-public class ExprDependencies implements IExpAlg<IExpDependency>{
+public class ExprDependencies implements IExpAlg<IExpDependency> {
 
 	@Override
 	public IExpDependency lit(int x) {
-		return new IExpDependency(){
-			public Dependencies dependency(FillDependencyGraph dependencyGraph){
-				return new Dependencies();
+		return new IExpDependency() {
+
+			@Override
+			public Dependencies dependency(Dependencies currentDependencies) {
+				return currentDependencies;
 			}
 		};
 	}
 
 	@Override
 	public IExpDependency bool(boolean b) {
-		return new IExpDependency(){
-			public Dependencies dependency(FillDependencyGraph dependencyGraph){
-				return new Dependencies();
+		return new IExpDependency() {
+
+			@Override
+			public Dependencies dependency(Dependencies currentDependencies) {
+				return currentDependencies;
 			}
 		};
 	}
 
 	@Override
 	public IExpDependency string(String s) {
-		return new IExpDependency(){
-			public Dependencies dependency(FillDependencyGraph dependencyGraph){
-				return new Dependencies();
+		return new IExpDependency() {
+
+			@Override
+			public Dependencies dependency(Dependencies currentDependencies) {
+				return currentDependencies;
 			}
 		};
 	}
 
 	@Override
 	public IExpDependency var(final String s) {
-		return new IExpDependency(){
-			public Dependencies dependency(FillDependencyGraph dependencyGraph){
+		return new IExpDependency() {
+
+			@Override
+			public Dependencies dependency(Dependencies currentDependencies) {
 				Dependencies newDependencies = new Dependencies();
+				newDependencies.addAll(currentDependencies);
 				newDependencies.add(s);
 				return newDependencies;
 			}
@@ -43,102 +52,123 @@ public class ExprDependencies implements IExpAlg<IExpDependency>{
 	}
 
 	@Override
-	public IExpDependency mul(final IExpDependency lhs,final IExpDependency rhs) {
-		return new IExpDependency(){
-			public Dependencies dependency(FillDependencyGraph dependencyGraph){
-				return unionDependencies(lhs, rhs, dependencyGraph);
+	public IExpDependency mul(final IExpDependency lhs, final IExpDependency rhs) {
+		return new IExpDependency() {
+
+			@Override
+			public Dependencies dependency(Dependencies currentDependencies) {
+				return unionDependencies(lhs, rhs, currentDependencies);
 			}
 		};
 	}
 
 	@Override
 	public IExpDependency div(final IExpDependency lhs, final IExpDependency rhs) {
-		return new IExpDependency(){
-			public Dependencies dependency(FillDependencyGraph dependencyGraph){
-				return unionDependencies(lhs, rhs, dependencyGraph);
+		return new IExpDependency() {
+
+			@Override
+			public Dependencies dependency(Dependencies currentDependencies) {
+				return unionDependencies(lhs, rhs, currentDependencies);
 			}
 		};
 	}
 
 	@Override
 	public IExpDependency add(final IExpDependency lhs, final IExpDependency rhs) {
-		return new IExpDependency(){
-			public Dependencies dependency(FillDependencyGraph dependencyGraph){
-				return unionDependencies(lhs, rhs, dependencyGraph);
+		return new IExpDependency() {
+
+			@Override
+			public Dependencies dependency(Dependencies currentDependencies) {
+				return unionDependencies(lhs, rhs, currentDependencies);
 			}
 		};
 	}
 
 	@Override
 	public IExpDependency sub(final IExpDependency lhs, final IExpDependency rhs) {
-		return new IExpDependency(){
-			public Dependencies dependency(FillDependencyGraph dependencyGraph){
-				return unionDependencies(lhs, rhs, dependencyGraph);
+		return new IExpDependency() {
+
+			@Override
+			public Dependencies dependency(Dependencies currentDependencies) {
+				return unionDependencies(lhs, rhs, currentDependencies);
 			}
 		};
 	}
 
 	@Override
 	public IExpDependency eq(final IExpDependency lhs, final IExpDependency rhs) {
-		return new IExpDependency(){
-			public Dependencies dependency(FillDependencyGraph dependencyGraph){
-				return unionDependencies(lhs, rhs, dependencyGraph);
+		return new IExpDependency() {
+
+			@Override
+			public Dependencies dependency(Dependencies currentDependencies) {
+				return unionDependencies(lhs, rhs, currentDependencies);
 			}
 		};
 	}
 
 	@Override
 	public IExpDependency neq(final IExpDependency lhs, final IExpDependency rhs) {
-		return new IExpDependency(){
-			public Dependencies dependency(FillDependencyGraph dependencyGraph){
-				return unionDependencies(lhs, rhs, dependencyGraph);
+		return new IExpDependency() {
+
+			@Override
+			public Dependencies dependency(Dependencies currentDependencies) {
+				return unionDependencies(lhs, rhs, currentDependencies);
 			}
 		};
 	}
 
 	@Override
 	public IExpDependency lt(final IExpDependency lhs, final IExpDependency rhs) {
-		return new IExpDependency(){
-			public Dependencies dependency(FillDependencyGraph dependencyGraph){
-				return unionDependencies(lhs, rhs, dependencyGraph);
+		return new IExpDependency() {
+
+			@Override
+			public Dependencies dependency(Dependencies currentDependencies) {
+				return unionDependencies(lhs, rhs, currentDependencies);
 			}
 		};
 	}
 
 	@Override
 	public IExpDependency leq(final IExpDependency lhs, final IExpDependency rhs) {
-		return new IExpDependency(){
-			public Dependencies dependency(FillDependencyGraph dependencyGraph){
-				return unionDependencies(lhs, rhs, dependencyGraph);
+		return new IExpDependency() {
+
+			@Override
+			public Dependencies dependency(Dependencies currentDependencies) {
+				return unionDependencies(lhs, rhs, currentDependencies);
 			}
 		};
 	}
 
 	@Override
 	public IExpDependency gt(final IExpDependency lhs, final IExpDependency rhs) {
-		return new IExpDependency(){
-			public Dependencies dependency(FillDependencyGraph dependencyGraph){
-				return unionDependencies(lhs, rhs, dependencyGraph);
+		return new IExpDependency() {
+
+			@Override
+			public Dependencies dependency(Dependencies currentDependencies) {
+				return unionDependencies(lhs, rhs, currentDependencies);
 			}
 		};
 	}
 
 	@Override
 	public IExpDependency geq(final IExpDependency lhs, final IExpDependency rhs) {
-		return new IExpDependency(){
-			public Dependencies dependency(FillDependencyGraph dependencyGraph){
-				return unionDependencies(lhs, rhs, dependencyGraph);
+		return new IExpDependency() {
+
+			@Override
+			public Dependencies dependency(Dependencies currentDependencies) {
+				return unionDependencies(lhs, rhs, currentDependencies);
 			}
 		};
 	}
 
-
 	@Override
 	public IExpDependency not(final IExpDependency exp) {
-		return new IExpDependency(){
-			public Dependencies dependency(FillDependencyGraph dependencyGraph){
+		return new IExpDependency() {
+
+			@Override
+			public Dependencies dependency(Dependencies currentDependencies) {
 				Dependencies newDependencies = new Dependencies();
-				newDependencies.addAll(exp.dependency(dependencyGraph));
+				newDependencies.addAll(exp.dependency(currentDependencies));
 				return newDependencies;
 			}
 		};
@@ -146,28 +176,24 @@ public class ExprDependencies implements IExpAlg<IExpDependency>{
 
 	@Override
 	public IExpDependency and(final IExpDependency lhs, final IExpDependency rhs) {
-		return new IExpDependency(){
-			public Dependencies dependency(FillDependencyGraph dependencyGraph){
-				return unionDependencies(lhs, rhs, dependencyGraph);
+		return new IExpDependency() {
+
+			@Override
+			public Dependencies dependency(Dependencies currentDependencies) {
+				return unionDependencies(lhs, rhs, currentDependencies);
 			}
 		};
 	}
 
 	@Override
 	public IExpDependency or(final IExpDependency lhs, final IExpDependency rhs) {
-		return new IExpDependency(){
-			public Dependencies dependency(FillDependencyGraph dependencyGraph){
-				return unionDependencies(lhs, rhs, dependencyGraph);
+		return new IExpDependency() {
+
+			@Override
+			public Dependencies dependency(Dependencies currentDependencies) {
+				return unionDependencies(lhs, rhs, currentDependencies);
 			}
 		};
-	}
-	
-	protected Dependencies unionDependencies(final IExpDependency lhs,
-			final IExpDependency rhs, FillDependencyGraph dependencyGraph) {
-		Dependencies newDependencies = new Dependencies();
-		newDependencies.addAll(lhs.dependency(dependencyGraph));
-		newDependencies.addAll(rhs.dependency(dependencyGraph));
-		return newDependencies;
 	}
 
 	@Override
@@ -175,12 +201,20 @@ public class ExprDependencies implements IExpAlg<IExpDependency>{
 		return new IExpDependency() {
 
 			@Override
-			public Dependencies dependency(FillDependencyGraph dependencyGraph) {
+			public Dependencies dependency(Dependencies currentDependencies) {
 				Dependencies newDependencies = new Dependencies();
-				newDependencies.addAll(e.dependency(dependencyGraph));
+				newDependencies.addAll(e.dependency(currentDependencies));
 				return newDependencies;
 			}
-			
+
 		};
+	}
+
+	protected Dependencies unionDependencies(final IExpDependency lhs,
+			final IExpDependency rhs, Dependencies currentDependencies) {
+		Dependencies newDependencies = new Dependencies();
+		newDependencies.addAll(lhs.dependency(currentDependencies));
+		newDependencies.addAll(rhs.dependency(currentDependencies));
+		return newDependencies;
 	}
 }
