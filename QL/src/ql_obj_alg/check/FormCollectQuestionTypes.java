@@ -11,8 +11,9 @@ public class FormCollectQuestionTypes implements
 	public ICollect form(final String id, final List<ICollect> statements) {
 		return new ICollect(){
 			public void collect(TypeEnvironment typeEnv, ErrorReporting report){
-				for(ICollect stmt : statements)
-				stmt.collect(typeEnv,report);
+				for (ICollect stmt : statements) {
+					stmt.collect(typeEnv,report);
+				}
 			}
 		};
 	}
