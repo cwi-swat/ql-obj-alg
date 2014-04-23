@@ -19,7 +19,8 @@ import ql_obj_alg.syntax.IFormAlg;
 import ql_obj_alg.syntax.IStmtAlg;
 import ql_obj_alg.util.GenerateBinarySearchForm;
 
-public class Flatten<E, S, F, EA extends IExpAlg<E>, SA extends IStmtAlg<E, S>, FA extends IFormAlg<E, S, F>> implements IStmtAlg<E, IFlatten<E, S>>, IFormAlg<E, IFlatten<E, S>, F> {
+public class Flatten<E, S, F, EA extends IExpAlg<E>, SA extends IStmtAlg<E, S>, FA extends IFormAlg<E, S, F>> 
+	implements IStmtAlg<E, IFlatten<E, S>>, IFormAlg<E, IFlatten<E, S>, F> {
 
 	private EA exp;
 	private SA stmt;
