@@ -31,8 +31,6 @@ public class TheParser {
 	    QLParser qlParser = new QLParser(tokens);
 	    IAllAlg builderBuilder = Builder.builderBuilder(IAllAlg.class);
 	    qlParser.setBuilder(builderBuilder);
-	    qlParser.setErrorHandler(new BailErrorStrategy());
-	    qlParser.removeErrorListeners();
 		return (Builder) qlParser.f()._f;
 	}
 	
@@ -42,8 +40,6 @@ public class TheParser {
 	    CommonTokenStream tokens = new CommonTokenStream(lexer);
 	    QLParser qlParser = new QLParser(tokens);
 	    qlParser.setBuilder(alg);
-	    qlParser.setErrorHandler(new BailErrorStrategy());
-	    qlParser.removeErrorListeners();
 		return (F) qlParser.f()._f;
 	}
 	
