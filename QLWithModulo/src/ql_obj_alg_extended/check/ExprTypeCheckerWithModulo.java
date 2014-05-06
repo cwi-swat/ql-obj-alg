@@ -1,13 +1,13 @@
-package ql_obj_alg_extended.operation.typechecker;
+package ql_obj_alg_extended.check;
 
-import ql_obj_alg.operation.typechecker.ExprTypeChecker;
-import ql_obj_alg.operation.typechecker.IExpType;
-import ql_obj_alg.report_system.error_reporting.ErrorReporting;
-import ql_obj_alg.report_system.errors.UnexpectedTypeInBinaryOpError;
-import ql_obj_alg.types.TNumber;
-import ql_obj_alg.types.Type;
-import ql_obj_alg.types.TypeEnvironment;
-import ql_obj_alg_extended.object_algebra_interfaces.IExpAlgWithModulo;
+import ql_obj_alg.check.ExprTypeChecker;
+import ql_obj_alg.check.IExpType;
+import ql_obj_alg.check.ErrorReporting;
+import ql_obj_alg.check.errors.UnexpectedTypeInBinaryOpError;
+import ql_obj_alg.check.types.TNumber;
+import ql_obj_alg.check.types.Type;
+import ql_obj_alg.check.TypeEnvironment;
+import ql_obj_alg_extended.syntax.IExpAlgWithModulo;
 
 public class ExprTypeCheckerWithModulo extends ExprTypeChecker implements IExpAlgWithModulo<IExpType> {
 

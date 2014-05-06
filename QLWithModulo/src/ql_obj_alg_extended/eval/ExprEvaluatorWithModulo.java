@@ -1,14 +1,14 @@
-package ql_obj_alg_extended.operation.evaluator;
+package ql_obj_alg_extended.eval;
 
 import java.util.List;
 
-import ql_obj_alg.operation.evaluator.ExprEvaluator;
-import ql_obj_alg.operation.evaluator.IDepsAndEvalE;
-import ql_obj_alg.operation.evaluator.ValueEnvironment;
-import ql_obj_alg.operation.evaluator.value.VInteger;
-import ql_obj_alg.operation.evaluator.value.VUndefined;
-import ql_obj_alg.operation.evaluator.value.Value;
-import ql_obj_alg_extended.object_algebra_interfaces.IExpAlgWithModulo;
+import ql_obj_alg.eval.ExprEvaluator;
+import ql_obj_alg.eval.IDepsAndEvalE;
+import ql_obj_alg.eval.ValueEnvironment;
+import ql_obj_alg.eval.values.VInteger;
+import ql_obj_alg.eval.values.VUndefined;
+import ql_obj_alg.eval.values.Value;
+import ql_obj_alg_extended.syntax.IExpAlgWithModulo;
 
 public class ExprEvaluatorWithModulo extends ExprEvaluator implements IExpAlgWithModulo<IDepsAndEvalE> {
 
