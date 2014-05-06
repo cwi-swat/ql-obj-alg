@@ -1,9 +1,9 @@
-package ql_obj_alg_extended.operation.printer;
+package ql_obj_alg_extended.format;
 
-import ql_obj_alg.operation.printer.ExprFormat;
-import ql_obj_alg.operation.printer.IFormatWithPrecedence;
-import ql_obj_alg.operation.printer.IPrecedence;
-import ql_obj_alg_extended.object_algebra_interfaces.IExpAlgWithModulo;
+import ql_obj_alg.format.ExprFormat;
+import ql_obj_alg.format.IFormatWithPrecedence;
+import ql_obj_alg.format.IPrecedence;
+import ql_obj_alg_extended.syntax.IExpAlgWithModulo;
 
 public class ExprFormatWithModulo extends ExprFormat<ExprPrecedenceWithModulo> implements IExpAlgWithModulo<IFormatWithPrecedence> {
 

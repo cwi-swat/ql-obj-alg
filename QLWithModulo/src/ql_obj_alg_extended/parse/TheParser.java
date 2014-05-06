@@ -1,4 +1,5 @@
-package ql_obj_alg.parse;
+package ql_obj_alg_extended.parse;
+
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -10,7 +11,7 @@ import noa.Builder;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 
-import ql_obj_alg.syntax.IAllAlg;
+import ql_obj_alg_extended.syntax.IAllAlgWithModulo;
 
 public class TheParser {
 	
@@ -26,24 +27,24 @@ public class TheParser {
 	
 	@SuppressWarnings("rawtypes")
 	public static Builder parse(InputStream input) throws IOException {
-		QLLexer lexer = new QLLexer(new ANTLRInputStream(input));
+		QLWithModuloLexer lexer = new QLWithModuloLexer(new ANTLRInputStream(input));
 	    CommonTokenStream tokens = new CommonTokenStream(lexer);
-	    QLParser qlParser = new QLParser(tokens);
-	    IAllAlg builderBuilder = Builder.builderBuilder(IAllAlg.class);
+	    QLWithModuloParser qlParser = new QLWithModuloParser(tokens);
+	    IAllAlgWithModulo builderBuilder = Builder.builderBuilder(IAllAlgWithModulo.class);
 	    qlParser.setBuilder(builderBuilder);
 		return (Builder) qlParser.f()._f;
 	}
 	
 	@SuppressWarnings({"unchecked" })
-	public static <E, S, F> F parse(InputStream input, IAllAlg<E, S, F> alg) throws IOException {
-		QLLexer lexer = new QLLexer(new ANTLRInputStream(input));
+	public static <E, S, F> F parse(InputStream input, IAllAlgWithModulo<E, S, F> alg) throws IOException {
+		QLWithModuloLexer lexer = new QLWithModuloLexer(new ANTLRInputStream(input));
 	    CommonTokenStream tokens = new CommonTokenStream(lexer);
-	    QLParser qlParser = new QLParser(tokens);
+	    QLWithModuloParser qlParser = new QLWithModuloParser(tokens);
 	    qlParser.setBuilder(alg);
 		return (F) qlParser.f()._f;
 	}
 	
-	public static <E, S, F> F parse(String s, IAllAlg<E, S, F> alg) {
+	public static <E, S, F> F parse(String s, IAllAlgWithModulo<E, S, F> alg) {
 		try {
 			return parse(new ByteArrayInputStream(s.getBytes("UTF-8")), alg);
 		} catch (UnsupportedEncodingException e) {
