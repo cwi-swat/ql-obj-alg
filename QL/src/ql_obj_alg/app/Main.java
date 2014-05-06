@@ -51,6 +51,15 @@ public class Main {
 
 	private Builder builder;
     
+
+	protected Builder getBuilder() {
+		return builder;
+	}
+
+	protected void setBuilder(Builder builder) {
+		this.builder = builder;
+	}
+	
 	public void execute(){
     	ErrorReporting errorReport = new ErrorReporting();
     	if(!typeCheckerForm(errorReport)){
@@ -65,7 +74,7 @@ public class Main {
     
 	protected void load(String inputFile){
 		try {
-			builder = TheParser.parse(new FileInputStream(inputFile));
+			setBuilder(TheParser.parse(new FileInputStream(inputFile)));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -85,7 +94,7 @@ public class Main {
 	}
 
 	protected void printForm(StringWriter w, Object ...algebras) {
-		IFormat printingForm = builder.build(algebras);
+		IFormat printingForm = getBuilder().build(algebras);
 		printingForm.format(0, false, w);
         System.out.println(w);
 	}
@@ -108,7 +117,7 @@ public class Main {
 	}
 
 	protected void checkCyclicDependencies(ErrorReporting report, Object ...algebras) {
-		IDetectCycle cyclesDetection = builder.build(algebras);
+		IDetectCycle cyclesDetection = getBuilder().build(algebras);
 		cyclesDetection.detect(report);
 	}
 
@@ -122,13 +131,13 @@ public class Main {
 
 	protected void checkTypes(ErrorReporting report,
 			TypeEnvironment typeEnv, Object ...algebras) {
-		ITypeCheck checkTypes = builder.build(algebras);
+		ITypeCheck checkTypes = getBuilder().build(algebras);
 		checkTypes.check(typeEnv, report);
 	}
 
 	protected void collectQuestions(ErrorReporting report,
 			TypeEnvironment typeEnv, Object ... algebras) {
-		ICollect collectTypes = builder.build(algebras);
+		ICollect collectTypes = getBuilder().build(algebras);
 		collectTypes.collect(typeEnv,report);
 	}
 	
@@ -144,7 +153,8 @@ public class Main {
 
 	protected void createUI(ValueEnvironment valEnv, Registry registry,
 			Object ...algebras) {
-		builder.<IRenderForm>build(algebras).render(valEnv, registry);
+		getBuilder().<IRenderForm>build(algebras).render(valEnv, registry);
 	}
+
 	
 }
