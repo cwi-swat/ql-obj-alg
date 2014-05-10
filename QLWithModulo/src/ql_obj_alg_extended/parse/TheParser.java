@@ -32,7 +32,7 @@ public class TheParser {
 	    QLWithModuloParser qlParser = new QLWithModuloParser(tokens);
 	    IAllAlgWithModulo builderBuilder = Builder.builderBuilder(IAllAlgWithModulo.class);
 	    qlParser.setBuilder(builderBuilder);
-		return (Builder) qlParser.f()._f;
+		return (Builder) qlParser.form()._form;
 	}
 	
 	@SuppressWarnings({"unchecked" })
@@ -41,7 +41,7 @@ public class TheParser {
 	    CommonTokenStream tokens = new CommonTokenStream(lexer);
 	    QLWithModuloParser qlParser = new QLWithModuloParser(tokens);
 	    qlParser.setBuilder(alg);
-		return (F) qlParser.f()._f;
+		return (F) qlParser.form()._form;
 	}
 	
 	public static <E, S, F> F parse(String s, IAllAlgWithModulo<E, S, F> alg) {

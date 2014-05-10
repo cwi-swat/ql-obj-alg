@@ -1,6 +1,6 @@
-// Generated from src;ql_obj_alg_extended;parse; by ANTLR 4.2.2
+// Generated from src/ql_obj_alg/parse/ by ANTLR 4.2.2
 
-package ql_obj_alg_extended.parse;
+package ql_obj_alg.parse;
 import static ql_obj_alg.syntax.Tokens.*;
 
 import org.antlr.v4.runtime.atn.*;
@@ -13,20 +13,20 @@ import java.util.Iterator;
 import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
-public class QLWithModuloParser extends Parser {
+public class QLParser extends Parser {
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__22=1, T__21=2, T__20=3, T__19=4, T__18=5, T__17=6, T__16=7, T__15=8, 
-		T__14=9, T__13=10, T__12=11, T__11=12, T__10=13, T__9=14, T__8=15, T__7=16, 
-		T__6=17, T__5=18, T__4=19, T__3=20, T__2=21, T__1=22, T__0=23, COMMENT=24, 
-		TYPE=25, ID=26, WS=27, INTEGER=28, STRING=29, BOOL=30;
+		T__21=1, T__20=2, T__19=3, T__18=4, T__17=5, T__16=6, T__15=7, T__14=8, 
+		T__13=9, T__12=10, T__11=11, T__10=12, T__9=13, T__8=14, T__7=15, T__6=16, 
+		T__5=17, T__4=18, T__3=19, T__2=20, T__1=21, T__0=22, COMMENT=23, TYPE=24, 
+		ID=25, STRING=26, BOOL=27, INTEGER=28, WS=29;
 	public static final String[] tokenNames = {
 		"<INVALID>", "'/'", "'!='", "':'", "'||'", "'>='", "'{'", "'&&'", "'=='", 
-		"'<'", "'='", "'}'", "'if'", "'>'", "'<='", "'!'", "'%'", "'else'", "'('", 
-		"')'", "'*'", "'+'", "'form'", "'-'", "COMMENT", "TYPE", "ID", "WS", "INTEGER", 
-		"STRING", "BOOL"
+		"'<'", "'='", "'}'", "'if'", "'>'", "'<='", "'!'", "'else'", "'('", "')'", 
+		"'*'", "'+'", "'form'", "'-'", "COMMENT", "TYPE", "ID", "STRING", "BOOL", 
+		"INTEGER", "WS"
 	};
 	public static final int
 		RULE_form = 0, RULE_exp = 1, RULE_stmt = 2;
@@ -35,7 +35,7 @@ public class QLWithModuloParser extends Parser {
 	};
 
 	@Override
-	public String getGrammarFileName() { return "src;ql_obj_alg_extended;parse;"; }
+	public String getGrammarFileName() { return "parse"; }
 
 	@Override
 	public String[] getTokenNames() { return tokenNames; }
@@ -50,8 +50,8 @@ public class QLWithModuloParser extends Parser {
 	public ATN getATN() { return _ATN; }
 
 
-	private ql_obj_alg_extended.syntax.IAllAlgWithModulo builder;
-	public void setBuilder(ql_obj_alg_extended.syntax.IAllAlgWithModulo builder) { this.builder = builder; }
+	private ql_obj_alg.syntax.IAllAlg builder;
+	public void setBuilder(ql_obj_alg.syntax.IAllAlg builder) { this.builder = builder; }
 	private static <X> java.util.List<X> lift(String name, java.util.List<?> ctxs, X ...heads) {
 	  java.util.List<X> l = new java.util.ArrayList<X>();
 	  for (X h: heads) { l.add(h); }
@@ -65,7 +65,7 @@ public class QLWithModuloParser extends Parser {
 	  return l;
 	}
 
-	public QLWithModuloParser(TokenStream input) {
+	public QLParser(TokenStream input) {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
@@ -74,7 +74,7 @@ public class QLWithModuloParser extends Parser {
 		public Token ID_0;
 		public StmtContext stmt;
 		public List<StmtContext> stmt_1 = new ArrayList<StmtContext>();
-		public TerminalNode ID() { return getToken(QLWithModuloParser.ID, 0); }
+		public TerminalNode ID() { return getToken(QLParser.ID, 0); }
 		public StmtContext stmt(int i) {
 			return getRuleContext(StmtContext.class,i);
 		}
@@ -94,7 +94,7 @@ public class QLWithModuloParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(6); match(22);
+			setState(6); match(21);
 			setState(7); ((FormContext)_localctx).ID_0 = match(ID);
 			setState(8); match(6);
 			setState(12);
@@ -140,10 +140,10 @@ public class QLWithModuloParser extends Parser {
 		public List<ExpContext> exp() {
 			return getRuleContexts(ExpContext.class);
 		}
-		public TerminalNode ID() { return getToken(QLWithModuloParser.ID, 0); }
-		public TerminalNode BOOL() { return getToken(QLWithModuloParser.BOOL, 0); }
-		public TerminalNode INTEGER() { return getToken(QLWithModuloParser.INTEGER, 0); }
-		public TerminalNode STRING() { return getToken(QLWithModuloParser.STRING, 0); }
+		public TerminalNode ID() { return getToken(QLParser.ID, 0); }
+		public TerminalNode BOOL() { return getToken(QLParser.BOOL, 0); }
+		public TerminalNode INTEGER() { return getToken(QLParser.INTEGER, 0); }
+		public TerminalNode STRING() { return getToken(QLParser.STRING, 0); }
 		public ExpContext exp(int i) {
 			return getRuleContext(ExpContext.class,i);
 		}
@@ -190,11 +190,11 @@ public class QLWithModuloParser extends Parser {
 				((ExpContext)_localctx)._exp =  builder.bool(bool((((ExpContext)_localctx).BOOL_0!=null?((ExpContext)_localctx).BOOL_0.getText():null)));
 				}
 				break;
-			case 18:
+			case 17:
 				{
-				setState(27); match(18);
+				setState(27); match(17);
 				setState(28); ((ExpContext)_localctx).exp_0 = exp(0);
-				setState(29); match(19);
+				setState(29); match(18);
 				((ExpContext)_localctx)._exp =  builder.bracket((((ExpContext)_localctx).exp_0._exp));
 				}
 				break;
@@ -234,12 +234,12 @@ public class QLWithModuloParser extends Parser {
 						setState(39);
 						((ExpContext)_localctx).op_100 = _input.LT(1);
 						_la = _input.LA(1);
-						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << 1) | (1L << 16) | (1L << 20))) != 0)) ) {
+						if ( !(_la==1 || _la==19) ) {
 							((ExpContext)_localctx).op_100 = (Token)_errHandler.recoverInline(this);
 						}
 						consume();
 						setState(40); ((ExpContext)_localctx).exp_1 = exp(6);
-						((ExpContext)_localctx)._exp =  (((ExpContext)_localctx).op_100!=null?((ExpContext)_localctx).op_100.getText():null).equals("/") ? builder.div(((ExpContext)_localctx).exp_0._exp, ((ExpContext)_localctx).exp_1._exp) : (((ExpContext)_localctx).op_100!=null?((ExpContext)_localctx).op_100.getText():null).equals("%") ? builder.mod(((ExpContext)_localctx).exp_0._exp, ((ExpContext)_localctx).exp_1._exp) : (((ExpContext)_localctx).op_100!=null?((ExpContext)_localctx).op_100.getText():null).equals("*") ? builder.mul(((ExpContext)_localctx).exp_0._exp, ((ExpContext)_localctx).exp_1._exp) : null;
+						((ExpContext)_localctx)._exp =  (((ExpContext)_localctx).op_100!=null?((ExpContext)_localctx).op_100.getText():null).equals("/") ? builder.div(((ExpContext)_localctx).exp_0._exp, ((ExpContext)_localctx).exp_1._exp) : (((ExpContext)_localctx).op_100!=null?((ExpContext)_localctx).op_100.getText():null).equals("*") ? builder.mul(((ExpContext)_localctx).exp_0._exp, ((ExpContext)_localctx).exp_1._exp) : null;
 						}
 						break;
 
@@ -253,7 +253,7 @@ public class QLWithModuloParser extends Parser {
 						setState(44);
 						((ExpContext)_localctx).op_90 = _input.LT(1);
 						_la = _input.LA(1);
-						if ( !(_la==21 || _la==23) ) {
+						if ( !(_la==20 || _la==22) ) {
 							((ExpContext)_localctx).op_90 = (Token)_errHandler.recoverInline(this);
 						}
 						consume();
@@ -339,12 +339,12 @@ public class QLWithModuloParser extends Parser {
 		public ExpContext exp() {
 			return getRuleContext(ExpContext.class,0);
 		}
-		public TerminalNode ID() { return getToken(QLWithModuloParser.ID, 0); }
-		public TerminalNode TYPE() { return getToken(QLWithModuloParser.TYPE, 0); }
+		public TerminalNode ID() { return getToken(QLParser.ID, 0); }
+		public TerminalNode TYPE() { return getToken(QLParser.TYPE, 0); }
 		public StmtContext stmt(int i) {
 			return getRuleContext(StmtContext.class,i);
 		}
-		public TerminalNode STRING() { return getToken(QLWithModuloParser.STRING, 0); }
+		public TerminalNode STRING() { return getToken(QLParser.STRING, 0); }
 		public List<StmtContext> stmt() {
 			return getRuleContexts(StmtContext.class);
 		}
@@ -365,9 +365,9 @@ public class QLWithModuloParser extends Parser {
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(68); match(12);
-				setState(69); match(18);
+				setState(69); match(17);
 				setState(70); ((StmtContext)_localctx).exp_0 = exp(0);
-				setState(71); match(19);
+				setState(71); match(18);
 				setState(72); match(6);
 				setState(76);
 				_errHandler.sync(this);
@@ -392,9 +392,9 @@ public class QLWithModuloParser extends Parser {
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(82); match(12);
-				setState(83); match(18);
+				setState(83); match(17);
 				setState(84); ((StmtContext)_localctx).exp_0 = exp(0);
-				setState(85); match(19);
+				setState(85); match(18);
 				setState(86); match(6);
 				setState(90);
 				_errHandler.sync(this);
@@ -411,7 +411,7 @@ public class QLWithModuloParser extends Parser {
 					_la = _input.LA(1);
 				}
 				setState(93); match(11);
-				setState(94); match(17);
+				setState(94); match(16);
 				setState(95); match(6);
 				setState(99);
 				_errHandler.sync(this);
@@ -451,9 +451,9 @@ public class QLWithModuloParser extends Parser {
 				setState(112); ((StmtContext)_localctx).STRING_1 = match(STRING);
 				setState(113); ((StmtContext)_localctx).TYPE_2 = match(TYPE);
 				setState(114); match(10);
-				setState(115); match(18);
+				setState(115); match(17);
 				setState(116); ((StmtContext)_localctx).exp_3 = exp(0);
-				setState(117); match(19);
+				setState(117); match(18);
 				((StmtContext)_localctx)._stmt =  builder.question(id((((StmtContext)_localctx).ID_0!=null?((StmtContext)_localctx).ID_0.getText():null)),string((((StmtContext)_localctx).STRING_1!=null?((StmtContext)_localctx).STRING_1.getText():null)),type((((StmtContext)_localctx).TYPE_2!=null?((StmtContext)_localctx).TYPE_2.getText():null)),(((StmtContext)_localctx).exp_3._exp));
 				}
 				break;
@@ -492,37 +492,37 @@ public class QLWithModuloParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3 }\4\2\t\2\4\3\t\3"+
-		"\4\4\t\4\3\2\3\2\3\2\3\2\7\2\r\n\2\f\2\16\2\20\13\2\3\2\3\2\3\2\3\3\3"+
-		"\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\5\3"+
-		"\'\n\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3"+
-		"\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\7\3B\n\3\f\3\16\3E\13\3\3\4\3\4\3"+
-		"\4\3\4\3\4\3\4\7\4M\n\4\f\4\16\4P\13\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4"+
-		"\3\4\7\4[\n\4\f\4\16\4^\13\4\3\4\3\4\3\4\3\4\7\4d\n\4\f\4\16\4g\13\4\3"+
-		"\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4"+
-		"\5\4{\n\4\3\4\2\3\4\5\2\4\6\2\5\5\2\3\3\22\22\26\26\4\2\27\27\31\31\6"+
-		"\2\4\4\7\7\n\13\17\20\u008a\2\b\3\2\2\2\4&\3\2\2\2\6z\3\2\2\2\b\t\7\30"+
-		"\2\2\t\n\7\34\2\2\n\16\7\b\2\2\13\r\5\6\4\2\f\13\3\2\2\2\r\20\3\2\2\2"+
-		"\16\f\3\2\2\2\16\17\3\2\2\2\17\21\3\2\2\2\20\16\3\2\2\2\21\22\7\r\2\2"+
-		"\22\23\b\2\1\2\23\3\3\2\2\2\24\25\b\3\1\2\25\26\7\21\2\2\26\27\5\4\3\b"+
-		"\27\30\b\3\1\2\30\'\3\2\2\2\31\32\7\37\2\2\32\'\b\3\1\2\33\34\7 \2\2\34"+
-		"\'\b\3\1\2\35\36\7\24\2\2\36\37\5\4\3\2\37 \7\25\2\2 !\b\3\1\2!\'\3\2"+
-		"\2\2\"#\7\36\2\2#\'\b\3\1\2$%\7\34\2\2%\'\b\3\1\2&\24\3\2\2\2&\31\3\2"+
-		"\2\2&\33\3\2\2\2&\35\3\2\2\2&\"\3\2\2\2&$\3\2\2\2\'C\3\2\2\2()\f\7\2\2"+
-		")*\t\2\2\2*+\5\4\3\b+,\b\3\1\2,B\3\2\2\2-.\f\6\2\2./\t\3\2\2/\60\5\4\3"+
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\37}\4\2\t\2\4\3\t"+
+		"\3\4\4\t\4\3\2\3\2\3\2\3\2\7\2\r\n\2\f\2\16\2\20\13\2\3\2\3\2\3\2\3\3"+
+		"\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\5"+
+		"\3\'\n\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3"+
+		"\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\7\3B\n\3\f\3\16\3E\13\3\3\4\3\4"+
+		"\3\4\3\4\3\4\3\4\7\4M\n\4\f\4\16\4P\13\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3"+
+		"\4\3\4\7\4[\n\4\f\4\16\4^\13\4\3\4\3\4\3\4\3\4\7\4d\n\4\f\4\16\4g\13\4"+
+		"\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3"+
+		"\4\5\4{\n\4\3\4\2\3\4\5\2\4\6\2\5\4\2\3\3\25\25\4\2\26\26\30\30\6\2\4"+
+		"\4\7\7\n\13\17\20\u008a\2\b\3\2\2\2\4&\3\2\2\2\6z\3\2\2\2\b\t\7\27\2\2"+
+		"\t\n\7\33\2\2\n\16\7\b\2\2\13\r\5\6\4\2\f\13\3\2\2\2\r\20\3\2\2\2\16\f"+
+		"\3\2\2\2\16\17\3\2\2\2\17\21\3\2\2\2\20\16\3\2\2\2\21\22\7\r\2\2\22\23"+
+		"\b\2\1\2\23\3\3\2\2\2\24\25\b\3\1\2\25\26\7\21\2\2\26\27\5\4\3\b\27\30"+
+		"\b\3\1\2\30\'\3\2\2\2\31\32\7\34\2\2\32\'\b\3\1\2\33\34\7\35\2\2\34\'"+
+		"\b\3\1\2\35\36\7\23\2\2\36\37\5\4\3\2\37 \7\24\2\2 !\b\3\1\2!\'\3\2\2"+
+		"\2\"#\7\36\2\2#\'\b\3\1\2$%\7\33\2\2%\'\b\3\1\2&\24\3\2\2\2&\31\3\2\2"+
+		"\2&\33\3\2\2\2&\35\3\2\2\2&\"\3\2\2\2&$\3\2\2\2\'C\3\2\2\2()\f\7\2\2)"+
+		"*\t\2\2\2*+\5\4\3\b+,\b\3\1\2,B\3\2\2\2-.\f\6\2\2./\t\3\2\2/\60\5\4\3"+
 		"\7\60\61\b\3\1\2\61B\3\2\2\2\62\63\f\5\2\2\63\64\t\4\2\2\64\65\5\4\3\6"+
 		"\65\66\b\3\1\2\66B\3\2\2\2\678\f\4\2\289\7\t\2\29:\5\4\3\5:;\b\3\1\2;"+
 		"B\3\2\2\2<=\f\3\2\2=>\7\6\2\2>?\5\4\3\4?@\b\3\1\2@B\3\2\2\2A(\3\2\2\2"+
 		"A-\3\2\2\2A\62\3\2\2\2A\67\3\2\2\2A<\3\2\2\2BE\3\2\2\2CA\3\2\2\2CD\3\2"+
-		"\2\2D\5\3\2\2\2EC\3\2\2\2FG\7\16\2\2GH\7\24\2\2HI\5\4\3\2IJ\7\25\2\2J"+
+		"\2\2D\5\3\2\2\2EC\3\2\2\2FG\7\16\2\2GH\7\23\2\2HI\5\4\3\2IJ\7\24\2\2J"+
 		"N\7\b\2\2KM\5\6\4\2LK\3\2\2\2MP\3\2\2\2NL\3\2\2\2NO\3\2\2\2OQ\3\2\2\2"+
-		"PN\3\2\2\2QR\7\r\2\2RS\b\4\1\2S{\3\2\2\2TU\7\16\2\2UV\7\24\2\2VW\5\4\3"+
-		"\2WX\7\25\2\2X\\\7\b\2\2Y[\5\6\4\2ZY\3\2\2\2[^\3\2\2\2\\Z\3\2\2\2\\]\3"+
-		"\2\2\2]_\3\2\2\2^\\\3\2\2\2_`\7\r\2\2`a\7\23\2\2ae\7\b\2\2bd\5\6\4\2c"+
+		"PN\3\2\2\2QR\7\r\2\2RS\b\4\1\2S{\3\2\2\2TU\7\16\2\2UV\7\23\2\2VW\5\4\3"+
+		"\2WX\7\24\2\2X\\\7\b\2\2Y[\5\6\4\2ZY\3\2\2\2[^\3\2\2\2\\Z\3\2\2\2\\]\3"+
+		"\2\2\2]_\3\2\2\2^\\\3\2\2\2_`\7\r\2\2`a\7\22\2\2ae\7\b\2\2bd\5\6\4\2c"+
 		"b\3\2\2\2dg\3\2\2\2ec\3\2\2\2ef\3\2\2\2fh\3\2\2\2ge\3\2\2\2hi\7\r\2\2"+
-		"ij\b\4\1\2j{\3\2\2\2kl\7\34\2\2lm\7\5\2\2mn\7\37\2\2no\7\33\2\2o{\b\4"+
-		"\1\2pq\7\34\2\2qr\7\5\2\2rs\7\37\2\2st\7\33\2\2tu\7\f\2\2uv\7\24\2\2v"+
-		"w\5\4\3\2wx\7\25\2\2xy\b\4\1\2y{\3\2\2\2zF\3\2\2\2zT\3\2\2\2zk\3\2\2\2"+
+		"ij\b\4\1\2j{\3\2\2\2kl\7\33\2\2lm\7\5\2\2mn\7\34\2\2no\7\32\2\2o{\b\4"+
+		"\1\2pq\7\33\2\2qr\7\5\2\2rs\7\34\2\2st\7\32\2\2tu\7\f\2\2uv\7\23\2\2v"+
+		"w\5\4\3\2wx\7\24\2\2xy\b\4\1\2y{\3\2\2\2zF\3\2\2\2zT\3\2\2\2zk\3\2\2\2"+
 		"zp\3\2\2\2{\7\3\2\2\2\n\16&ACN\\ez";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
