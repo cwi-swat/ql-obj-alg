@@ -20,13 +20,13 @@ public class QLParser extends Parser {
 	public static final int
 		T__21=1, T__20=2, T__19=3, T__18=4, T__17=5, T__16=6, T__15=7, T__14=8, 
 		T__13=9, T__12=10, T__11=11, T__10=12, T__9=13, T__8=14, T__7=15, T__6=16, 
-		T__5=17, T__4=18, T__3=19, T__2=20, T__1=21, T__0=22, COMMENT=23, TYPE=24, 
-		ID=25, STRING=26, BOOL=27, INTEGER=28, WS=29;
+		T__5=17, T__4=18, T__3=19, T__2=20, T__1=21, T__0=22, TYPE=23, ID=24, 
+		COMMENT=25, BOOL=26, INTEGER=27, STRING=28, WS=29;
 	public static final String[] tokenNames = {
 		"<INVALID>", "'/'", "'!='", "':'", "'||'", "'>='", "'{'", "'&&'", "'=='", 
 		"'<'", "'='", "'}'", "'if'", "'>'", "'<='", "'!'", "'else'", "'('", "')'", 
-		"'*'", "'+'", "'form'", "'-'", "COMMENT", "TYPE", "ID", "STRING", "BOOL", 
-		"INTEGER", "WS"
+		"'*'", "'+'", "'form'", "'-'", "TYPE", "ID", "COMMENT", "BOOL", "INTEGER", 
+		"STRING", "WS"
 	};
 	public static final int
 		RULE_form = 0, RULE_exp = 1, RULE_stmt = 2;
@@ -129,9 +129,9 @@ public class QLParser extends Parser {
 	public static class ExpContext extends ParserRuleContext {
 		public Object _exp;
 		public ExpContext exp_0;
-		public Token STRING_0;
-		public Token BOOL_0;
 		public Token INTEGER_0;
+		public Token BOOL_0;
+		public Token STRING_0;
 		public Token ID_0;
 		public Token op_100;
 		public ExpContext exp_1;
@@ -178,10 +178,10 @@ public class QLParser extends Parser {
 				((ExpContext)_localctx)._exp =  builder.not((((ExpContext)_localctx).exp_0._exp));
 				}
 				break;
-			case STRING:
+			case INTEGER:
 				{
-				setState(23); ((ExpContext)_localctx).STRING_0 = match(STRING);
-				((ExpContext)_localctx)._exp =  builder.string(string((((ExpContext)_localctx).STRING_0!=null?((ExpContext)_localctx).STRING_0.getText():null)));
+				setState(23); ((ExpContext)_localctx).INTEGER_0 = match(INTEGER);
+				((ExpContext)_localctx)._exp =  builder.lit(integer((((ExpContext)_localctx).INTEGER_0!=null?((ExpContext)_localctx).INTEGER_0.getText():null)));
 				}
 				break;
 			case BOOL:
@@ -198,10 +198,10 @@ public class QLParser extends Parser {
 				((ExpContext)_localctx)._exp =  builder.bracket((((ExpContext)_localctx).exp_0._exp));
 				}
 				break;
-			case INTEGER:
+			case STRING:
 				{
-				setState(32); ((ExpContext)_localctx).INTEGER_0 = match(INTEGER);
-				((ExpContext)_localctx)._exp =  builder.lit(integer((((ExpContext)_localctx).INTEGER_0!=null?((ExpContext)_localctx).INTEGER_0.getText():null)));
+				setState(32); ((ExpContext)_localctx).STRING_0 = match(STRING);
+				((ExpContext)_localctx)._exp =  builder.string(string((((ExpContext)_localctx).STRING_0!=null?((ExpContext)_localctx).STRING_0.getText():null)));
 				}
 				break;
 			case ID:
@@ -502,12 +502,12 @@ public class QLParser extends Parser {
 		"\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3"+
 		"\4\5\4{\n\4\3\4\2\3\4\5\2\4\6\2\5\4\2\3\3\25\25\4\2\26\26\30\30\6\2\4"+
 		"\4\7\7\n\13\17\20\u008a\2\b\3\2\2\2\4&\3\2\2\2\6z\3\2\2\2\b\t\7\27\2\2"+
-		"\t\n\7\33\2\2\n\16\7\b\2\2\13\r\5\6\4\2\f\13\3\2\2\2\r\20\3\2\2\2\16\f"+
+		"\t\n\7\32\2\2\n\16\7\b\2\2\13\r\5\6\4\2\f\13\3\2\2\2\r\20\3\2\2\2\16\f"+
 		"\3\2\2\2\16\17\3\2\2\2\17\21\3\2\2\2\20\16\3\2\2\2\21\22\7\r\2\2\22\23"+
 		"\b\2\1\2\23\3\3\2\2\2\24\25\b\3\1\2\25\26\7\21\2\2\26\27\5\4\3\b\27\30"+
-		"\b\3\1\2\30\'\3\2\2\2\31\32\7\34\2\2\32\'\b\3\1\2\33\34\7\35\2\2\34\'"+
+		"\b\3\1\2\30\'\3\2\2\2\31\32\7\35\2\2\32\'\b\3\1\2\33\34\7\34\2\2\34\'"+
 		"\b\3\1\2\35\36\7\23\2\2\36\37\5\4\3\2\37 \7\24\2\2 !\b\3\1\2!\'\3\2\2"+
-		"\2\"#\7\36\2\2#\'\b\3\1\2$%\7\33\2\2%\'\b\3\1\2&\24\3\2\2\2&\31\3\2\2"+
+		"\2\"#\7\36\2\2#\'\b\3\1\2$%\7\32\2\2%\'\b\3\1\2&\24\3\2\2\2&\31\3\2\2"+
 		"\2&\33\3\2\2\2&\35\3\2\2\2&\"\3\2\2\2&$\3\2\2\2\'C\3\2\2\2()\f\7\2\2)"+
 		"*\t\2\2\2*+\5\4\3\b+,\b\3\1\2,B\3\2\2\2-.\f\6\2\2./\t\3\2\2/\60\5\4\3"+
 		"\7\60\61\b\3\1\2\61B\3\2\2\2\62\63\f\5\2\2\63\64\t\4\2\2\64\65\5\4\3\6"+
@@ -520,8 +520,8 @@ public class QLParser extends Parser {
 		"\2WX\7\24\2\2X\\\7\b\2\2Y[\5\6\4\2ZY\3\2\2\2[^\3\2\2\2\\Z\3\2\2\2\\]\3"+
 		"\2\2\2]_\3\2\2\2^\\\3\2\2\2_`\7\r\2\2`a\7\22\2\2ae\7\b\2\2bd\5\6\4\2c"+
 		"b\3\2\2\2dg\3\2\2\2ec\3\2\2\2ef\3\2\2\2fh\3\2\2\2ge\3\2\2\2hi\7\r\2\2"+
-		"ij\b\4\1\2j{\3\2\2\2kl\7\33\2\2lm\7\5\2\2mn\7\34\2\2no\7\32\2\2o{\b\4"+
-		"\1\2pq\7\33\2\2qr\7\5\2\2rs\7\34\2\2st\7\32\2\2tu\7\f\2\2uv\7\23\2\2v"+
+		"ij\b\4\1\2j{\3\2\2\2kl\7\32\2\2lm\7\5\2\2mn\7\36\2\2no\7\31\2\2o{\b\4"+
+		"\1\2pq\7\32\2\2qr\7\5\2\2rs\7\36\2\2st\7\31\2\2tu\7\f\2\2uv\7\23\2\2v"+
 		"w\5\4\3\2wx\7\24\2\2xy\b\4\1\2y{\3\2\2\2zF\3\2\2\2zT\3\2\2\2zk\3\2\2\2"+
 		"zp\3\2\2\2{\7\3\2\2\2\n\16&ACN\\ez";
 	public static final ATN _ATN =

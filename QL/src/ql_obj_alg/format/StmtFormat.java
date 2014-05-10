@@ -11,9 +11,9 @@ import ql_obj_alg.syntax.IStmtAlg;
 public class StmtFormat implements IStmtAlg<IFormatWithPrecedence, IFormat> {
 
 	private BoxAlg<IFormat> box;
-	
+
 	public StmtFormat() {
-		this.box = new FormatBox();
+		box = new FormatBox();
 	}
 	
 	@Override
