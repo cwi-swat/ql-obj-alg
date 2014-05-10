@@ -5,7 +5,7 @@ import noa.annos.Syntax;
 import ql_obj_alg.syntax.IExpAlg;
 
 
-public interface IExpAlgWithModulo<E> extends IExpAlg<E> {
-	@Syntax("_ '%' _") @Level(100)
+public interface IExpAlgWithModulo<E> {
+	@Syntax("exp = exp '%' exp") @Level(100)
 	E mod(E lhs, E rhs); 
 }
