@@ -31,7 +31,7 @@ public class TheParser {
 	    QLParser qlParser = new QLParser(tokens);
 	    IAllAlg builderBuilder = Builder.builderBuilder(IAllAlg.class);
 	    qlParser.setBuilder(builderBuilder);
-		return (Builder) qlParser.f()._f;
+		return (Builder) qlParser.form()._form;
 	}
 	
 	@SuppressWarnings({"unchecked" })
@@ -40,7 +40,7 @@ public class TheParser {
 	    CommonTokenStream tokens = new CommonTokenStream(lexer);
 	    QLParser qlParser = new QLParser(tokens);
 	    qlParser.setBuilder(alg);
-		return (F) qlParser.f()._f;
+		return (F) qlParser.form()._form;
 	}
 	
 	public static <E, S, F> F parse(String s, IAllAlg<E, S, F> alg) {

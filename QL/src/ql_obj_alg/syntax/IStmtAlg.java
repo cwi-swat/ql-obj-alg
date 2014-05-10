@@ -7,15 +7,15 @@ import noa.annos.Syntax;
 import ql_obj_alg.check.types.Type;
 
 public interface IStmtAlg<E, S>  {
-	@Syntax("'if' '(' _ ')' '{' _* '}'") @Level(80)
+	@Syntax("stmt = 'if' '(' exp ')' '{' stmt* '}'") @Level(80)
 	S iff(E cond, List<S> statements);
 	
-	@Syntax("'if' '(' _ ')' '{' _* '}' 'else' '{' _* '}'") @Level(70)
+	@Syntax("stmt = 'if' '(' exp ')' '{' stmt* '}' 'else' '{' stmt* '}'") @Level(70)
 	S iffelse(E cond, List<S> statementsIf, List<S> statementsElse);
 
-	@Syntax("ID ':' STRING TYPE") @Level(30)
+	@Syntax("stmt = ID ':' STRING TYPE") @Level(30)
 	S question(String id, String label, Type type);
 	
-	@Syntax("ID ':' STRING TYPE '=' '(' _ ')'") @Level(20)
+	@Syntax("stmt = ID ':' STRING TYPE '=' '(' exp ')'") @Level(20)
 	S question(String id, String label, Type type, E exp);
 }

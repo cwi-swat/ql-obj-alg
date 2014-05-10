@@ -5,57 +5,57 @@ import noa.annos.Syntax;
 
 public interface IExpAlg<E>{
 
-	@Syntax("'(' _ ')'")
+	@Syntax("exp = '(' exp ')'")
 	E bracket(E e);
 	
-	@Syntax("INTEGER")
+	@Syntax("exp = INTEGER")
 	E lit(int x);
 	
-	@Syntax("BOOL")
+	@Syntax("exp = BOOL")
 	E bool(boolean b);
 	
-	@Syntax("STRING")
+	@Syntax("exp = STRING")
 	E string(String s);
 	
-	@Syntax("ID")
+	@Syntax("exp = ID")
 	E var(String varName);
 	
-	@Syntax("'!' _") @Level(200)
+	@Syntax("exp = '!' exp") @Level(200)
 	E not(E exp);
 	
-	@Syntax("_ '*' _") @Level(100)
+	@Syntax("exp = exp '*' exp") @Level(100)
 	E mul(E lhs, E rhs);
 	
-	@Syntax("_ '/' _") @Level(100)
+	@Syntax("exp = exp '/' exp") @Level(100)
 	E div(E lhs, E rhs);
 	
-	@Syntax("_ '+' _") @Level(90)
+	@Syntax("exp = exp '+' exp") @Level(90)
 	E add(E lhs, E rhs);
 	
-	@Syntax("_ '-' _") @Level(90)
+	@Syntax("exp = exp '-' exp") @Level(90)
 	E sub(E lhs, E rhs);
 	
-	@Syntax("_ '==' _") @Level(80)
+	@Syntax("exp = exp '==' exp") @Level(80)
 	E eq(E lhs, E rhs);
 	
-	@Syntax("_ '!=' _") @Level(80)
+	@Syntax("exp = exp '!=' exp") @Level(80)
 	E neq(E lhs, E rhs);
 	
-	@Syntax("_ '<' _") @Level(80)
+	@Syntax("exp = exp '<' exp") @Level(80)
 	E lt(E lhs, E rhs);
 	
-	@Syntax("_ '<=' _") @Level(80)
+	@Syntax("exp = exp '<=' exp") @Level(80)
 	E leq(E lhs, E rhs);
 	
-	@Syntax("_ '>' _") @Level(80)
+	@Syntax("exp = exp '>' exp") @Level(80)
 	E gt(E lhs, E rhs);
 	
-	@Syntax("_ '>=' _") @Level(80)
+	@Syntax("exp = exp '>=' exp") @Level(80)
 	E geq(E lhs, E rhs);
 	
-	@Syntax("_ '&&' _") @Level(70)
+	@Syntax("exp = exp '&&' exp") @Level(70)
 	E and(E lhs, E rhs);
 	
-	@Syntax("_ '||' _") @Level(60)
+	@Syntax("exp = exp '||' exp") @Level(60)
 	E or(E lhs, E rhs);
 }
