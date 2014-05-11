@@ -90,7 +90,7 @@ public class ExprPrecedence implements IExpAlg<IPrecedence>{
 		return getPrecedence(13);
 	}
 
-	static protected IPrecedence getPrecedence(final int level){
+	public static IPrecedence getPrecedence(final int level){
 		return new IPrecedence(){
 			@Override
 			public int prec() {

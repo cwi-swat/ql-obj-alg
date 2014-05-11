@@ -210,7 +210,7 @@ public class ExprDependencies implements IExpAlg<IExpDependency> {
 		};
 	}
 
-	protected Dependencies unionDependencies(final IExpDependency lhs,
+	public static Dependencies unionDependencies(final IExpDependency lhs,
 			final IExpDependency rhs, Dependencies currentDependencies) {
 		Dependencies newDependencies = new Dependencies();
 		newDependencies.addAll(lhs.dependency(currentDependencies));

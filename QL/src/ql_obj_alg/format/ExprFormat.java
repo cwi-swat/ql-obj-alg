@@ -25,7 +25,7 @@ public class ExprFormat<V extends IExpAlg<IPrecedence>> implements IExpAlg<IForm
 		return box;
 	}
 
-	protected static class FP implements IFormatWithPrecedence {
+	public static class FP implements IFormatWithPrecedence {
 		private IFormat f;
 		private IPrecedence p;
 
@@ -44,17 +44,18 @@ public class ExprFormat<V extends IExpAlg<IPrecedence>> implements IExpAlg<IForm
 			return p.prec();
 		}
 	}
-	protected IFormat binary(IFormatWithPrecedence l, IFormatWithPrecedence r, 
+	
+	public static IFormat binary(BoxAlg<IFormat> box, IFormatWithPrecedence l, IFormatWithPrecedence r, 
 			String op, IPrecedence myPrec) {
-		return box.H(1,parens(myPrec, l), box.L(op), parens(myPrec, r));
+		return box.H(1,parens(box, myPrec, l), box.L(op), parens(box, myPrec, r));
 	}
 	
-	protected IFormat unary(IFormatWithPrecedence l, String op, IPrecedence myPrec) {
-		return box.H(1,box.L(op), parens(myPrec, l));
+	public static IFormat unary(BoxAlg<IFormat> box, IFormatWithPrecedence l, String op, IPrecedence myPrec) {
+		return box.H(1,box.L(op), parens(box, myPrec, l));
 	}
 
 
-	private IFormat parens(IPrecedence parent, IFormatWithPrecedence kid) {
+	private static  IFormat parens(BoxAlg<IFormat> box, IPrecedence parent, IFormatWithPrecedence kid) {
 		if (kid.prec() > parent.prec()) {
 			return box.H(box.L("("), kid, box.L(")"));
 		}
@@ -89,7 +90,7 @@ public class ExprFormat<V extends IExpAlg<IPrecedence>> implements IExpAlg<IForm
 	public IFormatWithPrecedence mul(IFormatWithPrecedence lhs,
 			IFormatWithPrecedence rhs) {
 		IPrecedence myPrec = prec.mul(lhs, rhs);
-		return new FP(binary(lhs,rhs,"*",myPrec),myPrec);
+		return new FP(binary(box, lhs,rhs,"*",myPrec),myPrec);
 	}
 
 
@@ -97,7 +98,7 @@ public class ExprFormat<V extends IExpAlg<IPrecedence>> implements IExpAlg<IForm
 	public IFormatWithPrecedence div(IFormatWithPrecedence lhs,
 			IFormatWithPrecedence rhs) {
 		IPrecedence myPrec = prec.div(lhs, rhs);
-		return new FP(binary(lhs,rhs,"/",myPrec),myPrec);
+		return new FP(binary(box, lhs,rhs,"/",myPrec),myPrec);
 	}
 
 
@@ -105,7 +106,7 @@ public class ExprFormat<V extends IExpAlg<IPrecedence>> implements IExpAlg<IForm
 	public IFormatWithPrecedence add(IFormatWithPrecedence lhs,
 			IFormatWithPrecedence rhs) {
 		IPrecedence myPrec = prec.add(lhs, rhs);
-		return new FP(binary(lhs,rhs,"+",myPrec),myPrec);
+		return new FP(binary(box, lhs,rhs,"+",myPrec),myPrec);
 	}
 
 
@@ -113,7 +114,7 @@ public class ExprFormat<V extends IExpAlg<IPrecedence>> implements IExpAlg<IForm
 	public IFormatWithPrecedence sub(IFormatWithPrecedence lhs,
 			IFormatWithPrecedence rhs) {
 		IPrecedence myPrec = prec.sub(lhs, rhs);
-		return new FP(binary(lhs,rhs,"-",myPrec),myPrec);
+		return new FP(binary(box, lhs,rhs,"-",myPrec),myPrec);
 	}
 
 
@@ -121,7 +122,7 @@ public class ExprFormat<V extends IExpAlg<IPrecedence>> implements IExpAlg<IForm
 	public IFormatWithPrecedence eq(IFormatWithPrecedence lhs,
 			IFormatWithPrecedence rhs) {
 		IPrecedence myPrec = prec.eq(lhs, rhs);
-		return new FP(binary(lhs,rhs,"==",myPrec),myPrec);
+		return new FP(binary(box, lhs,rhs,"==",myPrec),myPrec);
 	}
 
 
@@ -129,7 +130,7 @@ public class ExprFormat<V extends IExpAlg<IPrecedence>> implements IExpAlg<IForm
 	public IFormatWithPrecedence neq(IFormatWithPrecedence lhs,
 			IFormatWithPrecedence rhs) {
 		IPrecedence myPrec = prec.neq(lhs, rhs);
-		return new FP(binary(lhs,rhs,"!=",myPrec),myPrec);
+		return new FP(binary(box, lhs,rhs,"!=",myPrec),myPrec);
 	}
 
 
@@ -137,7 +138,7 @@ public class ExprFormat<V extends IExpAlg<IPrecedence>> implements IExpAlg<IForm
 	public IFormatWithPrecedence lt(IFormatWithPrecedence lhs,
 			IFormatWithPrecedence rhs) {
 		IPrecedence myPrec = prec.lt(lhs, rhs);
-		return new FP(binary(lhs,rhs,"<",myPrec),myPrec);
+		return new FP(binary(box, lhs,rhs,"<",myPrec),myPrec);
 	}
 
 
@@ -145,7 +146,7 @@ public class ExprFormat<V extends IExpAlg<IPrecedence>> implements IExpAlg<IForm
 	public IFormatWithPrecedence leq(IFormatWithPrecedence lhs,
 			IFormatWithPrecedence rhs) {
 		IPrecedence myPrec = prec.leq(lhs, rhs);
-		return new FP(binary(lhs,rhs,"<=",myPrec),myPrec);
+		return new FP(binary(box, lhs,rhs,"<=",myPrec),myPrec);
 	}
 
 
@@ -153,7 +154,7 @@ public class ExprFormat<V extends IExpAlg<IPrecedence>> implements IExpAlg<IForm
 	public IFormatWithPrecedence gt(IFormatWithPrecedence lhs,
 			IFormatWithPrecedence rhs) {
 		IPrecedence myPrec = prec.gt(lhs, rhs);
-		return new FP(binary(lhs,rhs,">",myPrec),myPrec);
+		return new FP(binary(box, lhs,rhs,">",myPrec),myPrec);
 	}
 
 
@@ -161,14 +162,14 @@ public class ExprFormat<V extends IExpAlg<IPrecedence>> implements IExpAlg<IForm
 	public IFormatWithPrecedence geq(IFormatWithPrecedence lhs,
 			IFormatWithPrecedence rhs) {
 		IPrecedence myPrec = prec.geq(lhs, rhs);
-		return new FP(binary(lhs,rhs,">=",myPrec),myPrec);
+		return new FP(binary(box, lhs,rhs,">=",myPrec),myPrec);
 	}
 
 
 	@Override
 	public IFormatWithPrecedence not(IFormatWithPrecedence exp) {
 		IPrecedence myPrec = prec.not(exp);
-		return new FP(unary(exp,"!",myPrec),myPrec);
+		return new FP(unary(box, exp,"!",myPrec),myPrec);
 	}
 
 
@@ -176,7 +177,7 @@ public class ExprFormat<V extends IExpAlg<IPrecedence>> implements IExpAlg<IForm
 	public IFormatWithPrecedence and(IFormatWithPrecedence lhs,
 			IFormatWithPrecedence rhs) {
 		IPrecedence myPrec = prec.and(lhs, rhs);
-		return new FP(binary(lhs,rhs,"&&",myPrec),myPrec);
+		return new FP(binary(box, lhs,rhs,"&&",myPrec),myPrec);
 	}
 
 
@@ -184,7 +185,7 @@ public class ExprFormat<V extends IExpAlg<IPrecedence>> implements IExpAlg<IForm
 	public IFormatWithPrecedence or(IFormatWithPrecedence lhs,
 			IFormatWithPrecedence rhs) {
 		IPrecedence myPrec = prec.mul(lhs, rhs);
-		return new FP(binary(lhs,rhs,"||",myPrec),myPrec);
+		return new FP(binary(box, lhs,rhs,"||",myPrec),myPrec);
 	}
 
 	@Override

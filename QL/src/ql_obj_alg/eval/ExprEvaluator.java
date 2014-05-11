@@ -293,7 +293,7 @@ public class ExprEvaluator implements IExpAlg<IDepsAndEvalE>{
 		};
 	}
 
-	protected List<String> unionLists(List<String> list1, List<String> list2){
+	public static List<String> unionLists(List<String> list1, List<String> list2){
 		List<String> newList = new ArrayList<String>();
 		newList.addAll(list1);
 		newList.addAll(list2);
