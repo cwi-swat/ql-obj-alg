@@ -4,7 +4,7 @@ import noa.annos.Skip;
 import noa.annos.Token;
 import ql_obj_alg.check.types.Type;
 
-public interface Tokens {
+public abstract class Tokens {
 	
 	@Token("'\"' (('\\\\' [btnr\"\\\\]) | .)*? '\"'")
 	public static String string(String x) {
@@ -34,9 +34,9 @@ public interface Tokens {
 	}
 	
 	@Token("[ \\t\\r\\n]+") @Skip
-	void ws();
+	abstract void ws();
 	
 	@Token("'//' .*? '\\n'") @Skip
-	void comment();
+	abstract void comment();
 
 }
