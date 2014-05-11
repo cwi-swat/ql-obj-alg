@@ -11,6 +11,7 @@ import ql_obj_alg.render.FormFrame;
 import ql_obj_alg.render.IRender;
 import ql_obj_alg.render.Registry;
 import ql_obj_alg.render.widgets.Widget;
+import ql_obj_alg_extended.eval.ValueEnvironmentWithCurrentQuestion;
 import ql_obj_alg_extended.syntax.IExpAlgWithCheck;
 import ql_obj_alg_extended.syntax.IStmtAlgWithCheck;
 
@@ -40,6 +41,8 @@ public class StmtUIWithCheck implements IStmtAlgWithCheck<IDepsAndEvalE, IRender
 						@Override
 						public void actionPerformed(ActionEvent arg0) {
 							valEnv.setQuestionValue(id, widget.getValue());
+							// Cheating!!!
+							((ValueEnvironmentWithCurrentQuestion)valEnv).setCurrentQuestion(id);
 							if (!e.eval(valEnv).getBoolean()) {
 								valEnv.setQuestionValue(id, new VUndefined());
 								widget.setValue(new VUndefined());

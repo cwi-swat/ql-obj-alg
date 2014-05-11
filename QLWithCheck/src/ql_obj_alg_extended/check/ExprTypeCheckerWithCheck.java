@@ -13,19 +13,20 @@ import ql_obj_alg_extended.syntax.IExpAlgWithCheck;
 public class ExprTypeCheckerWithCheck implements IExpAlgWithCheck<IExpType> {
 
 	@Override
-	public IExpType property(final String varName,final String property) {
+	public IExpType property(final String property) {
 		return new IExpType(){
 			@Override
-			public Type type(TypeEnvironment typEnv, ErrorReporting reporting) {
-				if(property.equals("length")){
-					Type type = typEnv.getType(varName);
-					if(!type.isAlphanumeric()){
+			public Type type(TypeEnvironment typeEnv, ErrorReporting reporting) {
+				String varName = ((TypeEnvironmentWithCurrentQuestion)typeEnv).getCurrentQuestion();
+				if(property.equals("length")) {
+					Type type = typeEnv.getType(varName);
+					if (!type.isAlphanumeric()) {
 						reporting.addError(new InvalidPropertyError(new TString(),type,varName,property));
 						return new TError();
 					}
 					return new TInteger();
-				}else if(property.equals("value")){
-					return typEnv.getType(varName);
+				} else if (property.equals("value")){
+					return typeEnv.getType(varName);
 				}
 				assert (false) : "Unknown property";
 				return null;

@@ -17,10 +17,9 @@ public class StmtTypeCheckerWithCheck implements
 		return new ITypeCheck(){
 			public void check(TypeEnvironment typeEnv, ErrorReporting report){
 				Type type = typeEnv.getType(id);
-				if(type == null) 
-					assert(false) : "Missing question with id "+id+" from memory.";
-				
-				Type exprType = exp.type(typeEnv,report); 
+				assert type != null : "Missing question with id "+id+" from memory.";
+				((TypeEnvironmentWithCurrentQuestion)typeEnv).setCurrentQuestion(id);
+				Type exprType = exp.type(typeEnv, report); 
 				if(!exprType.equals(type)){
 					report.addError(new ConflictingTypeInAssignmentError(type, exprType,id));
 				}

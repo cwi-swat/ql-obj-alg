@@ -7,7 +7,7 @@ import ql_obj_alg_extended.syntax.IExpAlgWithCheck;
 public class ExprDependenciesWithCheck implements IExpAlgWithCheck<IExpDependency>{
 
 	@Override
-	public IExpDependency property(final String varName, String property) {
+	public IExpDependency property(String property) {
 		return new IExpDependency(){
 
 			@Override

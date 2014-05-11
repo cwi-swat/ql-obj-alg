@@ -44,6 +44,7 @@ import ql_obj_alg_extended.check.StmtTypeCheckerWithCheck;
 import ql_obj_alg_extended.cycles.ExprDependenciesWithCheck;
 import ql_obj_alg_extended.cycles.StmtDependenciesWithCheck;
 import ql_obj_alg_extended.eval.ExprEvaluatorWithCheck;
+import ql_obj_alg_extended.eval.ValueEnvironmentWithCurrentQuestion;
 import ql_obj_alg_extended.format.ExprFormatWithCheck;
 import ql_obj_alg_extended.format.ExprPrecedenceWithCheck;
 import ql_obj_alg_extended.format.StmtFormatWithCheck;
@@ -132,7 +133,7 @@ public class MainWithCheck extends Main{
 		IStmtAlg<IDepsAndEvalE,IRender> stmtAlgCheck = new StmtUI<IExpAlg<IDepsAndEvalE>>(expAlg);
 		IFormAlg<IDepsAndEvalE,IRender,IRenderForm> formAlg = new FormUI<IExpAlg<IDepsAndEvalE>>(expAlg);
 
-		ValueEnvironment valEnv = new ValueEnvironment();
+		ValueEnvironment valEnv = new ValueEnvironmentWithCurrentQuestion();
 		Registry registry = new Registry();
 		createUI(valEnv, registry, expAlg, expAlgCheck, stmtAlg, stmtAlgCheck, formAlg);
 	}
