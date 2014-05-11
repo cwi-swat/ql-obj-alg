@@ -41,6 +41,7 @@ import ql_obj_alg.syntax.IStmtAlg;
 import ql_obj_alg_extended.check.ExprTypeCheckerWithCheck;
 import ql_obj_alg_extended.check.StmtCollectQuestionTypesWithCheck;
 import ql_obj_alg_extended.check.StmtTypeCheckerWithCheck;
+import ql_obj_alg_extended.check.TypeEnvironmentWithCurrentQuestion;
 import ql_obj_alg_extended.cycles.ExprDependenciesWithCheck;
 import ql_obj_alg_extended.cycles.StmtDependenciesWithCheck;
 import ql_obj_alg_extended.eval.ExprEvaluatorWithCheck;
@@ -97,7 +98,7 @@ public class MainWithCheck extends Main{
 	}
 
 	private boolean typeCheckerForm(ErrorReporting report) {
-		TypeEnvironment typeEnv = new TypeEnvironment();
+		TypeEnvironment typeEnv = new TypeEnvironmentWithCurrentQuestion();
 		IFormAlg<Object,ICollect,ICollect> collectForm = new FormCollectQuestionTypes();
 		IStmtAlg<Object,ICollect> collectStmt = new StmtCollectQuestionTypes();
 		IStmtAlgWithCheck<Object,ICollect> collectStmtCheck = new StmtCollectQuestionTypesWithCheck();
