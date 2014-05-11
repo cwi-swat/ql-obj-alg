@@ -13,8 +13,8 @@ public class ExprFormatWithCheck extends ExprFormat<ExprPrecedenceWithCheck> imp
 	}
 
 	@Override
-	public IFormatWithPrecedence property(String varName, String property) {
-		IPrecedence myprec = getPrecedence().property(varName, property);
+	public IFormatWithPrecedence property(String property) {
+		IPrecedence myprec = getPrecedence().property(property);
 		return new FP(getBox().L(property),myprec);		
 	}
 

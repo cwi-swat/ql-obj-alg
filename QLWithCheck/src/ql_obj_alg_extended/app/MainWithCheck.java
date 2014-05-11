@@ -50,6 +50,7 @@ import ql_obj_alg_extended.format.ExprFormatWithCheck;
 import ql_obj_alg_extended.format.ExprPrecedenceWithCheck;
 import ql_obj_alg_extended.format.StmtFormatWithCheck;
 import ql_obj_alg_extended.parse.TheParser;
+import ql_obj_alg_extended.render.StmtUIWithCheck;
 import ql_obj_alg_extended.syntax.IExpAlgWithCheck;
 import ql_obj_alg_extended.syntax.IStmtAlgWithCheck;
 
@@ -131,7 +132,7 @@ public class MainWithCheck extends Main{
 		IExpAlg<IDepsAndEvalE> expAlg = new ExprEvaluator();
 		IExpAlgWithCheck<IDepsAndEvalE> expAlgCheck = new ExprEvaluatorWithCheck();
 		IStmtAlg<IDepsAndEvalE,IRender> stmtAlg = new StmtUI<IExpAlg<IDepsAndEvalE>>(expAlg);
-		IStmtAlg<IDepsAndEvalE,IRender> stmtAlgCheck = new StmtUI<IExpAlg<IDepsAndEvalE>>(expAlg);
+		IStmtAlgWithCheck<IDepsAndEvalE,IRender> stmtAlgCheck = new StmtUIWithCheck();
 		IFormAlg<IDepsAndEvalE,IRender,IRenderForm> formAlg = new FormUI<IExpAlg<IDepsAndEvalE>>(expAlg);
 
 		ValueEnvironment valEnv = new ValueEnvironmentWithCurrentQuestion();

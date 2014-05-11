@@ -11,7 +11,7 @@ public interface IExpAlg<E>{
 	@Syntax("exp = INTEGER")
 	E lit(int x);
 	
-	@Syntax("exp = BOOL")
+	@Syntax("exp = BOOL") 
 	E bool(boolean b);
 	
 	@Syntax("exp = STRING")

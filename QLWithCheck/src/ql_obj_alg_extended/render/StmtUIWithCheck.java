@@ -12,16 +12,9 @@ import ql_obj_alg.render.IRender;
 import ql_obj_alg.render.Registry;
 import ql_obj_alg.render.widgets.Widget;
 import ql_obj_alg_extended.eval.ValueEnvironmentWithCurrentQuestion;
-import ql_obj_alg_extended.syntax.IExpAlgWithCheck;
 import ql_obj_alg_extended.syntax.IStmtAlgWithCheck;
 
 public class StmtUIWithCheck implements IStmtAlgWithCheck<IDepsAndEvalE, IRender> {
-
-	IExpAlgWithCheck<IDepsAndEvalE> expAlg;
-	public StmtUIWithCheck(IExpAlgWithCheck<IDepsAndEvalE> expAlg) {
-		this.expAlg = expAlg;
-
-	}
 
 	@Override
 	public IRender checked_question(final String id, final String label,

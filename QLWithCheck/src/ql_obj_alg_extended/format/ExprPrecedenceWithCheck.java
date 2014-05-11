@@ -7,7 +7,7 @@ import ql_obj_alg_extended.syntax.IExpAlgWithCheck;
 public class ExprPrecedenceWithCheck extends ExprPrecedence implements IExpAlgWithCheck<IPrecedence>{
 
 	@Override
-	public IPrecedence property(String VarName, String property) {
+	public IPrecedence property(String property) {
 			return getPrecedence(1);
 	}
 }

@@ -13,9 +13,9 @@ public interface IStmtAlg<E, S>  {
 	@Syntax("stmt = 'if' '(' exp ')' '{' stmt* '}' 'else' '{' stmt* '}'") @Level(70)
 	S iffelse(E cond, List<S> statementsIf, List<S> statementsElse);
 
-	@Syntax("stmt = ID ':' STRING TYPE") @Level(30)
+	@Syntax("stmt = ID ':' STRING TYPE") 
 	S question(String id, String label, Type type);
 	
-	@Syntax("stmt = ID ':' STRING TYPE '=' '(' exp ')'") @Level(20)
+	@Syntax("stmt = ID ':' STRING TYPE '=' '(' exp ')'") 
 	S question(String id, String label, Type type, E exp);
 }
