@@ -86,7 +86,7 @@ public class MainWithModulo extends Main{
 		ExprPrecedenceWithModulo precMod = new ExprPrecedenceWithModulo();
 		ExprFormatWithModulo eFormatMod = new ExprFormatWithModulo(precMod);
 		StringWriter w = new StringWriter();
-		printForm(w, fFormat, sFormat, eFormat,eFormatMod);
+		printForm(w, fFormat, sFormat, eFormat, eFormatMod);
 	}
 
 	private boolean typeCheckerForm(ErrorReporting report) {

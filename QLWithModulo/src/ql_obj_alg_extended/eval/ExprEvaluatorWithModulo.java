@@ -10,14 +10,14 @@ import ql_obj_alg.eval.values.VUndefined;
 import ql_obj_alg.eval.values.Value;
 import ql_obj_alg_extended.syntax.IExpAlgWithModulo;
 
-public class ExprEvaluatorWithModulo extends ExprEvaluator implements IExpAlgWithModulo<IDepsAndEvalE> {
+public class ExprEvaluatorWithModulo implements IExpAlgWithModulo<IDepsAndEvalE> {
 
 	@Override
 	public IDepsAndEvalE mod(final IDepsAndEvalE lhs, final IDepsAndEvalE rhs) {
 		return new IDepsAndEvalE(){
 			@Override
 			public List<String> deps() {
-				return unionLists(lhs.deps(),rhs.deps());
+				return ExprEvaluator.unionLists(lhs.deps(),rhs.deps());
 			}
 
 			@Override

@@ -5,18 +5,15 @@ import ql_obj_alg.cycles.ExprDependencies;
 import ql_obj_alg.cycles.IExpDependency;
 import ql_obj_alg_extended.syntax.IExpAlgWithModulo;
 
-public class ExprDependenciesWithModulo extends ExprDependencies implements IExpAlgWithModulo<IExpDependency>{
+public class ExprDependenciesWithModulo  implements IExpAlgWithModulo<IExpDependency>{
 
 	@Override
 	public IExpDependency mod(final IExpDependency lhs, final IExpDependency rhs) {
 		return new IExpDependency(){
 			@Override
 			public Dependencies dependency(Dependencies currentDependencies) {
-				return unionDependencies(lhs,rhs,currentDependencies);
+				return ExprDependencies.unionDependencies(lhs,rhs,currentDependencies);
 			}
-
-			
-			
 		};
 	}
 

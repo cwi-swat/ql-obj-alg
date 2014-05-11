@@ -1,15 +1,14 @@
 package ql_obj_alg_extended.check;
 
-import ql_obj_alg.check.ExprTypeChecker;
-import ql_obj_alg.check.IExpType;
 import ql_obj_alg.check.ErrorReporting;
+import ql_obj_alg.check.IExpType;
+import ql_obj_alg.check.TypeEnvironment;
 import ql_obj_alg.check.errors.UnexpectedTypeInBinaryOpError;
 import ql_obj_alg.check.types.TNumber;
 import ql_obj_alg.check.types.Type;
-import ql_obj_alg.check.TypeEnvironment;
 import ql_obj_alg_extended.syntax.IExpAlgWithModulo;
 
-public class ExprTypeCheckerWithModulo extends ExprTypeChecker implements IExpAlgWithModulo<IExpType> {
+public class ExprTypeCheckerWithModulo implements IExpAlgWithModulo<IExpType> {
 
 	@Override
 	public IExpType mod(final IExpType lhs, final IExpType rhs) {

@@ -3,9 +3,8 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
-	<classpathentry kind="lib" path="C:/Users/moutraki/Documents/GitHub/ql-obj-alg/QL/lib/caliper-1.0-beta-1-all.jar"/>
+	<classpathentry kind="lib" path="lib/antlr-4.2.2-complete.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/naked-object-algebras"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/QLObjAlg"/>
-	<classpathentry kind="lib" path="C:/Users/moutraki/Documents/GitHub/ql-obj-alg/QL/lib/antlr-4.2.2-complete.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
