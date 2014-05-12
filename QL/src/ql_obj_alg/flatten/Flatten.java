@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.List;
 
 import noa.Builder;
+import noa.Union;
 import ql_obj_alg.box.IFormat;
 import ql_obj_alg.check.types.Type;
 import ql_obj_alg.format.ExprFormat;
@@ -14,6 +15,7 @@ import ql_obj_alg.format.FormFormat;
 import ql_obj_alg.format.IFormatWithPrecedence;
 import ql_obj_alg.format.StmtFormat;
 import ql_obj_alg.parse.TheParser;
+import ql_obj_alg.syntax.IAllAlg;
 import ql_obj_alg.syntax.IExpAlg;
 import ql_obj_alg.syntax.IFormAlg;
 import ql_obj_alg.syntax.IStmtAlg;
@@ -40,7 +42,7 @@ public class Flatten<E, S, F, EA extends IExpAlg<E>, SA extends IStmtAlg<E, S>, 
 				>(expFormat, stmtFormat, formFormat);
 		for (String src: gen) {
 			Builder build = TheParser.parse(src);
-			IFormat f = build.build(flatten, expFormat);
+			IFormat f = build.build(Union.union(IAllAlg.class, flatten, expFormat));
 			StringWriter writer = new StringWriter();
 			f.format(0, false, writer);
 			System.out.println(writer.toString());

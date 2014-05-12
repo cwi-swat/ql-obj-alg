@@ -4,12 +4,14 @@ import java.io.StringWriter;
 import java.util.Iterator;
 
 import noa.Builder;
+import noa.Union;
 import ql_obj_alg.box.IFormat;
 import ql_obj_alg.format.ExprFormat;
 import ql_obj_alg.format.ExprPrecedence;
 import ql_obj_alg.format.FormFormat;
 import ql_obj_alg.format.StmtFormat;
 import ql_obj_alg.parse.TheParser;
+import ql_obj_alg.syntax.IAllAlg;
 
 public class GenerateBinarySearchForm implements Iterable<String> {
 	
@@ -61,7 +63,7 @@ public class GenerateBinarySearchForm implements Iterable<String> {
 		ExprPrecedence prec = new ExprPrecedence();
 		ExprFormat<ExprPrecedence> eFormat = new ExprFormat<ExprPrecedence>(prec);
 		StringWriter w = new StringWriter();
-		IFormat printingForm = builder.build(fFormat, sFormat, eFormat);
+		IFormat printingForm = builder.build(Union.union(IAllAlg.class, fFormat, sFormat, eFormat));
 		printingForm.format(0, false, w);
 		return w.toString();
 	}

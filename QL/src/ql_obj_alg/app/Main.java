@@ -7,6 +7,7 @@ import java.io.StringWriter;
 
 import noa.Builder;
 import noa.NoOp;
+import noa.Union;
 import ql_obj_alg.box.IFormat;
 import ql_obj_alg.check.ErrorReporting;
 import ql_obj_alg.check.ExprTypeChecker;
@@ -37,6 +38,7 @@ import ql_obj_alg.render.IRenderForm;
 import ql_obj_alg.render.Registry;
 import ql_obj_alg.render.StmtUI;
 import ql_obj_alg.parse.TheParser;
+import ql_obj_alg.syntax.IAllAlg;
 import ql_obj_alg.syntax.IExpAlg;
 import ql_obj_alg.syntax.IFormAlg;
 import ql_obj_alg.syntax.IStmtAlg;
@@ -92,9 +94,13 @@ public class Main {
 		StringWriter w = new StringWriter();
 		printForm(w, fFormat, sFormat, eFormat);
 	}
+	
+	private <T> T buildUsing(Object ...algebras) {
+		return getBuilder().build(Union.union(IAllAlg.class, algebras));
+	}
 
 	protected void printForm(StringWriter w, Object ...algebras) {
-		IFormat printingForm = getBuilder().build(algebras);
+		IFormat printingForm = buildUsing(algebras);
 		printingForm.format(0, false, w);
         System.out.println(w);
 	}
@@ -117,7 +123,7 @@ public class Main {
 	}
 
 	protected void checkCyclicDependencies(ErrorReporting report, Object ...algebras) {
-		IDetectCycle cyclesDetection = getBuilder().build(algebras);
+		IDetectCycle cyclesDetection = buildUsing(algebras);
 		cyclesDetection.detect(report);
 	}
 
@@ -131,13 +137,13 @@ public class Main {
 
 	protected void checkTypes(ErrorReporting report,
 			TypeEnvironment typeEnv, Object ...algebras) {
-		ITypeCheck checkTypes = getBuilder().build(algebras);
+		ITypeCheck checkTypes = buildUsing(algebras);
 		checkTypes.check(typeEnv, report);
 	}
 
 	protected void collectQuestions(ErrorReporting report,
 			TypeEnvironment typeEnv, Object ... algebras) {
-		ICollect collectTypes = getBuilder().build(algebras);
+		ICollect collectTypes = buildUsing(algebras);
 		collectTypes.collect(typeEnv,report);
 	}
 	
@@ -151,9 +157,8 @@ public class Main {
 		createUI(valEnv, registry, expAlg, stmtAlg, formAlg);
 	}
 
-	protected void createUI(ValueEnvironment valEnv, Registry registry,
-			Object ...algebras) {
-		getBuilder().<IRenderForm>build(algebras).render(valEnv, registry);
+	protected void createUI(ValueEnvironment valEnv, Registry registry, Object ...algebras) {
+		this.<IRenderForm>buildUsing(algebras).render(valEnv, registry);
 	}
 
 	
