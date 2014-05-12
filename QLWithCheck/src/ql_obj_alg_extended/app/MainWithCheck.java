@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.StringWriter;
 
 import noa.NoOp;
+import noa.Union;
 import ql_obj_alg.app.Main;
 import ql_obj_alg.check.ErrorReporting;
 import ql_obj_alg.check.ExprTypeChecker;
@@ -51,6 +52,7 @@ import ql_obj_alg_extended.format.ExprPrecedenceWithCheck;
 import ql_obj_alg_extended.format.StmtFormatWithCheck;
 import ql_obj_alg_extended.parse.TheParser;
 import ql_obj_alg_extended.render.StmtUIWithCheck;
+import ql_obj_alg_extended.syntax.IAllAlgWithCheck;
 import ql_obj_alg_extended.syntax.IExpAlgWithCheck;
 import ql_obj_alg_extended.syntax.IStmtAlgWithCheck;
 
@@ -61,6 +63,13 @@ public class MainWithCheck extends Main{
     	ql.load(args[0]);
     	ql.execute();
     }
+    
+    // NB!!!
+ 	@Override
+ 	protected <T> T buildUsing(Object ...algebras) {
+ 		return getBuilder().build(Union.union(IAllAlgWithCheck.class, algebras));
+ 	}
+    
    
 	public void execute(){
     	ErrorReporting errorReport = new ErrorReporting();

@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.StringWriter;
 
 import noa.NoOp;
+import noa.Union;
 import ql_obj_alg.app.Main;
 import ql_obj_alg.check.ErrorReporting;
 import ql_obj_alg.check.ExprTypeChecker;
@@ -35,6 +36,7 @@ import ql_obj_alg.render.IRender;
 import ql_obj_alg.render.IRenderForm;
 import ql_obj_alg.render.Registry;
 import ql_obj_alg.render.StmtUI;
+import ql_obj_alg.syntax.IAllAlg;
 import ql_obj_alg.syntax.IExpAlg;
 import ql_obj_alg.syntax.IFormAlg;
 import ql_obj_alg.syntax.IStmtAlg;
@@ -44,6 +46,7 @@ import ql_obj_alg_extended.eval.ExprEvaluatorWithModulo;
 import ql_obj_alg_extended.format.ExprFormatWithModulo;
 import ql_obj_alg_extended.format.ExprPrecedenceWithModulo;
 import ql_obj_alg_extended.parse.TheParser;
+import ql_obj_alg_extended.syntax.IAllAlgWithModulo;
 import ql_obj_alg_extended.syntax.IExpAlgWithModulo;
 
 public class MainWithModulo extends Main{
@@ -77,6 +80,11 @@ public class MainWithModulo extends Main{
 	}
 	
 
+	// NB!!!
+	@Override
+	protected <T> T buildUsing(Object ...algebras) {
+		return getBuilder().build(Union.union(IAllAlgWithModulo.class, algebras));
+	}
    
 	private void printForm() {
 		FormFormat fFormat = new FormFormat();
