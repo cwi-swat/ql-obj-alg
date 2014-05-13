@@ -95,7 +95,7 @@ public class Main {
 		printForm(w, fFormat, sFormat, eFormat);
 	}
 	
-	private <T> T buildUsing(Object ...algebras) {
+	protected <T> T buildUsing(Object ...algebras) {
 		return getBuilder().build(Union.union(IAllAlg.class, algebras));
 	}
 
