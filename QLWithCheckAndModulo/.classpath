@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/naked-object-algebras"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/QLObjAlg"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/QLWithCheck"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/QLWithModulo"/>
+	<classpathentry kind="lib" path="lib/antlr-4.2.2-complete.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
