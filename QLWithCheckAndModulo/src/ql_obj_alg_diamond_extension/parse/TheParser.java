@@ -1,4 +1,4 @@
-package ql_obj_alg_double_extention.parse;
+package ql_obj_alg_diamond_extension.parse;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -10,7 +10,7 @@ import noa.Builder;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 
-import ql_obj_alg_double_extention.syntax.IAllAlgWithCheckAndModulo;
+import ql_obj_alg_diamond_extension.syntax.IAllAlgWithCheckAndModulo;
 
 public class TheParser {
 		

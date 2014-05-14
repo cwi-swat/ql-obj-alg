@@ -1,6 +1,6 @@
 // Generated from src/ql_obj_alg_double_extention/parse/ by ANTLR 4.2.2
 
-package ql_obj_alg_double_extention.parse;
+package ql_obj_alg_diamond_extension.parse;
 import static ql_obj_alg_extended.syntax.TokensWithProperty.*;
 
 import org.antlr.v4.runtime.Lexer;

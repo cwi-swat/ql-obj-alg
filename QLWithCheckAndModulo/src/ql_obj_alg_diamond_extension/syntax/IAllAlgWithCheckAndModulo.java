@@ -1,4 +1,4 @@
-package ql_obj_alg_double_extention.syntax;
+package ql_obj_alg_diamond_extension.syntax;
 
 import ql_obj_alg.syntax.IExpAlg;
 import ql_obj_alg.syntax.IFormAlg;

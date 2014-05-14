@@ -1,4 +1,4 @@
-package ql_obj_alg_double_extention.app;
+package ql_obj_alg_diamond_extension.app;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -38,8 +38,8 @@ import ql_obj_alg.render.StmtUI;
 import ql_obj_alg.syntax.IExpAlg;
 import ql_obj_alg.syntax.IFormAlg;
 import ql_obj_alg.syntax.IStmtAlg;
-import ql_obj_alg_double_extention.parse.TheParser;
-import ql_obj_alg_double_extention.syntax.IAllAlgWithCheckAndModulo;
+import ql_obj_alg_diamond_extension.parse.TheParser;
+import ql_obj_alg_diamond_extension.syntax.IAllAlgWithCheckAndModulo;
 import ql_obj_alg_extended.check.ExprTypeCheckerWithCheck;
 import ql_obj_alg_extended.check.ExprTypeCheckerWithModulo;
 import ql_obj_alg_extended.check.StmtCollectQuestionTypesWithCheck;

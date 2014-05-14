@@ -1,6 +1,6 @@
-package ql_obj_alg_double_extention.parse;
+package ql_obj_alg_diamond_extension.parse;
 
-import ql_obj_alg_double_extention.syntax.IAllAlgWithCheckAndModulo;
+import ql_obj_alg_diamond_extension.syntax.IAllAlgWithCheckAndModulo;
 import ql_obj_alg_extended.syntax.TokensWithProperty;
 
 public class PGenWithCheckAndModulo {
